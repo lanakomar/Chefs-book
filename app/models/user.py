@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
     notes = db.relationship("Note", back_populates="author")
 
     #many - many with Ingredient (Grocery_list)
-    ingredients_to_buy = db.relationship("User", back_populates="shoppers", secondary=grocery_lists)
+    ingredients_to_buy = db.relationship("Ingredient", back_populates="shoppers", secondary=grocery_lists)
 
     @property
     def password(self):

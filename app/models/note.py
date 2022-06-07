@@ -13,7 +13,7 @@ class Note(db.Model):
     recipe = db.relationship("Recipe", back_populates="notes")
 
     author_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    author = recipe = db.relationship("User", back_populates="notes")
+    author = db.relationship("User", back_populates="notes")
 
 
     def to_dict(self):

@@ -1,5 +1,4 @@
 from .db import db
-from datetime import datetime
 
 
 class Recipe(db.Model):
@@ -9,7 +8,7 @@ class Recipe(db.Model):
     title = db.Column(db.String(255), nullable=False)
     time_to_cook = db.Column(db.String(50), nullable=False)
     description = db.Column(db.Text, nullable=False)
-    date_created = db.Column(db.Date, nullable=False, default=datetime.now().date())
+    servings = db.Column(db.Integer, nullable=False)
     img_url = db.Column(db.String(500), nullable=False)
 
 
@@ -29,7 +28,7 @@ class Recipe(db.Model):
             'title': self.title,
             'time_to_cook': self.time_to_cook,
             'description': self.description,
-            'date_created': self.date_created,
+            'servings': self.servings,
             'img_url': self.img_url,
             'user_id': self.user_id,
             'instructions': {instruction.id: instruction.to_dict() for instruction in self.instructions},
