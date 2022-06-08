@@ -8,7 +8,7 @@ import LogoutButton from '../auth/LogoutButton';
 function ProfileButtons () {
 
     return (
-        <div>
+        <div className="links-loggedin">
             <button>Your Grocery List</button>
             <Link to='/recipe-box'> Your Recipe Box</Link>
             <div>

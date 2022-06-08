@@ -8,6 +8,7 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import ErrorMessage from "../ErrorMessage";
 import { login } from '../../store/session';
+import './index.css';
 
 const NavBar = () => {
   const [errorMessages, setErrorMessages] = useState({});
@@ -40,26 +41,24 @@ const NavBar = () => {
     )
   } else {
     sessionLinks = (
-      <>
+      <div>
         <ErrorMessage label={""} message={errorMessages.overall} />
         <button className="btn-nav" to="/login" onClick={demoLogin}>Demo user</button>
         <LoginFormModal />
         <SignupFormModal />
-      </>
+      </div>
     )
   }
 
 
   return (
     <nav>
-      <div>
         <div>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home/Logo
           </NavLink>
         </div>
-        <div>{sessionLinks}</div>
-      </div>
+        {sessionLinks}
     </nav>
   );
 }
