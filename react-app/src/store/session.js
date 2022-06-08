@@ -24,7 +24,7 @@ export const authenticate = () => async (dispatch) => {
     if (data.errors) {
       return;
     }
-  
+
     dispatch(setUser(data));
   }
 }
@@ -40,8 +40,8 @@ export const login = (email, password) => async (dispatch) => {
       password
     })
   });
-  
-  
+
+
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
@@ -52,7 +52,7 @@ export const login = (email, password) => async (dispatch) => {
       return data.errors;
     }
   } else {
-    return ['An error occurred. Please try again.']
+    return 'An error occurred. Please try again.';
   }
 
 }
@@ -82,7 +82,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
       password,
     }),
   });
-  
+
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
@@ -90,10 +90,10 @@ export const signUp = (username, email, password) => async (dispatch) => {
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
-      return data.errors;
+      return data;
     }
   } else {
-    return ['An error occurred. Please try again.']
+    return 'An error occurred. Please try again.';
   }
 }
 

@@ -1,0 +1,30 @@
+import React, { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { NavLink, useHistory, Link } from "react-router-dom";
+
+// import './Navigation.css';
+import LogoutButton from '../auth/LogoutButton';
+
+
+
+function ProfileButtons () {
+
+    return (
+        <div>
+            <button>Your Grocery List</button>
+            <Link to='/recipe-box'> Your Recipe Box</Link>
+            <div>
+                <span>gear icon</span>
+                <div>
+                    <ul>
+                        <li>Profile</li>
+                        <li><LogoutButton /></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    );
+}
+
+export default ProfileButtons;
