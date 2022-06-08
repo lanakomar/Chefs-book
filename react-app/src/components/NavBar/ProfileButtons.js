@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
-import { NavLink, useHistory, Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 // import './Navigation.css';
 import LogoutButton from '../auth/LogoutButton';
-
 
 
 function ProfileButtons () {

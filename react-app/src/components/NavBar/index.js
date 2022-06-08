@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import LogoutButton from '../auth/LogoutButton';
 import ProfileButtons from './ProfileButtons';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import ErrorMessage from "../ErrorMessage";
 import { login } from '../../store/session';
 
 const NavBar = () => {
@@ -41,6 +41,7 @@ const NavBar = () => {
   } else {
     sessionLinks = (
       <>
+        <ErrorMessage label={""} message={errorMessages.overall} />
         <button className="btn-nav" to="/login" onClick={demoLogin}>Demo user</button>
         <LoginFormModal />
         <SignupFormModal />
