@@ -12,7 +12,7 @@ function ProfileButtons () {
             <button>Your Grocery List</button>
             <Link to='/recipe-box'> Your Recipe Box</Link>
             <div>
-                <span>gear icon</span>
+                <span><i className="fa-solid fa-gear"></i></span>
                 <div>
                     <ul>
                         <li>Profile</li>
