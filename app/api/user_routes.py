@@ -17,3 +17,12 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.route('/<int:id>/recipes')
+@login_required
+def get_user_recipes(id):
+    user = User.query.get(id)
+
+    recipe_box = {recipe.id: recipe.to_dict() for recipe in user.recipes}
+
+    return recipe_box
