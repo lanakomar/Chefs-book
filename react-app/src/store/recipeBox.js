@@ -3,7 +3,7 @@ const SET_RECIPE_BOX = 'recipeBox/SET_RECIPE_BOX'
 export const setRecipeBox = (recipes) => ({
     type: SET_RECIPE_BOX,
     recipes
-})
+});
 
 const initialState = {};
 
