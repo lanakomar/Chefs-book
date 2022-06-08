@@ -23,7 +23,7 @@ function SignupForm({ setShowModal }) {
             const data = await dispatch(
                 signUp(username, email, password)
             );
-            if (data.errors) {
+            if (data) {
                 const errors = {};
                 if (Array.isArray(data.errors)) {
                     data.errors.forEach((error) => {
@@ -35,12 +35,10 @@ function SignupForm({ setShowModal }) {
                     errors.overall = data;
                 }
                 setErrorMessages(errors);
-            } else {
-                setShowModal(false);
             }
         } else {
             const errors = {};
-            errors.repeatPassword = "Repeat password doesn't match Password";
+            errors.confirmPassword = "Confirm password doesn't match Password";
             setErrorMessages(errors);
         }
     };
@@ -100,6 +98,7 @@ function SignupForm({ setShowModal }) {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                     />
+                    <ErrorMessage label={""} message={errorMessages.confirmPassword} />
                 </div>
                 <div className="signup-btn-container">
                     <button className="sign-up-form" type="submit">Sign Up</button>
