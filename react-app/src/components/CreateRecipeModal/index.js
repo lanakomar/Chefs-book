@@ -10,7 +10,7 @@ const CreateRecipeModal = () => {
 
     return (
         <>
-            <button className="btn-nav" onClick={() => setShowModal(true)}>
+            <button className="btn-nav add-recipe" onClick={() => setShowModal(true)}>
                 <i className="fa-solid fa-plus"></i>
                 Add a recipe
             </button>

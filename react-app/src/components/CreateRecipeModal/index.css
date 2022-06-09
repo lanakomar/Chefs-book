@@ -1,3 +1,5 @@
+
+
 .new-recipe-form-container {
     padding: 40px;
 }
@@ -93,7 +95,8 @@
 }
 
 .new-recipe .add-btn button,
-.new-recipe .buttons button {
+.new-recipe .buttons button,
+.btn-nav.add-recipe {
     padding: 5px 10px;
 }
 
@@ -108,6 +111,26 @@
     justify-content: space-around;
 }
 
-.new-recipe .buttons button:hover {
+.new-recipe .buttons button:hover,
+.btn-nav.add-recipe:hover {
     cursor: pointer;
+}
+
+.btn-nav.add-recipe {
+    width: fit-content;
+    align-self: flex-end;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 1px solid #fff;;
+    padding: 10px 15px;
+    background-color: #f8f9f7;
+}
+
+.btn-nav.add-recipe .fa-plus {
+    font-size: smaller;
+    margin-right: 5px;
+}
+
+.btn-nav.add-recipe:hover {
+    background-color: #fff;
 }

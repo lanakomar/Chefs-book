@@ -253,11 +253,12 @@ const CreateRecipeForm = ({ setShowModal }) => {
                         <input
                             id="image"
                             type="file"
+                            accept="image/jpg, image/png, image/jpeg, image/gif"
                             onChange={(e) => {
                                 PreviewImage();
                                 return setImage(e.target.files[0])}}
                         />
-                        <img id="uploadPreview"/>
+                        <img id="uploadPreview" alt="image-preview"/>
                     </div>
                     <ErrorMessage label={""} message={errorMessages.img_url} />
                 </div>

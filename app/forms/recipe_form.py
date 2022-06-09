@@ -6,7 +6,6 @@ from app.forms.instruction_form import InstructionForm
 from app.forms.ingredient_form import IngredientForm
 
 
-
 class RecipeForm(FlaskForm):
     title = StringField("title", validators=[DataRequired(message="This field is required."),\
                                           Length(max=255, message="The title should be less than 255 characters.")])
