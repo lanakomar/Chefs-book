@@ -15,5 +15,5 @@ class RecipeForm(FlaskForm):
     description = TextAreaField("description", validators=[DataRequired(message="This field is required.")])
     img_url = StringField("img_url", validators=[DataRequired(message="This field is required.")])
     servings = IntegerField("servings", validators=[DataRequired(message="This field is required.")])
-    ingredient = FieldList(FormField(IngredientForm))
-    instructions = FieldList(FormField(InstructionForm))
+    ingredient = FieldList(FormField(IngredientForm), min_entries=1)
+    instructions = FieldList(FormField(InstructionForm), min_entries=1)

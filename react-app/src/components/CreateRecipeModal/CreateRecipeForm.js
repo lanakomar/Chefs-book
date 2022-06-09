@@ -65,13 +65,30 @@ const CreateRecipeForm = ({ setShowModal }) => {
         return measure[0].label;
     };
 
+    const handleItemDelete = (e) => {
+        const idx = e.target.id
+        const updatedMeasureList = measureList.slice();
+        const updatedAmountList = amountList.slice();
+        const updatedfoodItemList = foodItemList.slice();
+        updatedAmountList.splice(idx, 1)
+        updatedMeasureList.splice(idx, 1)
+        updatedfoodItemList.splice(idx, 1)
+        setAmountList(updatedAmountList)
+        setMeasureList(updatedMeasureList)
+        setFoodItemList(updatedfoodItemList)
+    };
+
     const ingredientsList = () => {
         return (
             <div>
                 <ul>
                     {foodItemList.map((item, idx) => (
-                        <li key={idx}>
+                        <li key={idx} id={idx}>
                             {amountList[idx]} {getMeasure(measureList[idx])} {item}
+                            <i className="fa-solid fa-xmark"
+                                id={idx}
+                                onClick={handleItemDelete}
+                            ></i>
                         </li>
                     ))}
                 </ul>
@@ -85,7 +102,15 @@ const CreateRecipeForm = ({ setShowModal }) => {
         const instructionToAdd = [...instructionsList, instruction];
         setInstructionsList(instructionToAdd);
         setInstruction("");
-    }
+    };
+
+    const handleInstrDelete = (e) => {
+        console.log(e.target.id)
+        const idx = e.target.id
+        const updatedInstructionsList = instructionsList.slice();
+        updatedInstructionsList.splice(idx, 1)
+        setInstructionsList(updatedInstructionsList)
+    };
 
     const instructionList = () => (
         <div>
@@ -93,6 +118,10 @@ const CreateRecipeForm = ({ setShowModal }) => {
                 {instructionsList.map((instruction, idx) => (
                     <li key={idx}>
                         {instruction}
+                        <i className="fa-solid fa-xmark"
+                            id={idx}
+                            onClick={handleInstrDelete}
+                        ></i>
                     </li>
                 ))}
             </ol>
@@ -124,7 +153,8 @@ const CreateRecipeForm = ({ setShowModal }) => {
         });
 
         return obj;
-    }
+    };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -146,16 +176,28 @@ const CreateRecipeForm = ({ setShowModal }) => {
             const errors = {};
             if (Array.isArray(res)) {
                 res.forEach(error => {
-                    const label = error.split(":")[0].slice(0, -1)
-                    const message = error.split(":")[1].slice(1)
-                    errors[label] = message;
+                    const label = error.split(":")[0].slice(0, -1);
+                    let message;
+                    if (label === "instructions") {
+
+                    }
+                    message = error.split(":")[1].slice(1)
+                    let [first, ...rest] = error.split(':');
+                    let tmp2 = rest.join(':').replaceAll("'", '"');
+                    if (tmp2.indexOf(":") > 0) {
+                        let remainder = rest.join(':').replaceAll("'", '"');
+                        let tmp = JSON.parse(remainder)
+                        errors[label] = tmp;
+                    } else {
+                      errors[label] = message;
+                    }
                 })
             } else {
                 errors.overall = res;
             }
             setErrorMessages(errors);
         }
-    }
+    };
 
     return (
         <div className='new-recipe-form-container'>
@@ -168,7 +210,6 @@ const CreateRecipeForm = ({ setShowModal }) => {
                         type="text"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        required
                         placeholder="Recipe title"
                     />
                     <ErrorMessage label={""} message={errorMessages.title} />
@@ -179,7 +220,6 @@ const CreateRecipeForm = ({ setShowModal }) => {
                         type="text"
                         value={time}
                         onChange={(e) => setTime(e.target.value)}
-                        required
                         placeholder="Total time to cook"
                     />
                     <ErrorMessage label={""} message={errorMessages.time_to_cook} />
@@ -192,10 +232,9 @@ const CreateRecipeForm = ({ setShowModal }) => {
                         onChange={(e) => setServings(e.target.value)}
                         min="1"
                         step="1"
-                        required
                         placeholder="Servings"
                     />
-                    <ErrorMessage label={""} message={errorMessages.time_to_cook} />
+                    <ErrorMessage label={""} message={errorMessages.servings} />
                 </div>
                 <div>
                     <label htmlFor='image'>Add the photo of the dish</label>
@@ -204,6 +243,7 @@ const CreateRecipeForm = ({ setShowModal }) => {
                         type="file"
                         onChange={(e) => setImage(e.target.files[0])}
                     />
+                    <ErrorMessage label={""} message={errorMessages.img_url} />
                 </div>
                 <div>
                     <textarea
@@ -212,6 +252,7 @@ const CreateRecipeForm = ({ setShowModal }) => {
                         placeholder="Description"
                         onChange={(e) => setDescription(e.target.value)}
                     />
+                    <ErrorMessage label={""} message={errorMessages.description} />
                 </div>
                 <div className='ingredients-form'>
                     <div>
@@ -232,7 +273,7 @@ const CreateRecipeForm = ({ setShowModal }) => {
                             onChange={(e) => setAmount(e.target.value)}
                             placeholder="amount"
                         />
-                        <ErrorMessage label={""} message={errorMessages.amount} />
+                        <ErrorMessage label={""} message={errorMessages.ingredient?.amount} />
                     </div>
                     <div>
                         <Select
@@ -243,7 +284,7 @@ const CreateRecipeForm = ({ setShowModal }) => {
                             }}
                             placeholder="Choose..."
                         />
-                        <ErrorMessage label={""} message={errorMessages.measurement_unit_id} />
+                        <ErrorMessage label={""} message={errorMessages.ingredient?.measurement_unit_id} />
                     </div>
                     <div className='input-container'>
                         <input
@@ -253,7 +294,7 @@ const CreateRecipeForm = ({ setShowModal }) => {
                             onChange={(e) => setFoodItem(e.target.value)}
                             placeholder="Food Item"
                         />
-                        <ErrorMessage label={""} message={errorMessages.food_item} />
+                        <ErrorMessage label={""} message={errorMessages.ingredient?.food_item} />
                     </div>
                     <div><button
                         disabled={!foodItem || !amount || !measure}
@@ -283,10 +324,12 @@ const CreateRecipeForm = ({ setShowModal }) => {
                     >
                         Add
                     </button></div>
-                    <ErrorMessage label={""} message={errorMessages.instructions} />
+                    <ErrorMessage label={""} message={errorMessages?.instructions?.specification} />
                 </div>
                 <div className='buttons'>
-                    <button type="submit">Add new recipe</button>
+                    <button
+                        type="submit"
+                        >Add new recipe</button>
                     <button
                         onClick={(e) => {
                             e.preventDefault();

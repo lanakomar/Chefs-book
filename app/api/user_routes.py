@@ -50,7 +50,7 @@ def create_recipe(id):
     form = RecipeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    # print("^^^^^", form)
+
     if form.validate_on_submit():
         print("!!! valid")
         recipe = Recipe(
@@ -62,7 +62,6 @@ def create_recipe(id):
             servings = form.data['servings']
         )
         instructions_data = form.data['instructions']
-        print("111111",instructions_data)
         ingredients_data = form.data['ingredient']
         for item in instructions_data:
             instruction = Instruction(
