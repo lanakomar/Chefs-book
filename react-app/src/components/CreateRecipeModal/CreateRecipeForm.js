@@ -66,16 +66,16 @@ const CreateRecipeForm = ({ setShowModal }) => {
     };
 
     const handleItemDelete = (e) => {
-        const idx = e.target.id
+        const idx = e.target.id;
         const updatedMeasureList = measureList.slice();
         const updatedAmountList = amountList.slice();
         const updatedfoodItemList = foodItemList.slice();
-        updatedAmountList.splice(idx, 1)
-        updatedMeasureList.splice(idx, 1)
-        updatedfoodItemList.splice(idx, 1)
-        setAmountList(updatedAmountList)
-        setMeasureList(updatedMeasureList)
-        setFoodItemList(updatedfoodItemList)
+        updatedAmountList.splice(idx, 1);
+        updatedMeasureList.splice(idx, 1);
+        updatedfoodItemList.splice(idx, 1);
+        setAmountList(updatedAmountList);
+        setMeasureList(updatedMeasureList);
+        setFoodItemList(updatedfoodItemList);
     };
 
     const ingredientsList = () => {
@@ -133,9 +133,9 @@ const CreateRecipeForm = ({ setShowModal }) => {
 
         foodItemList.forEach((item, idx) => {
 
-                res[`ingredient-${idx}-amount`] = amountList[idx];
-                res[`ingredient-${idx}-food_item`] = item;
-                res[`ingredient-${idx}-measurement_unit_id`] = parseInt(measureList[idx])
+            res[`ingredient-${idx}-amount`] = amountList[idx];
+            res[`ingredient-${idx}-food_item`] = item;
+            res[`ingredient-${idx}-measurement_unit_id`] = parseInt(measureList[idx])
 
         });
 
@@ -146,8 +146,8 @@ const CreateRecipeForm = ({ setShowModal }) => {
         const obj = {};
         instructionsList.forEach((instr, idx) => {
 
-                obj[`instructions-${idx}-specification`] = instr;
-                obj[`instructions-${idx}-list_order`] = idx + 1;
+            obj[`instructions-${idx}-specification`] = instr;
+            obj[`instructions-${idx}-list_order`] = idx + 1;
 
 
         });
@@ -189,7 +189,7 @@ const CreateRecipeForm = ({ setShowModal }) => {
                         let tmp = JSON.parse(remainder)
                         errors[label] = tmp;
                     } else {
-                      errors[label] = message;
+                        errors[label] = message;
                     }
                 })
             } else {
@@ -199,10 +199,19 @@ const CreateRecipeForm = ({ setShowModal }) => {
         }
     };
 
+    const PreviewImage = () => {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("image").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+    }
+
     return (
         <div className='new-recipe-form-container'>
             <h1>Add a recipe</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="new-recipe">
                 <ErrorMessage label={""} message={errorMessages.overall} />
                 <div className='input-container'>
                     <input
@@ -214,35 +223,42 @@ const CreateRecipeForm = ({ setShowModal }) => {
                     />
                     <ErrorMessage label={""} message={errorMessages.title} />
                 </div>
-                <div>
-                    <input
-                        id="time_to_cook"
-                        type="text"
-                        value={time}
-                        onChange={(e) => setTime(e.target.value)}
-                        placeholder="Total time to cook"
-                    />
-                    <ErrorMessage label={""} message={errorMessages.time_to_cook} />
+                <div className='time-serv-container'>
+                    <div>
+                        <input
+                            id="time_to_cook"
+                            type="text"
+                            value={time}
+                            onChange={(e) => setTime(e.target.value)}
+                            placeholder="Total time to cook"
+                        />
+                        <ErrorMessage label={""} message={errorMessages.time_to_cook} />
+                    </div>
+                    <div>
+                        <input
+                            id="servings"
+                            type="number"
+                            value={servings}
+                            onChange={(e) => setServings(e.target.value)}
+                            min="1"
+                            step="1"
+                            placeholder="Servings"
+                        />
+                        <ErrorMessage label={""} message={errorMessages.servings} />
+                    </div>
                 </div>
-                <div>
-                    <input
-                        id="servings"
-                        type="number"
-                        value={servings}
-                        onChange={(e) => setServings(e.target.value)}
-                        min="1"
-                        step="1"
-                        placeholder="Servings"
-                    />
-                    <ErrorMessage label={""} message={errorMessages.servings} />
-                </div>
-                <div>
+                <div className="image-container">
                     <label htmlFor='image'>Add the photo of the dish</label>
-                    <input
-                        id="image"
-                        type="file"
-                        onChange={(e) => setImage(e.target.files[0])}
-                    />
+                    <div>
+                        <input
+                            id="image"
+                            type="file"
+                            onChange={(e) => {
+                                PreviewImage();
+                                return setImage(e.target.files[0])}}
+                        />
+                        <img id="uploadPreview"/>
+                    </div>
                     <ErrorMessage label={""} message={errorMessages.img_url} />
                 </div>
                 <div>
@@ -263,73 +279,79 @@ const CreateRecipeForm = ({ setShowModal }) => {
                             <div>No ingredients. Add some in the fields below</div>
                         }
                     </div>
-                    <div className='input-container'>
-                        <input
-                            id="amount"
-                            type="number"
-                            value={amount}
-                            min="0.1"
-                            step="0.1"
-                            onChange={(e) => setAmount(e.target.value)}
-                            placeholder="amount"
-                        />
-                        <ErrorMessage label={""} message={errorMessages.ingredient?.amount} />
+                    <div className='ingredient-inputs'>
+                        <div className='input-container'>
+                            <input
+                                id="amount"
+                                type="number"
+                                value={amount}
+                                min="0.1"
+                                step="0.1"
+                                onChange={(e) => setAmount(e.target.value)}
+                                placeholder="amount"
+                            />
+                            <ErrorMessage label={""} message={errorMessages.ingredient?.amount} />
+                        </div>
+                        <div>
+                            <Select
+                                options={measurementOptions}
+                                value={measure ? measure.value : ""}
+                                onChange={(option) => {
+                                    return setMeasure(option.value)
+                                }}
+                                placeholder="Choose..."
+                            />
+                            <ErrorMessage label={""} message={errorMessages.ingredient?.measurement_unit_id} />
+                        </div>
+                        <div className='input-container'>
+                            <input
+                                id="food-item"
+                                type="text"
+                                value={foodItem}
+                                onChange={(e) => setFoodItem(e.target.value)}
+                                placeholder="Food Item"
+                            />
+                            <ErrorMessage label={""} message={errorMessages.ingredient?.food_item} />
+                        </div>
+                        <div className='add-btn'><button
+                            disabled={!foodItem || !amount || !measure}
+                            onClick={(e) => addIngredient(e)}
+                            style={{ cursor: (!foodItem || !amount || !measure) ? 'not-allowed' : "pointer" }}
+                        >
+                            Add
+                        </button></div>
                     </div>
-                    <div>
-                        <Select
-                            options={measurementOptions}
-                            value={measure ? measure.value : ""}
-                            onChange={(option) => {
-                                return setMeasure(option.value)
-                            }}
-                            placeholder="Choose..."
-                        />
-                        <ErrorMessage label={""} message={errorMessages.ingredient?.measurement_unit_id} />
-                    </div>
-                    <div className='input-container'>
-                        <input
-                            id="food-item"
-                            type="text"
-                            value={foodItem}
-                            onChange={(e) => setFoodItem(e.target.value)}
-                            placeholder="Food Item"
-                        />
-                        <ErrorMessage label={""} message={errorMessages.ingredient?.food_item} />
-                    </div>
-                    <div><button
-                        disabled={!foodItem || !amount || !measure}
-                        onClick={(e) => addIngredient(e)}
-                    >
-                        Add
-                    </button></div>
                 </div>
                 <div className='instructions-form'>
-                    <h3>Instructions</h3>
+                    <div><h3>Instructions</h3></div>
                     <div className='added-instructions'>
                         {instructionsList.length ? instructionList() :
-                            <div>"Add your instructions below..."</div>
+                            <div>Add your instructions below...</div>
                         }
                     </div>
-                    <div>
-                        <textarea
-                            id="instruction"
-                            value={instruction}
-                            placeholder="Instruction text"
-                            onChange={(e) => setInstruction(e.target.value)}
-                        />
+                    <div className='instr-inputs'>
+                        <div>
+                            <textarea
+                                id="instruction"
+                                value={instruction}
+                                placeholder="Instruction text"
+                                onChange={(e) => setInstruction(e.target.value)}
+                            />
+                        </div>
+                        <div className='add-btn'><button
+                            disabled={!instruction}
+                            onClick={(e) => addIstruction(e)}
+                            style={{ cursor: (!foodItem || !amount || !measure) ? 'not-allowed' : "pointer" }}
+                        >
+                            Add
+                        </button></div>
                     </div>
-                    <div><button
-                        disabled={!instruction}
-                        onClick={(e) => addIstruction(e)}
-                    >
-                        Add
-                    </button></div>
                     <ErrorMessage label={""} message={errorMessages?.instructions?.specification} />
                 </div>
                 <div className='buttons'>
                     <button
                         type="submit"
-                        >Add new recipe</button>
+                    >Add new recipe</button>
                     <button
                         onClick={(e) => {
                             e.preventDefault();

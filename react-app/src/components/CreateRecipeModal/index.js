@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import CreateRecipeForm from "./CreateRecipeForm";
 import { Modal } from '../../context/Modal';
+import './index.css'
 
 
 const CreateRecipeModal = () => {
