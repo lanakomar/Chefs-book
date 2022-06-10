@@ -7,6 +7,7 @@
     transition: box-shadow .2s ease-in-out;
     margin: 10px;
     background-color: white;
+    position: relative;
 }
 
 .card-container:hover {
@@ -44,4 +45,17 @@
 .card-container .time-serv-container p {
     padding: 0;
     margin: 0;
+}
+
+.edit-recipe {
+    position: absolute;
+    left: 210px;
+    top: 167px;
+    font-size: smaller;
+}
+
+.delete-recipe {
+    position: absolute;
+    left: 210px;
+    top: 10px;
 }

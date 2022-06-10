@@ -41,7 +41,8 @@
     border: none;
 }
 
-.new-recipe #uploadPreview {
+.new-recipe #uploadPreview,
+.new-recipe #preview {
     height: 100px;
     margin-left: 20px;
 }
@@ -60,7 +61,16 @@
 
 .ingredients-form .addedIngredients,
 .instructions-form .added-instructions {
-    height: 50px;
+    height: 80px;
+    padding-right: 5px;
+}
+
+.addedIngredients {
+    margin-bottom: 10px;
+}
+
+.addedIngredients ul {
+    margin: 0;
 }
 
 .fa-xmark {
@@ -132,4 +142,10 @@
 
 .btn-nav.add-recipe:hover {
     background-color: #fff;
+}
+
+.warning {
+    margin-top: 15px;
+    font-size: smaller;
+    color: red;
 }

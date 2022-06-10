@@ -54,6 +54,7 @@
 
 .day-recipe-card h3 {
     text-transform: uppercase;
+    text-align: center;
 }
 
 .recipes-container {

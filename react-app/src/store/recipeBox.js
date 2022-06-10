@@ -22,6 +22,30 @@ export const createRecipe = (payload, userId) => async (dispatch) => {
 
     if(res.ok) {
         const recipe = await res.json();
+        console.log(recipe)
+        // dispatch(addRecipe(recipe));
+        // return recipe
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return "An error occurred. Please try again.";
+    };
+};
+
+export const editRecipe = (payload, recipeId) => async (dispatch) => {
+    const res = await fetch(`/api/recipes/${recipeId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+    });
+
+    if (res.ok) {
+        const recipe = await res.json();
         dispatch(addRecipe(recipe));
         return recipe
     } else if (res.status < 500) {
@@ -31,8 +55,8 @@ export const createRecipe = (payload, userId) => async (dispatch) => {
         }
     } else {
         return "An error occurred. Please try again.";
-    }
-;}
+    };
+}
 
 const initialState = {};
 
