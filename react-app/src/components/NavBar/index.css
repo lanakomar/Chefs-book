@@ -1,11 +1,89 @@
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 30px 70px;
+    height: 65px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 0 20px;
 }
 
 
 .links-loggedin {
     display: flex;
     gap: 15px;
+    height: 100%;
+}
+
+.links-loggedin .grocery-list-btn button {
+    display: inline;
+    background-color: #fff;
+    border: none;
+    line-height: 55px;
+    padding: 0;
+    font-size: inherit;
+    padding: 0 7px 0 7px;
+}
+
+.links-loggedin a {
+    line-height: 55px;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    padding: 0 7px 0 7px;
+}
+
+.links-loggedin .grocery-list-btn:hover,
+.links-loggedin a:hover {
+    border-bottom: 4px solid #666;
+    color: #666;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.links-loggedin .grocery-list-btn button:hover,
+.logout-btn:hover {
+    color: #666;
+}
+
+
+.links-loggedin .gear-menu {
+    line-height: 55px;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    width: 55px;
+}
+
+.gear-menu .dropdown-menu {
+    position: absolute;
+    right: 45px;
+    background-color: #f2f3ef;
+    border: 2px solid #ccc;
+    line-height: normal;
+}
+
+.dropdown-menu ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+}
+
+.dropdown-menu li:first-child {
+    border-bottom: 1px solid #ccc;
+}
+
+.logout-btn {
+    border: none;
+    background-color: #f2f3ef;
+    font-size: 16px;
+    padding: 0;
+}
+
+.logout-btn:hover {
+ cursor: pointer;
 }
