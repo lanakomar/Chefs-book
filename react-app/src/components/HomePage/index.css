@@ -1,0 +1,67 @@
+.home-page-container {
+    width: 100%;
+}
+
+.day-recipe {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 95vh;
+    display: flex;
+    align-items: flex-end;
+}
+
+.recipes-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.day-recipe-card {
+    background-color: #fff;
+    display: table-cell;
+    width: 150px;
+    padding: 52px 30px 30px;
+    vertical-align: middle;
+    margin-bottom: 200px;
+    margin-left: auto;
+    margin-right: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge {
+    display: flex;
+    background-color: #e33d26;
+    border-radius: 50%;;
+    height: 108px;
+    position: absolute;
+    width: 108px;
+    letter-spacing: 1.1px;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    top: -55px;
+    left: 150px;
+}
+
+.badge p {
+    margin: 0;
+    width: fit-content;
+    text-align: center;
+}
+
+.day-recipe-card h3 {
+    text-transform: uppercase;
+}
+
+.recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.recipes-container .recipe-card {
+
+}

@@ -53,11 +53,12 @@ nav {
     color: inherit;
     font-size: inherit;
     width: 55px;
+    position: relative;
 }
 
 .gear-menu .dropdown-menu {
     position: absolute;
-    right: 45px;
+    right: 35px;
     background-color: #f2f3ef;
     border: 2px solid #ccc;
     line-height: normal;
