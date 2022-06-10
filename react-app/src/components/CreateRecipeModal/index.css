@@ -1,0 +1,135 @@
+.new-recipe-form-container {
+    padding: 40px;
+}
+
+.new-recipe {
+        display: flex;
+        flex-direction: column;
+}
+
+.new-recipe input,
+.new-recipe textarea {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid hsl(0, 0%, 80%);
+}
+
+.new-recipe #title {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.new-recipe .time-serv-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.new-recipe .image-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.new-recipe #image {
+    margin-top: 10px;
+    border: none;
+}
+
+.new-recipe #uploadPreview {
+    height: 100px;
+    margin-left: 20px;
+}
+
+.new-recipe #description {
+    width: 100%;
+    height: 100px;
+    margin-top: 7px;
+}
+
+.new-recipe .ingredients-form,
+.new-recipe .instructions-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredients-form .addedIngredients,
+.instructions-form .added-instructions {
+    height: 50px;
+}
+
+.fa-xmark {
+    color: rgb(84, 84, 84);
+    margin-left: 5px;
+    font-size: smaller;
+    padding-top: 3px;
+}
+
+.new-recipe .ingredient-inputs,
+.new-recipe .instr-inputs {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.ingredient-inputs #amount {
+    box-sizing: border-box;
+    width: 70px;
+    height: 37px;
+}
+
+.ingredient-inputs #food-item {
+    box-sizing: border-box;
+    height: 37px;
+}
+
+.new-recipe .add-btn {
+    margin-left: auto;
+}
+
+.new-recipe .add-btn button,
+.new-recipe .buttons button,
+.btn-nav.add-recipe {
+    padding: 5px 10px;
+}
+
+.instructions-form #instruction {
+    width: 356px;
+}
+
+
+.new-recipe .buttons {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-around;
+}
+
+.new-recipe .buttons button:hover,
+.btn-nav.add-recipe:hover {
+    cursor: pointer;
+}
+
+.btn-nav.add-recipe {
+    width: fit-content;
+    align-self: flex-end;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 1px solid #fff;;
+    padding: 10px 15px;
+    background-color: #f8f9f7;
+}
+
+.btn-nav.add-recipe .fa-plus {
+    font-size: smaller;
+    margin-right: 5px;
+}
+
+.btn-nav.add-recipe:hover {
+    background-color: #fff;
+}

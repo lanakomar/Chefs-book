@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
+import RecipeBox from './components/RecipeBox';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -50,9 +51,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route> */}
-        {/* <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute> */}
+        <ProtectedRoute path='/recipe-box' exact={true} >
+          <RecipeBox />
+        </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
