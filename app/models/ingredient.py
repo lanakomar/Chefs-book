@@ -18,11 +18,10 @@ class Ingredient(db.Model):
     shoppers = db.relationship("User", back_populates="ingredients_to_buy", secondary=grocery_lists)
 
 
-
     def to_dict(self):
         return {
             'id': self.id,
-            'amount': self.amount,
+            'amount': float(self.amount),
             'food_item': self.food_item,
             'measurement_unit_id': self.measurement_unit.name,
             'recipe_id': self.recipe_id,

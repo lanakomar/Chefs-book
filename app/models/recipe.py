@@ -33,5 +33,5 @@ class Recipe(db.Model):
             'user_id': self.user_id,
             'instructions': {instruction.id: instruction.to_dict() for instruction in self.instructions},
             'notes': {note.id: note.to_dict() for note in self.notes},
-            'ingredients': {ingredient.id: ingredient.to_dict() for ingredient in self.ingredients}
+            'ingredients': {ingredient.id: ingredient.to_dict() for ingredient in self.ingredient}
         }

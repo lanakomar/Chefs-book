@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import NavBar from './components/NavBar';
+import { authenticate } from './store/session';
+import { setRecipeBox } from './store/recipeBox';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
-import { authenticate } from './store/session';
+import NavBar from './components/NavBar';
+import HomePage from './components/HomePage';
+import RecipeBox from './components/RecipeBox';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -13,11 +16,23 @@ function App() {
   const session = useSelector((state) => state.session.user)
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);
+
+  useEffect(() => {
+    (async () => {
+      if (session) {
+        const res = await fetch(`/api/users/${session.id}/recipes`);
+        if (res.ok) {
+          const data = await res.json();
+          dispatch(setRecipeBox(data))
+        }
+      }
+    })();
+  }, [dispatch, session])
 
   if (!loaded) {
     return null;
@@ -28,6 +43,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/' exact={true}>
+          <HomePage />
         </Route>
         {/* <Route path='/login' exact={true}>
           <LoginForm />
@@ -35,9 +51,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route> */}
-        {/* <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute> */}
+        <ProtectedRoute path='/recipe-box' exact={true} >
+          <RecipeBox />
+        </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>

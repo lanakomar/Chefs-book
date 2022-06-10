@@ -1,0 +1,12 @@
+.recipeBox-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-recipes {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
