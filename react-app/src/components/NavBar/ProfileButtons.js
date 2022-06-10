@@ -6,8 +6,6 @@ import LogoutButton from '../auth/LogoutButton';
 
 function ProfileButtons () {
     const [showMenu, setShowMenu] = useState(false);
-    // const isRecipeBox = window.location.pathname === '/recipe-box';
-    // console.log(window.location.pathname)
 
     // const styles = {
     //     color: "#e33d26",
@@ -15,9 +13,12 @@ function ProfileButtons () {
     //     border: "1px solid #ccc",
     //     borderBottom: "none",
     //     borderRadius: "2px 2px 0 0"
-    // }
+    // };
+
     const openMenu = () => {
-        if (showMenu) return;
+        if (showMenu) {
+            setShowMenu(false)
+        };
         setShowMenu(true);
     };
 
@@ -31,14 +32,14 @@ function ProfileButtons () {
             <button >Your Grocery List</button>
             </div>
             <Link
-                // style={isRecipeBox ? styles : null}
+                onMouseEnter={closeMenu}
+                // style={isTab ? styles : null}
                 to='/recipe-box'
             >Your Recipe Box</Link>
             <div className="gear-menu">
                 <div
                     className="gear"
                     onMouseEnter={openMenu}
-
                 >
                     <i className="fa-solid fa-gear"
                     ></i></div>

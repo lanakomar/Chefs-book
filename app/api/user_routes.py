@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, render_template, request
 from flask_login import login_required
+from app.awsS3 import upload_base64_to_s3
 from app.models import db, User, Recipe, Instruction, Ingredient
 from app.forms.recipe_form import RecipeForm
 
@@ -52,12 +53,14 @@ def create_recipe(id):
 
 
     if form.validate_on_submit():
-        print("!!! valid")
+
+        img_url = upload_base64_to_s3(form.data["image"])
+
         recipe = Recipe(
             title = form.data['title'],
             time_to_cook = form.data['time_to_cook'],
             description = form.data['description'],
-            img_url = form.data['img_url'],
+            img_url = img_url,
             user_id = id,
             servings = form.data['servings']
         )

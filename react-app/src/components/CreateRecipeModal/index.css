@@ -1,5 +1,3 @@
-
-
 .new-recipe-form-container {
     padding: 40px;
 }
@@ -51,6 +49,7 @@
 .new-recipe #description {
     width: 100%;
     height: 100px;
+    margin-top: 7px;
 }
 
 .new-recipe .ingredients-form,

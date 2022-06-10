@@ -12,7 +12,7 @@ class RecipeForm(FlaskForm):
     time_to_cook = StringField("time_to_cook", validators=[DataRequired(message="This field is required."),\
                                           Length(max=250, message="Time to cook should be less than 50 characters.")])
     description = TextAreaField("description", validators=[DataRequired(message="This field is required.")])
-    img_url = StringField("img_url", validators=[DataRequired(message="This field is required.")])
     servings = IntegerField("servings", validators=[DataRequired(message="This field is required.")])
     ingredient = FieldList(FormField(IngredientForm), min_entries=1)
     instructions = FieldList(FormField(InstructionForm), min_entries=1)
+    image = TextAreaField("image", validators=[DataRequired(message="This image is required.")])

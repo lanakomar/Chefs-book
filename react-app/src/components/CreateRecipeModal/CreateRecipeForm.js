@@ -155,6 +155,12 @@ const CreateRecipeForm = ({ setShowModal }) => {
         return obj;
     };
 
+    const toBase64 = file => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -164,7 +170,7 @@ const CreateRecipeForm = ({ setShowModal }) => {
             time_to_cook: time,
             description,
             servings,
-            img_url: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fpublic-assets.meredithcorp.io%2Fc69261efa4d825689cd3307f7082c1c0%2F164661054163DF72EA-F8B7-4158-AE95-655BA498DCB0.jpeg&w=595&h=791&c=sc&poi=face&q=60",
+            image: image ? await toBase64(image) : null,
             ...ingrForPayload(amountList, foodItemList, measureList),
             ...instrForPayload(instructionsList)
         };
@@ -182,7 +188,8 @@ const CreateRecipeForm = ({ setShowModal }) => {
 
                     }
                     message = error.split(":")[1].slice(1)
-                    let [first, ...rest] = error.split(':');
+                    // let [first, ...rest] = error.split(':');
+                    let rest = [...error.split(':').slice(1)];
                     let tmp2 = rest.join(':').replaceAll("'", '"');
                     if (tmp2.indexOf(":") > 0) {
                         let remainder = rest.join(':').replaceAll("'", '"');
@@ -258,7 +265,10 @@ const CreateRecipeForm = ({ setShowModal }) => {
                                 PreviewImage();
                                 return setImage(e.target.files[0])}}
                         />
+                        {image ?
                         <img id="uploadPreview" alt="upload-preview"/>
+                        : null
+                        }
                     </div>
                     <ErrorMessage label={""} message={errorMessages.img_url} />
                 </div>
