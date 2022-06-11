@@ -1,5 +1,6 @@
 const SET_RECIPE_BOX = 'recipeBox/SET_RECIPE_BOX';
 const ADD_RECIPE = 'recipeBox/ADD_RECIPE';
+const UPDATE_RECIPE = 'recipeBox/UPDATE_RECIPE';
 
 export const setRecipeBox = (recipes) => ({
     type: SET_RECIPE_BOX,
@@ -8,6 +9,11 @@ export const setRecipeBox = (recipes) => ({
 
 const addRecipe = (recipe) => ({
     type: ADD_RECIPE,
+    recipe
+});
+
+const updateRecipe = (recipe) => ({
+    type: UPDATE_RECIPE,
     recipe
 })
 
@@ -22,9 +28,8 @@ export const createRecipe = (payload, userId) => async (dispatch) => {
 
     if(res.ok) {
         const recipe = await res.json();
-        console.log(recipe)
-        // dispatch(addRecipe(recipe));
-        // return recipe
+        dispatch(addRecipe(recipe));
+        return recipe
     } else if (res.status < 500) {
         const data = await res.json();
         if (data.errors) {
@@ -46,10 +51,12 @@ export const editRecipe = (payload, recipeId) => async (dispatch) => {
 
     if (res.ok) {
         const recipe = await res.json();
-        dispatch(addRecipe(recipe));
+        console.log("response", recipe)
+        dispatch(updateRecipe(recipe));
         return recipe
     } else if (res.status < 500) {
         const data = await res.json();
+        console.log("errors", data)
         if (data.errors) {
             return data.errors;
         }
@@ -68,6 +75,11 @@ const recipeBoxReducer = (state = initialState, action) => {
                 ...action.recipes
             }
         case ADD_RECIPE:
+            return {
+                ...state,
+                [action.recipe.id]: action.recipe
+            }
+        case UPDATE_RECIPE:
             return {
                 ...state,
                 [action.recipe.id]: action.recipe

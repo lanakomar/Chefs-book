@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
+from sqlalchemy import null
 from app.awsS3 import upload_base64_to_s3
 
 from app.models import db, Recipe, Instruction, Ingredient
@@ -50,33 +51,43 @@ def edit_recipe(id):
             recipe.servings = form.data['servings']
 
             instructions_data = form.data['instructions']
+            instructions_deleted = form.data['instructions_deleted']
             ingredients_data = form.data['ingredient']
-            print("************")
-            print(instructions_data)
-            print("**********")
-            print(ingredients_data)
-            print("*************")
-            recipe.instructions = []
+            ingredients_deleted = form.data['ingredient_deleted']
             for item in instructions_data:
-                instruction = Instruction.query.get(item['id'])
-                instruction.specification = item['specification']
-                instruction.list_order = item['list_order']
+                if (item['identifier'] == None):
+                    instruction = Instruction(
+                        specification = item['specification'],
+                        list_order = item['list_order']
+                    )
+                    recipe.instructions.append(instruction)
 
-                recipe.instructions.append(instruction)
 
-            recipe.ingredient = []
+            for intruction_to_delete in instructions_deleted:
+                print("instructions_deleted:")
+                print(instructions_deleted)
+                instr_to_delete = Instruction.query.get(intruction_to_delete['identifier'])
+                if instr_to_delete:
+                    db.session.delete(instr_to_delete)
+
             for item in ingredients_data:
-                ingredient = Ingredient.query.get(item['id'])
-                ingredient.amount = item['amount']
-                ingredient.food_item = item['food_item']
-                ingredient.measurement_unit_id = item['measurement_unit_id']
+                if (item['identifier'] == None):
+                    ingredient = Ingredient(
+                        amount = item['amount'],
+                        food_item = item['food_item'],
+                        measurement_unit_id = item['measurement_unit_id']
+                    )
+                    recipe.ingredient.append(ingredient)
 
-                recipe.ingredient.append(ingredient)
 
-            print("===================")
-            print(recipe)
-            # db.session.add(recipe)
-            # db.session.commit()
-            # return recipe.to_dict()
+            for ingredient_to_delete in ingredients_deleted:
+                ingr_to_delete = Ingredient.query.get(ingredient_to_delete['identifier'])
+                if ingr_to_delete:
+                    db.session.delete(ingr_to_delete)
+
+            db.session.add(recipe)
+            db.session.commit()
+
+        return recipe.to_dict()
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

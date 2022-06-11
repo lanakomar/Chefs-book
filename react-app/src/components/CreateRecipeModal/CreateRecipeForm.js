@@ -13,9 +13,7 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
     const [amount, setAmount] = useState("");
     const [measure, setMeasure] = useState();
     const [foodItem, setFoodItem] = useState("");
-    const [foodItemList, setFoodItemList] = useState([]);
-    const [amountList, setAmountList] = useState([]);
-    const [measureList, setMeasureList] = useState([]);
+    const [ingredients, setIngredients] = useState([]);
     const [instruction, setInstruction] = useState("");
     const [instructionsList, setInstructionsList] = useState([]);
     const [image, setImage] = useState(null);
@@ -23,7 +21,8 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
     const [servings, setServings] = useState("");
     const [description, setDescription] = useState("");
     const [isLoaded, setIsLoaded] = useState(false);
-    const [idsList, setIdsList] = useState([]);
+    const [deletedInstructions, setDeletedInstructions] = useState([]);
+    const [deletedIngredients, setDeletedIngredients] = useState([]);
     const user = useSelector((state) => state.session.user);
     const recipes = useSelector((state) => state.recipeBox);
     const dispatch = useDispatch();
@@ -31,19 +30,7 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
     let recipe;
     if (edit) {
         recipe = recipes[id];
-    }
-
-    const setValues = () => {
-        setTitle(recipe.title);
-        setTime(recipe.time_to_cook);
-        setServings(recipe.servings);
-        setDescription(recipe.description);
-        setIsLoaded(true);
     };
-
-    if (edit && !isLoaded) {
-        setValues()
-    }
 
     const measurementOptions = [
         { label: "", value: "14" },
@@ -65,73 +52,61 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
         { label: "splash", value: "17" },
     ];
 
+    const setValues = () => {
+        const ingrArr = Object.values(recipe.ingredients);
+        const instrArr = Object.values(recipe.instructions);
+
+        setTitle(recipe.title);
+        setTime(recipe.time_to_cook);
+        setServings(recipe.servings);
+        setDescription(recipe.description);
+        setIsLoaded(true);
+        setIngredients(ingrArr);
+        setInstructionsList(instrArr);
+    };
+
+    if (edit && !isLoaded) {
+        setValues()
+    };
+
     const addIngredient = (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        const itemsToAdd = [...foodItemList, foodItem];
-        const amountsToAdd = [...amountList, amount];
-        const measuresToAdd = [...measureList, measure];
+        const newIngredient = {
+            amount: amount,
+            food_item: foodItem,
+            measurement_unit_id: measure,
+        };
 
-        setFoodItemList(itemsToAdd);
-        setAmountList(amountsToAdd);
-        setMeasureList(measuresToAdd);
+        setIngredients([...ingredients, newIngredient]);
         setMeasure("");
         setFoodItem("");
         setAmount("");
     };
 
+
     const getMeasure = (idx) => {
-        const measure = measurementOptions.filter(option => option.value === idx);
+        const measure = measurementOptions.filter(option => option.value === idx.toString());
         return measure[0].label;
     };
 
-    const getMeasureIdx = (val) => {
-        const measure = measurementOptions.filter(option => option.label === val);
-        return measure[0].value;
-    }
-
     const handleItemDelete = (e) => {
         const idx = e.target.id;
-        const updatedMeasureList = measureList.slice();
-        const updatedAmountList = amountList.slice();
-        const updatedfoodItemList = foodItemList.slice();
-        updatedAmountList.splice(idx, 1);
-        updatedMeasureList.splice(idx, 1);
-        updatedfoodItemList.splice(idx, 1);
-        setAmountList(updatedAmountList);
-        setMeasureList(updatedMeasureList);
-        setFoodItemList(updatedfoodItemList);
+        const updatedIngredients = ingredients.slice();
+        const deleted = updatedIngredients.splice(idx, 1);
+        setIngredients(updatedIngredients);
+        setDeletedIngredients([...deletedIngredients, ...deleted])
     };
-
-    const setAllIngr = () => {
-        const amounts = []
-        const foodItems = []
-        const measures = []
-        const ids = []
-
-        const ingrArr = Object.values(recipe.ingredients)
-
-        ingrArr.forEach(ingr => {
-            amounts.push(ingr.amount);
-            foodItems.push(ingr.food_item);
-            measures.push(getMeasureIdx(ingr.measurement_unit_id))
-            ids.push(ingr.id ? ingr.id : 0)
-        });
-
-        setMeasureList(measures);
-        setFoodItemList(foodItems);
-        setAmountList(amounts);
-        setIdsList(ids)
-    };
+    console.log("deleted ingredients", deletedIngredients)
 
     const ingredientsList = () => {
         return (
             <div>
                 <ul>
-                    {foodItemList?.map((item, idx) => (
+                    {ingredients.map((item, idx) => (
                         <li key={idx} id={idx}>
-                            {amountList[idx]} {getMeasure(measureList[idx])} {item}
+                            {item.amount} {getMeasure(item.measurement_unit_id)} {item.food_item}
                             <i className="fa-solid fa-xmark"
                                 id={idx}
                                 onClick={handleItemDelete}
@@ -146,34 +121,31 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
     const addIstruction = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const instructionToAdd = [...instructionsList, instruction];
-        setInstructionsList(instructionToAdd);
+        const instructionToAdd = {
+            specification:instruction,
+            list_order: instructionsList.length
+        };
+        setInstructionsList([...instructionsList, instructionToAdd]);
         setInstruction("");
     };
+    console.log(instructionsList)
 
     const handleInstrDelete = (e) => {
         const idx = e.target.id
         const updatedInstructionsList = instructionsList.slice();
-        updatedInstructionsList.splice(idx, 1)
-        setInstructionsList(updatedInstructionsList)
+        const deleted = updatedInstructionsList.splice(idx, 1)
+        setInstructionsList(updatedInstructionsList);
+        setDeletedInstructions([...deletedInstructions, ...deleted]);
     };
 
-    const setAllInstr = () => {
-        const instrs = [];
-
-        const instrArr = Object.values(recipe.instructions)
-        instrArr.forEach(instr => {
-            instrs.push(instr.specification);
-        });
-        setInstructionsList(instrs);
-    }
+    console.log("deleted instructions", deletedInstructions)
 
     const instructionList = () => (
         <div>
             <ol>
                 {instructionsList.map((instruction, idx) => (
                     <li key={idx}>
-                        {instruction}
+                        {instruction.specification}
                         <i className="fa-solid fa-xmark"
                             id={idx}
                             onClick={handleInstrDelete}
@@ -184,29 +156,31 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
         </div>
     );
 
-    const ingrForPayload = (amountList, foodItemList, measureList) => {
+    const ingrForPayload = (ingredients, ingredientsDeleted = []) => {
         const res = {};
-
-        foodItemList.forEach((item, idx) => {
-
-            res[`ingredient-${idx}-identifier`] = idsList[idx];
-            res[`ingredient-${idx}-amount`] = amountList[idx];
-            res[`ingredient-${idx}-food_item`] = item;
-            res[`ingredient-${idx}-measurement_unit_id`] = parseInt(measureList[idx])
-
+        ingredients.forEach((item, idx) => {
+            res[`ingredient-${idx}-amount`] = item.amount;
+            res[`ingredient-${idx}-food_item`] = item.food_item;
+            res[`ingredient-${idx}-measurement_unit_id`] = parseInt(item.measurement_unit_id)
+            res[`ingredient-${idx}-identifier`] = item.id;
+        });
+        ingredientsDeleted.forEach((item, idx) => {
+            res[`ingredient_deleted-${idx}-identifier`] = item.id;
         });
 
         return res;
     };
 
-    const instrForPayload = (instructionsList) => {
+    const instrForPayload = (instructions, instructionDeleted = []) => {
         const obj = {};
-        instructionsList.forEach((instr, idx) => {
-
-            obj[`instructions-${idx}-specification`] = instr;
+        instructions.forEach((instr, idx) => {
+            obj[`instructions-${idx}-specification`] = instr.specification;
             obj[`instructions-${idx}-list_order`] = idx + 1;
+            obj[`instructions-${idx}-identifier`] = instr.id;
+        });
 
-
+        instructionDeleted.forEach((instr, idx) => {
+            obj[`instructions_deleted-${idx}-identifier`] = instr.id;
         });
 
         return obj;
@@ -228,7 +202,7 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
             description,
             servings,
             image: image ? await toBase64(image) : null,
-            ...ingrForPayload(amountList, foodItemList, measureList),
+            ...ingrForPayload(ingredients),
             ...instrForPayload(instructionsList)
         };
 
@@ -281,11 +255,11 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
             description,
             servings,
             image: image ? await toBase64(image) : recipe.img_url,
-            ...ingrForPayload(amountList, foodItemList, measureList),
-            ...instrForPayload(instructionsList)
+            ...ingrForPayload(ingredients, deletedIngredients),
+            ...instrForPayload(instructionsList, deletedInstructions)
         };
 
-        console.log(payload)
+        console.log("******", payload)
         const res = await dispatch(editRecipe(payload, id));
 
         if (!Array.isArray(res)) {
@@ -398,10 +372,10 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                         <h3>Ingredients</h3>
                     </div>
                     <div
-                        style={{overflowY: (foodItemList.length > 3) ? "scroll" : "none"}}
+                        style={{ overflowY: (ingredients.length > 3) ? "scroll" : "none" }}
                         className='addedIngredients'>
-                        {edit && !foodItemList.length ? setAllIngr() : null}
-                        {foodItemList.length ? ingredientsList() :
+                        {/* {edit && !ingredients.length ? setAllIngr() : null} */}
+                        {ingredients.length ? ingredientsList() :
                             <div>No ingredients. Add some in the fields below</div>
                         }
                     </div>
@@ -453,7 +427,7 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                     <div
                         style={{ overflowY: (instructionsList.length > 2) ? "scroll" : "none" }}
                         className='added-instructions'>
-                        {edit && !instructionsList.length ? setAllInstr() : null}
+                        {/* {edit && !instructionsList.length ? setAllInstr() : null} */}
                         {instructionsList.length ? instructionList() :
                             <div>Add your instructions below...</div>
                         }

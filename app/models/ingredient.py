@@ -23,7 +23,7 @@ class Ingredient(db.Model):
             'id': self.id,
             'amount': float(self.amount),
             'food_item': self.food_item,
-            'measurement_unit_id': self.measurement_unit.name,
+            'measurement_unit_id': self.measurement_unit_id,
             'recipe_id': self.recipe_id,
             'shoppers': [shopper.id for shopper in self.shoppers]
         }
