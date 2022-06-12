@@ -9,6 +9,10 @@ const RecipeBox = () => {
     const usersRecipes = useSelector((state) => state.recipeBox);
     const recipes = Object.values(usersRecipes);
 
+    if (!usersRecipes) {
+        return null
+    };
+
     return (
         <div className='recipeBox-container'>
             <CreateRecipeModal />

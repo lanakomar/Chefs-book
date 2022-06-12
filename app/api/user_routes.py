@@ -42,8 +42,8 @@ def get_user_recipes(id):
     return recipe_box
 
 
-@user_routes.route('/<int:id>/recipes', methods=["GET", "POST"])
-# @login_required
+@user_routes.route('/<int:id>/recipes', methods=["POST"])
+@login_required
 def create_recipe(id):
     '''
     Creates new recipe
