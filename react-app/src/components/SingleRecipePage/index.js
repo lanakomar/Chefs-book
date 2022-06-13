@@ -1,12 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import ErrorMessage from '../ErrorMessage';
 import { viewRecipe } from '../../store/singleRecipe';
+import { addNote } from '../../store/singleRecipe';
 import './index.css'
 
 const SingleRecipePage = () => {
     const { recipeId } = useParams();
+    const [content, setContent] = useState("");
+    const [errorMessages, setErrorMessages] = useState({});
+
     const dispatch = useDispatch();
     const recipe = useSelector(state => state.singleRecipe);
 
@@ -48,14 +53,28 @@ const SingleRecipePage = () => {
     });
 
     const getNoteDate = (date) => {
-        const noteDate = new Date(date);
 
-        const day = noteDate.getDay();
-        const month = noteDate.getMonth();
-        const year = noteDate.getFullYear();
+        const noteDate = date.split(":")[0].split(",")[1].slice(0, -3);
 
-        return `${month}/${day}/${year}`
-    }
+        return noteDate;
+    };
+
+    const addCommentClick = async (e) => {
+        e.preventDefault();
+        const payload = {
+            content,
+        };
+
+        const res = await dispatch(addNote(payload, recipeId));
+
+        if (!Array.isArray(res)) {
+            setContent("");
+            setErrorMessages({});
+        } else {
+            const errors = res.map(error => error.split(":")[1].slice(1));
+            setErrorMessages(errors);
+        };
+    };
 
     return (
         <div className='single-recipe-container'>
@@ -97,10 +116,18 @@ const SingleRecipePage = () => {
                 <div className='input-note'>
                     <form className='note'>
                         <textarea
+                            value={content}
+                            onChange={(e) => setContent(e.target.value)}
                             className='note-text'
                             placeholder="Add your note here"
                         ></textarea>
-                        <button>Add Note</button>
+                            <ErrorMessage label={""} message={errorMessages.content} />
+                        <button
+                            onClick={addCommentClick}
+                            disabled={content.length ? false : true}
+                        >
+                                Add Note
+                        </button>
                     </form>
                 </div>
                 <div className="notes-container">

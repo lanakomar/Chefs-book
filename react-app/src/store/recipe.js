@@ -6,7 +6,6 @@ export const setAllRecipes = (recipes) => ({
 });
 
 
-
 const initialState = {};
 
 const recipeReducer = (state = initialState, action) => {

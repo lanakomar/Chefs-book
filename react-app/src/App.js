@@ -29,7 +29,7 @@ function App() {
         const res = await fetch(`/api/users/${session.id}/recipes`);
         if (res.ok) {
           const data = await res.json();
-          dispatch(setRecipeBox(data))
+          dispatch(setRecipeBox(data));
         }
       }
     })();
