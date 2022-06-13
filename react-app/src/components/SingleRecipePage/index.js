@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import ErrorMessage from '../ErrorMessage';
+import DeleteNoteModal from '../DeleteNoteModal';
 import { viewRecipe } from '../../store/singleRecipe';
 import { addNote, editNote } from '../../store/singleRecipe';
 import './index.css'
@@ -102,20 +103,21 @@ const SingleRecipePage = () => {
             content: content
         };
 
-        const res = await dispatch(editNote(payload, editId));
-
-        if (!Array.isArray(res)) {
-            setContent("");
-            setErrorMessages({});
-            setIsEdit(false);
-            setEditId();
-        } else {
-            const errors = res.map(error => error.split(":")[1].slice(1));
+        const data = await dispatch(editNote(payload, editId));
+        if (data) {
+            const errors = {};
+            if (Array.isArray(data)) {
+                data.forEach((error) => {
+                    const label = error.split(":")[0].slice(0, -1);
+                    const message = error.split(":")[1].slice(1);
+                    errors[label] = message;
+                });
+            } else {
+                errors.overall = data;
+            }
             setErrorMessages(errors);
         }
     };
-
-    const handleDeleteNoteClick = (e) => { }
 
     return (
         <div className='single-recipe-container'>
@@ -198,12 +200,7 @@ const SingleRecipePage = () => {
                                                 className="fa-solid fa-pencil"
                                                 onClick={(e) => handleEditPencilClick(e, note.content)}
                                             ></i></div>
-                                        <div className='delete'>
-                                            <i
-                                                className="fa-solid fa-trash"
-                                                onClick={(e) => handleDeleteNoteClick(note.id)}
-                                            ></i>
-                                        </div>
+                                        <DeleteNoteModal noteId={note.id} />
                                     </div>
                                 </div>
                                 {note.content}

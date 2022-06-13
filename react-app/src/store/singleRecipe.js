@@ -1,5 +1,6 @@
 const SET_ONE_RECIPE = 'recipe/SET_ONE_RECIPE';
 const ADD_NEW_NOTE = 'recipe/ADD_NEW_NOTE';
+const DELETE_NOTE = 'recipe/DELETE_NOTE';
 
 export const setOnerRecipe = (recipe) => ({
     type: SET_ONE_RECIPE,
@@ -11,6 +12,10 @@ const addNewNote = (note) => ({
     note
 });
 
+const removeNote = (noteId) => ({
+    type: DELETE_NOTE,
+    noteId
+})
 
 export const viewRecipe = (recipeId) => async (dispatch) => {
     const res = await fetch(`/api/recipes/${recipeId}`);
@@ -53,7 +58,6 @@ export const addNote = (payload, recipeId) => async (dispatch) => {
 };
 
 export const editNote = (payload, noteId) => async (dispatch) => {
-    console.log("$$$$$$$", noteId)
     const res = await fetch(`/api/notes/${noteId}`, {
         method: "PUT",
         headers: {
@@ -68,9 +72,25 @@ export const editNote = (payload, noteId) => async (dispatch) => {
     }
     else if (res.status < 500) {
         const data = await res.json();
-        console.log(data)
         if (data.errors) {
             return data.errors;
+        }
+    } else {
+        return "An error occurred. Please try again.";
+    }
+}
+
+export const deleteNote = (noteId) => async (dispatch) => {
+    const res = await fetch(`/api/notes/${noteId}`, {
+        method: "DELETE",
+    });
+    if (res.ok) {
+        dispatch(removeNote(noteId));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data;
         }
     } else {
         return "An error occurred. Please try again.";
@@ -92,6 +112,13 @@ const singleRecipeReducer = (state = initialState, action) => {
                 newState.instructions = { ...state.instructions }
                 newState.notes = { ...state.notes, [action.note.id]: action.note }
             return newState;
+        case DELETE_NOTE:
+            const newState2 = {...state}
+            newState2.ingredients = { ...state.ingredients }
+            newState2.instructions = { ...state.instructions }
+            newState2.notes = { ...state.notes}
+            delete newState2.notes[action.noteId]
+            return newState2
         default:
             return state;
     }
