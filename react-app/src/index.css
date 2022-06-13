@@ -6,3 +6,7 @@ body {
         margin: 0;
         -webkit-font-smoothing: antialiased;
 }
+
+.fa-solid {
+    color: rgb(42, 42, 42)
+}

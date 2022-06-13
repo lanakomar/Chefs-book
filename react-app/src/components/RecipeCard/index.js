@@ -7,9 +7,6 @@ const RecipeCard = ({ recipe }) => {
         <div className="card-container">
             <div className='img-container'>
                 <img src={recipe.img_url} alt={recipe.title} />
-                {/* <div className='delete-recipe'>
-                    <i className="fa-solid fa-xmark" />
-                </div> */}
                 <DeleteRecipeModal id={recipe.id}/>
             </div>
             <h4>{recipe.title}</h4>

@@ -23,8 +23,6 @@ const HomePage = () => {
         })();
     }, [dispatch]);
 
-    console.log(recipesArr)
-
     function getRandomIdx(min, max) {
         return Math.floor(Math.random() * (max - min) + min);
     }
@@ -45,7 +43,7 @@ const HomePage = () => {
             <div className='recipes-container'>
                 {recipesArr?.map(recipe => (
                     <div key={recipe.id} className="card-container">
-                        <div><img src={recipe.img_url} alt={recipe.title} /></div>
+                        <div className='image-container' style={{ backgroundImage: `url(${recipe?.img_url})` }}></div>
                         <h4>{recipe.title}</h4>
                         <div className='time-serv-container'>
                             <p>Time to cook: {recipe.time_to_cook}</p>

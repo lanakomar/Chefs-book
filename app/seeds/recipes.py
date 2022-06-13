@@ -1,4 +1,3 @@
-from xml.dom.expatbuilder import parseFragmentString
 from app.models import db, Recipe
 
 
@@ -8,7 +7,7 @@ def seed_recipes():
         time_to_cook="55 mins",
         description="Easy crab quiche. Great for any meal or occasion.",
         servings=8,
-        img_url="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F4524043.jpg",
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image1.jpeg",
         user_id=1
     )
 
@@ -17,8 +16,8 @@ def seed_recipes():
         time_to_cook="4 hours",
         description="This is a delicious Apple Cheesecake that I usually make in the fall.",
         servings=12,
-        img_url="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F4556947.jpg",
-        user_id=4
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image2.jpeg",
+        user_id=2
     )
 
     beer_steak = Recipe(
@@ -26,8 +25,8 @@ def seed_recipes():
         time_to_cook="2 hrs 20 mins",
         description="Grilled steak with a simple beer marinade!",
         servings=4,
-        img_url="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F697567.jpg",
-        user_id=6
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image3.jpeg",
+        user_id=3
     )
 
     watermelon_lemonade = Recipe(
@@ -35,8 +34,8 @@ def seed_recipes():
         time_to_cook="50 mins",
         description="Whenever I have excess seasonal fruit, I freeze it in chunks for fast and easy slushes and smoothies. Here's a delicious way to use up some watermelon.",
         servings=2,
-        img_url="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F9299867.jpg&w=638&h=848&c=sc&poi=face&q=60",
-        user_id=7
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image4.webp",
+        user_id=4
     )
 
     parmesan_chicken = Recipe(
@@ -44,8 +43,8 @@ def seed_recipes():
         time_to_cook="50 mins",
         description="These are delicious, easy, quick, and so versatile! Eat them plain, topped with your favorite spaghetti sauce, or sliced on a Caesar salad.",
         servings=4,
-        img_url="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5938736.jpg",
-        user_id=8
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image5.jpeg",
+        user_id=5
     )
 
     creamy_shrimp = Recipe(
@@ -53,8 +52,8 @@ def seed_recipes():
         time_to_cook="20 mins",
         description="Dinner doesn't have to take forever--prove it with this fast and delicious shrimp scampi recipe.",
         servings=2,
-        img_url="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2022%2F04%2F26%2F268669creamy-shrimp-scampi-with-half-and-half-humblepieliving-001-4x3-1.jpg",
-        user_id=9
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image6.jpeg",
+        user_id=6
     )
 
     seared_tuna = Recipe(
@@ -62,8 +61,8 @@ def seed_recipes():
         time_to_cook="11 mins",
         description="This sesame-seared tuna is an easy, great-tasting dish. Fresh tuna steaks are coated with sesame seeds, then quickly seared and served rare, so be sure to use good quality fresh tuna.",
         servings=4,
-        img_url="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2022%2F05%2F25%2F869603-sesame-seared-tuna-Scott-K-4x3-1.jpg",
-        user_id=10
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image7.jpeg",
+        user_id=7
     )
 
 
@@ -72,8 +71,8 @@ def seed_recipes():
         time_to_cook="30 mins",
         description="Best poppers you'll have off your grill! Any left over cheese mixture makes a good spread for crackers while you're waiting.",
         servings=16,
-        img_url="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F4530082.jpg",
-        user_id=9
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image8.jpeg",
+        user_id=8
     )
 
 
@@ -82,8 +81,8 @@ def seed_recipes():
         time_to_cook="30 mins",
         description="Make your very own Japanese miso soup from scratch. It's easy to do at home! Perfect for an appetizer or light, warming lunch.",
         servings=4,
-        img_url="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F6243395.jpg",
-        user_id=11
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image9.jpeg",
+        user_id=9
     )
 
     quick_qiuiche = Recipe(
@@ -91,8 +90,53 @@ def seed_recipes():
         time_to_cook="50 mins",
         description="When you don't have the time to make a pastry crust, try this quick lunch idea. You may add any other goodies you like, such as ham, chicken, crab, shrimp or broccoli.",
         servings=6,
-        img_url="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F399957.jpg",
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image10.jpeg",
         user_id=10
+    )
+
+    orange_beef = Recipe(
+        title="Crispy Orange Beef",
+        time_to_cook="1 hrs 5 mins",
+        description="A delicious crispy and sweet, yet mildly spiced beef stir-fry recipe. Great served with steamed rice and broccoli.",
+        servings=6,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image11.jpeg",
+        user_id=11
+    )
+
+    mousse_bars = Recipe(
+        title="No-Bake Chocolate Mousse Bars",
+        time_to_cook="30 mins",
+        description="Ethereal and ready to melt in your mouth, chocolate mousse bars are easy to make and even easier to eat. With so few ingredients, it’s important to use a chocolate you would be perfectly happy to snack out of hand. The instant espresso powder is optional but adds depth to this simple dessert. To cut beautiful, neat slices, use a long sharp knife warmed in hot water and wiped clean before each cut.",
+        servings=24,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image12.jpeg",
+        user_id=12
+    )
+
+    watermelon_salad = Recipe(
+        title="Greek-Style Watermelon Salad",
+        time_to_cook="5 mins",
+        description="It's not an immediately obvious combination – watermelon, cucumber, olives and feta – but one bite will leave you convinced that this savory-sweet summer salad is something truly special. The astringent punch of the olives and feta provides a sophisticated counterpoint to the watery mellowness of the melon and cucumber. With a hunk of bread, it's a lovely light lunch; with practically any grilled meat or fish, it's an ideal summer supper.",
+        servings=4,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image13.jpeg",
+        user_id=13
+    )
+
+    corn = Recipe(
+        title="Corn on the Cob With Old Bay and Lemon",
+        time_to_cook="15 mins",
+        description="If you’ve had the pleasure of eating your way through a bucket of Maryland blue crabs poured out onto newspaper, you’ve probably had Old Bay seasoning. It’s a blend of celery salt, black pepper, crushed red-pepper flakes and paprika, and any member of its fiercely loyal Mid-Atlantic fan base will tell you that it should be present at any proper crab or shrimp boil. In this recipe, you get lots of that seaside flavor without having to source fresh blue crab.",
+        servings=4,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image14.jpeg",
+        user_id=1
+    )
+
+    camambert = Recipe(
+        title="Dutch Baby With Bacon and Runny Camembert",
+        time_to_cook="40 mins",
+        description="Most Dutch babies are sweet and often fruity. Not this one, which is topped with runny Camembert cheese and studded with bacon. It’s savory, golden and perfect for a hardy brunch or light dinner. A word of caution: It deflates quickly, so be sure to serve it as soon as it comes out of the oven.",
+        servings=2,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image15.jpeg",
+        user_id=1
     )
 
     # creamy_shrimp = Recipe(
@@ -114,6 +158,11 @@ def seed_recipes():
     db.session.add(grilled_jalapeno)
     db.session.add(miso_soup)
     db.session.add(quick_qiuiche)
+    db.session.add(orange_beef)
+    db.session.add(mousse_bars)
+    db.session.add(watermelon_salad)
+    db.session.add(corn)
+    db.session.add(camambert)
     db.session.commit()
 
 
