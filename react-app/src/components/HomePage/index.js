@@ -8,7 +8,9 @@ import './index.css';
 const HomePage = () => {
 
     const recipes = useSelector((state) => state.recipes);
-    const recipesArr = Object.values(recipes);
+    const recipesArr = Object.values(recipes).sort(function (a, b) {
+        return b.id - a.id;
+    });
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -21,13 +23,13 @@ const HomePage = () => {
         })();
     }, [dispatch]);
 
+    console.log(recipesArr)
+
     function getRandomIdx(min, max) {
         return Math.floor(Math.random() * (max - min) + min);
     }
-    console.log(recipesArr.length);
-    console.log(getRandomIdx(0, recipesArr.length));
+
     const dayRecipe = recipesArr[getRandomIdx(0, recipesArr.length)]
-    console.log(dayRecipe);
 
     return (
         <div className='home-page-container'>

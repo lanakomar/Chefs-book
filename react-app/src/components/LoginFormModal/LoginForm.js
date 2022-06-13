@@ -29,8 +29,6 @@ const LoginForm = ({ setShowModal }) => {
                 errors.overall = data;
             }
             setErrorMessages(errors);
-        } else {
-            setShowModal(false);
         }
     }
 

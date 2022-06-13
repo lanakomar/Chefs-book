@@ -36,12 +36,13 @@ function ProfileButtons () {
                 // style={isTab ? styles : null}
                 to='/recipe-box'
             >Your Recipe Box</Link>
-            <div className="gear-menu">
+            <div className="gear-menu" onMouseLeave={closeMenu}>
                 <div
                     className="gear"
-                    onMouseEnter={openMenu}
+                    onMouseEnter={closeMenu}
                 >
                     <i className="fa-solid fa-gear"
+                        onMouseEnter={openMenu}
                     ></i></div>
                 <div
                     style={{ display: showMenu ? "block" : "none" }}
