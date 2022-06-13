@@ -106,3 +106,16 @@ def delete_recipe(id):
         return {'message': f'Recipe {id} successfully deleted.'}
     else:
         return {'errors': 'Recipe not found.'}, 404
+
+
+@recipe_routes.route('/<int:id>')
+@login_required
+def get_one_recipe(id):
+    '''
+    Get single recipe
+    '''
+    recipe = Recipe.query.get(id)
+    if recipe:
+        return recipe.to_dict()
+    else:
+        return {'errors': 'Recipe not found.'}, 404

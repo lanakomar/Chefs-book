@@ -101,7 +101,7 @@
 
 .ingredient-inputs #amount {
     box-sizing: border-box;
-    width: 70px;
+    width: 75px;
     height: 37px;
 }
 
@@ -112,6 +112,7 @@
 
 .new-recipe .add-btn {
     margin-left: auto;
+    margin-bottom: 5px;
 }
 
 .new-recipe .add-btn button,
