@@ -22,5 +22,6 @@
     position: absolute;
     background-color: white;
     border-radius: 10px;
-    width: 500px;
+    min-width: 500px;
+    max-width: 600px;
 }

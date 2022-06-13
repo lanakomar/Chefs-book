@@ -98,7 +98,6 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
         setIngredients(updatedIngredients);
         setDeletedIngredients([...deletedIngredients, ...deleted])
     };
-    console.log("deleted ingredients", deletedIngredients)
 
     const ingredientsList = () => {
         return (
@@ -128,7 +127,6 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
         setInstructionsList([...instructionsList, instructionToAdd]);
         setInstruction("");
     };
-    console.log(instructionsList)
 
     const handleInstrDelete = (e) => {
         const idx = e.target.id
@@ -137,8 +135,6 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
         setInstructionsList(updatedInstructionsList);
         setDeletedInstructions([...deletedInstructions, ...deleted]);
     };
-
-    console.log("deleted instructions", deletedInstructions)
 
     const instructionList = () => (
         <div>
@@ -259,7 +255,6 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
             ...instrForPayload(instructionsList, deletedInstructions)
         };
 
-        console.log("******", payload)
         const res = await dispatch(editRecipe(payload, id));
 
         if (!Array.isArray(res)) {
@@ -274,7 +269,6 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
 
                     }
                     message = error.split(":")[1].slice(1)
-                    // let [first, ...rest] = error.split(':');
                     let rest = [...error.split(':').slice(1)];
                     let tmp2 = rest.join(':').replaceAll("'", '"');
                     if (tmp2.indexOf(":") > 0) {
@@ -374,7 +368,6 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                     <div
                         style={{ overflowY: (ingredients.length > 3) ? "scroll" : "none" }}
                         className='addedIngredients'>
-                        {/* {edit && !ingredients.length ? setAllIngr() : null} */}
                         {ingredients.length ? ingredientsList() :
                             <div>No ingredients. Add some in the fields below</div>
                         }
@@ -427,7 +420,6 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                     <div
                         style={{ overflowY: (instructionsList.length > 2) ? "scroll" : "none" }}
                         className='added-instructions'>
-                        {/* {edit && !instructionsList.length ? setAllInstr() : null} */}
                         {instructionsList.length ? instructionList() :
                             <div>Add your instructions below...</div>
                         }

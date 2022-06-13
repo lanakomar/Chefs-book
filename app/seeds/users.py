@@ -36,7 +36,9 @@ def seed_users():
 
     rachel_ray = User (
         username = 'rachel_ray', email='rachel_ray@gmail.com', password='!Host@30MinutesMeals')
-    
+
+    james_t_kirk = User (
+        username = 'james_t_kirk', email='james_t_kirk@aa.com', password='!james!t!kirk1')
 
     db.session.add(demo)
     db.session.add(marnie)
@@ -50,6 +52,7 @@ def seed_users():
     db.session.add(jamie_oliver)
     db.session.add(martha_stewart)
     db.session.add(rachel_ray)
+    db.session.add(james_t_kirk)
 
     db.session.commit()
 

@@ -8,7 +8,9 @@ import './index.css';
 const HomePage = () => {
 
     const recipes = useSelector((state) => state.recipes);
-    const recipesArr = Object.values(recipes);
+    const recipesArr = Object.values(recipes).sort(function (a, b) {
+        return b.id - a.id;
+    });
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -24,10 +26,8 @@ const HomePage = () => {
     function getRandomIdx(min, max) {
         return Math.floor(Math.random() * (max - min) + min);
     }
-    console.log(recipesArr.length);
-    console.log(getRandomIdx(0, recipesArr.length));
+
     const dayRecipe = recipesArr[getRandomIdx(0, recipesArr.length)]
-    console.log(dayRecipe);
 
     return (
         <div className='home-page-container'>
@@ -43,7 +43,7 @@ const HomePage = () => {
             <div className='recipes-container'>
                 {recipesArr?.map(recipe => (
                     <div key={recipe.id} className="card-container">
-                        <div><img src={recipe.img_url} alt={recipe.title} /></div>
+                        <div className='image-container' style={{ backgroundImage: `url(${recipe?.img_url})` }}></div>
                         <h4>{recipe.title}</h4>
                         <div className='time-serv-container'>
                             <p>Time to cook: {recipe.time_to_cook}</p>

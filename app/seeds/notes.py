@@ -14,7 +14,7 @@ def seed_notes():
         Note(content="This was a HUGE hit at a cheesecake party. I made the following changes after reading pages of reviews: I doubled the crust mixture, and sprinkled half on the top with 20 minutes left to bake, I doubled the filling, I chopped the apples and then microwaved them until they were soft and drained the liquid before tossing with sugar. It was beautiful and awesome!", date_created="2021-05-05", recipe_id=2, author_id=8),\
         Note(content="I want to give this cheesecake 6 stars. It was wonderful everyone loved it. I had to cook mine for 80 minutes till it was firm. Thank you for this wonderful dessert!!!!!", date_created="2021-06-21", recipe_id=2, author_id=13),\
         Note(content="Is cheesecake a CAKE? I don't know.... But this one turned out to be awesome!", date_created="2021-12-01", recipe_id=2, author_id=7),\
-       
+
         Note(content="I LOVED IT!! My husband always seasons the steaks and he was not happy when he saw me pouring lemmon pepper all over his precious t bones but they were fabulous. Very juicy due to the beer and so simple to make. I used Shiner Bock beer and I would definately reccoment a dark beer.", date_created="2020-01-20", recipe_id=3, author_id=12),\
         Note(content="This was AWFUL! I used Killians beer and followed the directions. The lemon pepper did not go well with the beer. Yuck!", date_created="2020-07-09", recipe_id=3, author_id=8),\
         Note(content="I was very sSurprised at how good this tastes! I was a bit leary of lemon pepper and beer, but it really works!", date_created="2021-08-20", recipe_id=3, author_id=9),\
@@ -69,8 +69,38 @@ def seed_notes():
         Note(content="It's a keeper! I used some of the reviews and cooked the onions about 2 min before adding to egg mixture. Blender is the way to mix this one. Also baked in my cast iron skillet 35 min it turned out beautiful. No need to broil.", date_created="2021-08-16", recipe_id=10, author_id=10),\
         Note(content="I made this tonight, all the family loved it. Simple, filling and perfect.", date_created="2022-02-27", recipe_id=10, author_id=12),\
 
-        # Note(content="", date_created="2020-10-30", recipe_id=, author_id=5),\
-        # Note(content="", date_created="2020-10-30", recipe_id=, author_id=5),\
+        Note(content="Sauce is what makes it great. Like others, we altered it by: using 1/3 cup orange juice instead of concentrate *and* stirfrying batches with only 1 Tbs of peanut oil each time. Cuts down on calories and left the meat tender and glossy. Pretty authentic tasting.", date_created="2019-04-07", recipe_id=11, author_id=2),\
+        Note(content="Turned out fantastic. I did as others suggested and doubled the sauce while cutting the sugar in half. I also omitted the orange peel as it really didn't need it. Next time I will reduce the vinegar by 25% and use mixed OJ to replace the 25% vinegar omission. Really very good. I will make again.", date_created="2019-10-12", recipe_id=11, author_id=1),\
+        Note(content="I added only 1 TBS of ginger, and this was delicous! My husband enjoyed it too. As other's have noted, cutting back on the ginger keeps it from overpowering the meat. I can't wait to make this again!", date_created="2020-07-25", recipe_id=11, author_id=5),\
+        Note(content="this was SOOOOO yummy but the sauce as is is way too sweet, so I ended up doubling everything in the sauce except the sugar. I only had about a pound of beef and I only had white vinegar, I did add some sriachi to the sauce for a little kick", date_created="2020-11-16", recipe_id=11, author_id=8),\
+        Note(content="awesome! I just sauteed the beef in a little olive oil instead of deep frying and it still was very good.", date_created="2021-03-29", recipe_id=11, author_id=3),\
+        Note(content="This was terrific! I used flank steak that I bought to make something else, so it took a while to cut it all up, but well worth the time. It looked authentic, and my half chinese roommate liked it too!", date_created="2022-02-26", recipe_id=11, author_id=10),\
+
+        Note(content="Are the bars messy to eat by hand? Or do you need a plate and fork?", date_created="2019-05-20", recipe_id=12, author_id=1),\
+        Note(content="Instead of cream, use two eggs beaten for five minutes each, added one at a time. It’s the French Silk Mocha Pie recipe I’ve been making for 45 years. A family favorite!", date_created="2019-08-02", recipe_id=12, author_id=12),\
+        Note(content="The best dessert I’ve had in a long time! This was absolutely amazing for two reasons: the rush sweet chocolate taste and the light creamy consistency—a seriously dangerous and addictive combination.", date_created="2020-10-30", recipe_id=12, author_id=6),\
+        Note(content="Use nut meal (or grinding toasted nuts in a food processor) to replace graham cracker crumbs", date_created="2021-07-15", recipe_id=12, author_id=4),\
+        Note(content="These are easy and delicious! I took them to a party and got rave reviews and some guests took a few home with them. I used half Nestle’s toll house standard chocolate chips and half Giardelli bittersweet. I will make these again and again. Would also make a mouth watering chocolate pie!", date_created="2022-04-18", recipe_id=12, author_id=7),\
+
+        Note(content="Best. Summer. Salad. Period. Make sure to use well chilled watermelon straight from the fridge. Also, I used white balsamic vinegar (condimento bianco) which worked wonderfully.", date_created="2019-06-30", recipe_id=13, author_id=4),\
+        Note(content="This was really good. I don't love raw onions, so I quick pickled the onions a few hours ahead in a red wine vinegar/olive oil mix and used that as the dressing.", date_created="2019-08-07", recipe_id=13, author_id=6),\
+        Note(content="Thanks for a good idea for a summer salad. Please stop excluding vegetable and fruit prep time from the recipe Time. It’s very misleading. I see this in most recipes on this site and elsewhere. Cubing the watermelon could double the time if not more.", date_created="2020-05-04", recipe_id=13, author_id=8),\
+        Note(content="I'm with you on the raw onion thing! One solution is to soak them in ice water for a bit then rinse. It really mellows them!", date_created="2020-09-07", recipe_id=13, author_id=10),\
+        Note(content="I used Casteveltrano olives and plain goat cheese, no herbs and Sherry vinegar. Simple, clean and delicious; everyone likes it!", date_created="2021-06-03", recipe_id=13, author_id=12),\
+        Note(content="I prefer it on a bed of arugula, olives optional.", date_created="2022-03-30", recipe_id=13, author_id=1),\
+
+        Note(content="You can also put the Old Bay on, wrap in foil and grill. Gives the corn an 'almost sweet' taste. Either way - it's Yumbo!", date_created="2020-07-07", recipe_id=14, author_id=3),\
+        Note(content="Replaced the butter with vegan Mayo and added some miso worked beautifully with the lemon and old bay seasoning", date_created="2021-06-28", recipe_id=14, author_id=1),\
+        Note(content="I always grill corn on the cob with the husk on. It steams the corn nicely and you can still put some char on it after shucking.", date_created="2021-08-19", recipe_id=14, author_id=5),\
+        Note(content="The Old Bay compound butter is a revelation, definitely a future barbecue mainstay.", date_created="2022-05-14", recipe_id=14, author_id=7),\
+
+        Note(content="If you pour the batter into the hot pan in a spiral pattern, it will be easier to serve. Pouring the batter in one spot cools the pan and makes the pancake stick to the metal.", date_created="2020-06-12", recipe_id=15, author_id=13),\
+        Note(content="For a vegetarian variant, I threw two teaspoons of smoked paprika and a tsp of powdered shallots into the oil and cooked it for a minute before mixing in the batter. It worked well.", date_created="2020-11-06", recipe_id=15, author_id=11),\
+        Note(content="Yum! Second time I added some sauteed apples under the cheese...just to try bumping it up since apples and camembert go so well together. Home run!", date_created="2020-12-23", recipe_id=15, author_id=9),\
+        Note(content="Serve with fig jam ... yum!", date_created="2021-03-09", recipe_id=15, author_id=7),\
+        Note(content="This was wonderful. Couldn't find camembert so used brie. Also used probably a bit more than half of the wheel, the whole wheel seemed a bit much. Great warmed up the next day, too. Yum", date_created="2021-12-30", recipe_id=15, author_id=1),\
+        Note(content="Too greasy and weak flavor. Drain ALL the bacon grease off and decrease the butter. I agree with those who would add onions and use cheddar.", date_created="2022-02-04", recipe_id=15, author_id=3),\
+
         # Note(content="", date_created="2020-10-30", recipe_id=, author_id=5),\
     ])
 

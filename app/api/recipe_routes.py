@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from sqlalchemy import null
 from app.awsS3 import upload_base64_to_s3
 
 from app.models import db, Recipe, Instruction, Ingredient
@@ -30,7 +29,7 @@ def get_all_recipies():
 @login_required
 def edit_recipe(id):
     '''
-    Creates new recipe
+    Edit recipe
     '''
     form = RecipeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -91,3 +90,19 @@ def edit_recipe(id):
         return recipe.to_dict()
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@recipe_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_recipe(id):
+    '''
+    Delete recipe
+    '''
+
+    recipe = Recipe.query.get(id)
+    if recipe:
+        db.session.delete(recipe)
+        db.session.commit()
+        return {'message': f'Recipe {id} successfully deleted.'}
+    else:
+        return {'errors': 'Recipe not found.'}, 404

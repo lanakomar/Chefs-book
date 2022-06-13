@@ -1,0 +1,41 @@
+.delete-form-container {
+  width: 380px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.delete-form-container h3 {
+  text-align: center;
+}
+
+.message-btns {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+
+.message-btns button {
+  padding: 10px;
+  background-color: rgba(202, 211, 220, 0.3);
+  border-radius: 5px;
+  border: 1px solid rgba(202, 211, 220, 0.6);
+  width: 70px;
+}
+
+.message-btns button:hover {
+  cursor: pointer;
+  background-color: rgb(202, 211, 220);
+  color: rgb(61, 100, 255);
+}
+
+.message-btns .delete-recipe-confirm:hover {
+  background-color: red;
+  color: white;
+}

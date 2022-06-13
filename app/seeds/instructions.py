@@ -41,7 +41,7 @@ def seed_instructions():
         list_order=4, recipe_id=2
     )
 
-    db.session.add.all([
+    db.session.add_all([
         Instruction(
             specification="Place the steaks in a large, shallow container with a lid. Season each side of the steaks with the salt and lemon pepper. Gently pour the beer over the steaks (making sure the seasoning doesn't wash off). Cover, and refrigerate for 1 to 2 hours.",\
             list_order=1, recipe_id=3
@@ -56,7 +56,7 @@ def seed_instructions():
         )
     ])
 
-    db.session.add.all([
+    db.session.add_all([
         Instruction(
             specification="Place the watermelon pieces onto a plastic-wrapped baking sheet, and freeze until solid, about 45 minutes.",\
             list_order=1, recipe_id=4
@@ -67,7 +67,7 @@ def seed_instructions():
         ),
     ])
 
-    db.session.add.all([
+    db.session.add_all([
         Instruction(
             specification="Preheat oven to 400 degrees F (200 degrees C). Line a baking sheet with aluminum foil and spray with cooking spray.",\
             list_order=1, recipe_id=5
@@ -86,7 +86,7 @@ def seed_instructions():
         ),
     ])
 
-    db.session.add.all([
+    db.session.add_all([
         Instruction(
             specification="Bring a large pot of lightly salted water to a boil. Cook linguine at a boil until tender yet firm to the bite, about 8 minutes.",\
             list_order=1, recipe_id=6
@@ -101,7 +101,7 @@ def seed_instructions():
         ),
     ])
 
-    db.session.add.all([
+    db.session.add_all([
     Instruction(
         specification="Stir together soy sauce, sesame oil, mirin, and honey in a small bowl. Pour half into a separate small bowl, stir in rice wine vinegar, and set it aside as a dipping sauce.",\
         list_order=1, recipe_id=7
@@ -116,7 +116,7 @@ def seed_instructions():
     ),
 ])
 
-    db.session.add.all([
+    db.session.add_all([
     Instruction(
         specification="Preheat an outdoor grill for medium heat, and lightly oil the grate.",\
         list_order=1, recipe_id=8
@@ -135,7 +135,7 @@ def seed_instructions():
     ),
 ])
 
-    db.session.add.all([
+    db.session.add_all([
     Instruction(
         specification="Place wakame in a fine-mesh sieve and soak in some cold water for 10 minutes.",\
         list_order=1, recipe_id=9
@@ -150,7 +150,7 @@ def seed_instructions():
     ),
 ])
 
-    db.session.add.all([
+    db.session.add_all([
     Instruction(
         specification="Place bacon in a large, deep skillet. Cook over medium high heat until evenly brown. Drain, crumble and set aside.",\
         list_order=1, recipe_id=10
@@ -169,7 +169,82 @@ def seed_instructions():
     ),
 ])
 
-#     db.session.add.all([
+    db.session.add_all([
+    Instruction(
+        specification="Lay beef strips out in a single layer on a baking sheet lined with paper towels. Allow to dry in the refrigerator for 30 minutes. In a small bowl, mix together the sugar, rice vinegar, orange juice concentrate, salt and soy sauce. Set aside.",\
+        list_order=1, recipe_id=11
+    ),
+    Instruction(
+        specification="Meanwhile, combine rice and water in a medium saucepan. Bring to a boil, then reduce heat to medium-low and simmer for 20 minutes, or until rice is tender. Add more water at the end if necessary.",\
+        list_order=2, recipe_id=11
+    ),
+    Instruction(
+        specification="Heat oil in a wok over medium-high heat. Toss dried beef in cornstarch to coat. Fry in the hot oil in small batches until crispy and golden brown; set aside. Drain all of the oil from the wok except about 1 tablespoon.",\
+        list_order=3, recipe_id=11
+    ),
+    Instruction(
+        specification="Add orange zest, ginger and garlic to the remaining oil, and cook briefly until fragrant. Add the soy sauce mixture to the wok, bring to a boil, and cook until thick and syrupy, about 5 minutes. Add beef, and heat through, stirring to coat. Serve immediately over steamed rice, and garnish with broccoli.",\
+        list_order=4, recipe_id=11
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Make the crust: Line a 9-inch-by-13-inch baking pan with parchment paper, leaving a 2-inch overhang on 2 sides. In a food processor, or in a resealable plastic bag, crush the graham crackers until you have fine crumbs (but stop before you have dust). You should have about 2 1/4 cups. Transfer the crumbs to a medium bowl. Add the butter, sugar and salt and stir until evenly moistened. Tip the crumbs into the prepared pan and press them down into an even layer on the bottom. Transfer to the freezer while you prepare the filling.",\
+        list_order=1, recipe_id=12
+    ),
+    Instruction(
+        specification="Make the filling: Set the chocolate in a medium bowl. In a small saucepan, heat 1 cup cream, espresso powder and salt until hot but not boiling. Pour the hot cream mixture over the chocolate and let it stand for 2 minutes. Add the vanilla and whisk until smooth. Set aside to cool completely.",\
+        list_order=2, recipe_id=12
+    ),
+    Instruction(
+        specification="In a large bowl or in the bowl of a stand mixer fitted with the whisk attachment, whip the remaining 2 cups heavy cream until you have stiff peaks. Add the chocolate mixture and gently fold to combine. Pour the mixture over the prepared crust, and spread it out into an even layer. Cover with plastic wrap and chill until firm, at least 2 hours. To serve, cut the two edges without parchment free with a sharp knife then use the parchment overhang to transfer the bar to a cutting board. Cut into squares and serve with a dollop of whipped cream, if desired.",\
+        list_order=3, recipe_id=12
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="In a large bowl combine 3 cups cubed watermelon; 2 large ripe tomatoes, chopped; 1 medium cucumber, peeled, seeded and chopped; 1 small red onion, sliced; 1/3 cup pitted kalamata olives; 1/3 cup crumbled feta; and some chopped parsley and mint. Drizzle with olive oil and red-wine vinegar, sprinkle with salt and pepper, toss and serve.",\
+        list_order=1, recipe_id=13
+    )
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Heat your grill to medium-high. Grill corn, turning occasionally, until cooked through and lightly charred, 10 to 12 minutes. (Alternatively, add corn to a large pot of salted boiling water and cook for 5 to 7 minutes.)",\
+        list_order=1, recipe_id=14
+    ),
+    Instruction(
+        specification="Meanwhile, in a small bowl, mix together butter, half the lemon zest and 1/4 teaspoon Old Bay seasoning.",\
+        list_order=2, recipe_id=14
+    ),
+    Instruction(
+        specification="Slather hot corn with butter mixture. Sprinkle with the remaining zest and Old Bay seasoning, to taste. Serve with lemon wedges alongside for squeezing.",\
+        list_order=3, recipe_id=14
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Heat oven to 425 degrees. Place bacon in a 9-inch oven-safe skillet, then set over medium heat. Cook, stirring occasionally, until fat has rendered and bacon has browned on the edges, 7 to 10 minutes.",\
+        list_order=1, recipe_id=15
+    ),
+    Instruction(
+        specification="Meanwhile, in a large bowl, whisk together flour, salt, pepper and baking powder. In a medium bowl, whisk together eggs and milk, then whisk egg mixture into flour. Stir in Parmesan and half the chives.",\
+        list_order=2, recipe_id=15
+    ),
+    Instruction(
+        specification="Once bacon is crisp and brown, raise heat to medium-high, and add butter, stirring until melted. Pour batter into skillet, then quickly arrange Camembert pieces on top.",\
+        list_order=3, recipe_id=15
+    ),
+    Instruction(
+        specification="Transfer pan to the oven, and bake until puffed and golden, 20 to 25 minutes. Sprinkle with remaining chives, and serve immediately.",\
+        list_order=4, recipe_id=15
+    ),
+])
+
+#     db.session.add_all([
 #     Instruction(
 #         specification="",\
 #         list_order=1, recipe_id=
