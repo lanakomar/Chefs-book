@@ -22,5 +22,6 @@ class Note(db.Model):
             'content': self.content,
             'date_created': self.date_created,
             'recipe_id': self.recipe_id,
-            'author': self.author.username
+            'author': self.author.username,
+            'author_id': self.author_id
         }

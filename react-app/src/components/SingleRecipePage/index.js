@@ -1,19 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import ErrorMessage from '../ErrorMessage';
 import { viewRecipe } from '../../store/singleRecipe';
-import { addNote } from '../../store/singleRecipe';
+import { addNote, editNote } from '../../store/singleRecipe';
 import './index.css'
 
 const SingleRecipePage = () => {
     const { recipeId } = useParams();
     const [content, setContent] = useState("");
     const [errorMessages, setErrorMessages] = useState({});
+    const [isEdit, setIsEdit] = useState(false);
+    const [editId, setEditId] = useState();
+
+    const inputRef = useRef();
 
     const dispatch = useDispatch();
     const recipe = useSelector(state => state.singleRecipe);
+    const cur_user = useSelector(state => state.session.user)
 
     useEffect(() => {
         async function fetchData() {
@@ -76,6 +81,42 @@ const SingleRecipePage = () => {
         };
     };
 
+    const handleEditPencilClick = (e, note) => {
+        setContent(note);
+        setIsEdit(true);
+        setEditId(e.target.id);
+        inputRef.current.scrollIntoView({ behavior: 'smooth', block: "center" })
+    };
+
+    const cancelEditClick = (e) => {
+        e.preventDefault();
+        setContent("");
+        setIsEdit(false);
+        setEditId();
+    }
+
+    const editNoteClick = async (e) => {
+        e.preventDefault();
+
+        const payload = {
+            content: content
+        };
+
+        const res = await dispatch(editNote(payload, editId));
+
+        if (!Array.isArray(res)) {
+            setContent("");
+            setErrorMessages({});
+            setIsEdit(false);
+            setEditId();
+        } else {
+            const errors = res.map(error => error.split(":")[1].slice(1));
+            setErrorMessages(errors);
+        }
+    };
+
+    const handleDeleteNoteClick = (e) => { }
+
     return (
         <div className='single-recipe-container'>
             <div className='title-container'>
@@ -112,41 +153,63 @@ const SingleRecipePage = () => {
             </div>
             <div className='notes'>
                 <div className='all-notes-container'>
-                <h4>Cooking Notes</h4>
-                <div className='input-note'>
-                    <form className='note'>
-                        <textarea
-                            value={content}
-                            onChange={(e) => setContent(e.target.value)}
-                            className='note-text'
-                            placeholder="Add your note here"
-                        ></textarea>
+                    <h4>Cooking Notes</h4>
+                    <div className='input-note'>
+                        <form className='note'>
+                            <textarea
+                                ref={inputRef}
+                                value={content}
+                                onChange={(e) => setContent(e.target.value)}
+                                className='note-text'
+                                placeholder="Add your note here"
+                            ></textarea>
                             <ErrorMessage label={""} message={errorMessages.content} />
-                        <button
-                            onClick={addCommentClick}
-                            disabled={content.length ? false : true}
-                        >
-                                Add Note
-                        </button>
-                    </form>
-                </div>
-                <div className="notes-container">
-                    {notes.map(note => (
-                        <div key={note.id}>
-                            <div className='note-text'>
-                                <div className='about-note'>
-                                    <p className='author'>{note.author}</p>
-                                    <p className='date'>{getNoteDate(note.date_created)}</p>
+                            <div className='form-buttons'>
+                                <button
+                                    className='cancel-edit'
+                                    hidden={!isEdit}
+                                    onClick={cancelEditClick}
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    onClick={isEdit ? editNoteClick : addCommentClick}
+                                    disabled={content.length ? false : true}
+                                >
+                                    {isEdit ? "Edit Note" : "Add Note"}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="notes-container">
+                        {notes.map(note => (
+                            <div className='note-text' key={note.id}>
+                                <div className='note-header'>
+                                    <div className='about-note'>
+                                        <p className='author'>{note.author}</p>
+                                        <p className='date'>{getNoteDate(note.date_created)}</p>
+                                    </div>
+                                    <div
+                                        className='note-edit-delete'
+                                        style={{ display: (cur_user.id !== note.author_id) ? "none" : "flex" }}
+                                    >
+                                        <div className='edit'>
+                                            <i id={note.id}
+                                                className="fa-solid fa-pencil"
+                                                onClick={(e) => handleEditPencilClick(e, note.content)}
+                                            ></i></div>
+                                        <div className='delete'>
+                                            <i
+                                                className="fa-solid fa-trash"
+                                                onClick={(e) => handleDeleteNoteClick(note.id)}
+                                            ></i>
+                                        </div>
+                                    </div>
                                 </div>
                                 {note.content}
                             </div>
-                            <div className='note-edit-delete'>
-                                <div className='edit'></div>
-                                <div className='delete'></div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

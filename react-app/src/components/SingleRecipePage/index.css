@@ -134,3 +134,45 @@
     border-top: 1px solid rgb(231, 231, 231);
     margin-bottom: 20px;
 }
+
+.note-edit-delete {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-edit-delete .fa-solid {
+    font-size: smaller;
+    color: rgb(34, 34, 34);
+}
+
+.note-edit-delete .fa-solid:hover {
+    cursor: pointer;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-buttons button {
+    margin: 0;
+}
+
+.form-buttons .cancel-edit {
+    border: none;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+.form-buttons .cancel-edit:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

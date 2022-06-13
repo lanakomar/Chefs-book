@@ -11,6 +11,7 @@ const addNewNote = (note) => ({
     note
 });
 
+
 export const viewRecipe = (recipeId) => async (dispatch) => {
     const res = await fetch(`/api/recipes/${recipeId}`);
     if (res.ok) {
@@ -30,6 +31,31 @@ export const viewRecipe = (recipeId) => async (dispatch) => {
 export const addNote = (payload, recipeId) => async (dispatch) => {
     const res = await fetch(`/api/recipes/${recipeId}/notes`, {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+        const note = await res.json()
+        dispatch(addNewNote(note))
+        return null;
+    }
+    else if (res.status < 500) {
+        const data = await res.json();
+        console.log(data)
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return "An error occurred. Please try again.";
+    }
+};
+
+export const editNote = (payload, noteId) => async (dispatch) => {
+    console.log("$$$$$$$", noteId)
+    const res = await fetch(`/api/notes/${noteId}`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
