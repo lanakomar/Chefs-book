@@ -30,10 +30,15 @@
     flex-direction: column;
 }
 
+.new-recipe .image-container label {
+    margin-bottom: 10px;
+}
+
 .image-container div {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: fit-content;
 }
 
 .new-recipe #image {
@@ -41,7 +46,8 @@
     border: none;
 }
 
-.new-recipe #uploadPreview {
+.new-recipe #uploadPreview,
+.new-recipe #preview {
     height: 100px;
     margin-left: 20px;
 }
@@ -60,7 +66,17 @@
 
 .ingredients-form .addedIngredients,
 .instructions-form .added-instructions {
-    height: 50px;
+    height: 80px;
+    padding-right: 5px;
+}
+
+.addedIngredients {
+    margin-bottom: 10px;
+}
+
+.addedIngredients ul {
+    margin: 0;
+    list-style: none;
 }
 
 .fa-xmark {
@@ -68,6 +84,11 @@
     margin-left: 5px;
     font-size: smaller;
     padding-top: 3px;
+    color: red;
+}
+
+.fa-xmark:hover {
+    cursor: pointer;
 }
 
 .new-recipe .ingredient-inputs,
@@ -132,4 +153,10 @@
 
 .btn-nav.add-recipe:hover {
     background-color: #fff;
+}
+
+.warning {
+    margin-top: 15px;
+    font-size: smaller;
+    color: red;
 }

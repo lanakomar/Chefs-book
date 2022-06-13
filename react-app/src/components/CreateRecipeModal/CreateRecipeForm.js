@@ -3,26 +3,34 @@ import { useDispatch, useSelector } from 'react-redux';
 import Select from "react-select";
 
 import ErrorMessage from '../ErrorMessage';
-import { createRecipe } from '../../store/recipeBox';
+import { createRecipe, editRecipe } from '../../store/recipeBox';
 
 
-const CreateRecipeForm = ({ setShowModal }) => {
+const CreateRecipeForm = ({ setShowModal, edit, id }) => {
+
     const [errorMessages, setErrorMessages] = useState({});
     const [title, setTitle] = useState("");
     const [amount, setAmount] = useState("");
     const [measure, setMeasure] = useState();
     const [foodItem, setFoodItem] = useState("");
-    const [foodItemList, setFoodItemList] = useState([]);
-    const [amountList, setAmountList] = useState([]);
-    const [measureList, setMeasureList] = useState([]);
+    const [ingredients, setIngredients] = useState([]);
     const [instruction, setInstruction] = useState("");
     const [instructionsList, setInstructionsList] = useState([]);
     const [image, setImage] = useState(null);
     const [time, setTime] = useState("");
     const [servings, setServings] = useState("");
     const [description, setDescription] = useState("");
-    const user = useSelector((state) => state.session.user)
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [deletedInstructions, setDeletedInstructions] = useState([]);
+    const [deletedIngredients, setDeletedIngredients] = useState([]);
+    const user = useSelector((state) => state.session.user);
+    const recipes = useSelector((state) => state.recipeBox);
     const dispatch = useDispatch();
+
+    let recipe;
+    if (edit) {
+        recipe = recipes[id];
+    };
 
     const measurementOptions = [
         { label: "", value: "14" },
@@ -44,47 +52,60 @@ const CreateRecipeForm = ({ setShowModal }) => {
         { label: "splash", value: "17" },
     ];
 
+    const setValues = () => {
+        const ingrArr = Object.values(recipe.ingredients);
+        const instrArr = Object.values(recipe.instructions);
+
+        setTitle(recipe.title);
+        setTime(recipe.time_to_cook);
+        setServings(recipe.servings);
+        setDescription(recipe.description);
+        setIsLoaded(true);
+        setIngredients(ingrArr);
+        setInstructionsList(instrArr);
+    };
+
+    if (edit && !isLoaded) {
+        setValues()
+    };
+
     const addIngredient = (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        const itemsToAdd = [...foodItemList, foodItem];
-        const amountsToAdd = [...amountList, amount];
-        const measuresToAdd = [...measureList, measure];
+        const newIngredient = {
+            amount: amount,
+            food_item: foodItem,
+            measurement_unit_id: measure,
+        };
 
-        setFoodItemList(itemsToAdd);
-        setAmountList(amountsToAdd);
-        setMeasureList(measuresToAdd);
+        setIngredients([...ingredients, newIngredient]);
         setMeasure("");
         setFoodItem("");
         setAmount("");
     };
 
+
     const getMeasure = (idx) => {
-        const measure = measurementOptions.filter(option => option.value === idx);
+        const measure = measurementOptions.filter(option => option.value === idx.toString());
         return measure[0].label;
     };
 
     const handleItemDelete = (e) => {
         const idx = e.target.id;
-        const updatedMeasureList = measureList.slice();
-        const updatedAmountList = amountList.slice();
-        const updatedfoodItemList = foodItemList.slice();
-        updatedAmountList.splice(idx, 1);
-        updatedMeasureList.splice(idx, 1);
-        updatedfoodItemList.splice(idx, 1);
-        setAmountList(updatedAmountList);
-        setMeasureList(updatedMeasureList);
-        setFoodItemList(updatedfoodItemList);
+        const updatedIngredients = ingredients.slice();
+        const deleted = updatedIngredients.splice(idx, 1);
+        setIngredients(updatedIngredients);
+        setDeletedIngredients([...deletedIngredients, ...deleted])
     };
 
     const ingredientsList = () => {
         return (
             <div>
                 <ul>
-                    {foodItemList.map((item, idx) => (
+                    {ingredients.map((item, idx) => (
                         <li key={idx} id={idx}>
-                            {amountList[idx]} {getMeasure(measureList[idx])} {item}
+                            {item.amount} {getMeasure(item.measurement_unit_id)} {item.food_item}
                             <i className="fa-solid fa-xmark"
                                 id={idx}
                                 onClick={handleItemDelete}
@@ -99,17 +120,20 @@ const CreateRecipeForm = ({ setShowModal }) => {
     const addIstruction = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const instructionToAdd = [...instructionsList, instruction];
-        setInstructionsList(instructionToAdd);
+        const instructionToAdd = {
+            specification:instruction,
+            list_order: instructionsList.length
+        };
+        setInstructionsList([...instructionsList, instructionToAdd]);
         setInstruction("");
     };
 
     const handleInstrDelete = (e) => {
-        console.log(e.target.id)
         const idx = e.target.id
         const updatedInstructionsList = instructionsList.slice();
-        updatedInstructionsList.splice(idx, 1)
-        setInstructionsList(updatedInstructionsList)
+        const deleted = updatedInstructionsList.splice(idx, 1)
+        setInstructionsList(updatedInstructionsList);
+        setDeletedInstructions([...deletedInstructions, ...deleted]);
     };
 
     const instructionList = () => (
@@ -117,7 +141,7 @@ const CreateRecipeForm = ({ setShowModal }) => {
             <ol>
                 {instructionsList.map((instruction, idx) => (
                     <li key={idx}>
-                        {instruction}
+                        {instruction.specification}
                         <i className="fa-solid fa-xmark"
                             id={idx}
                             onClick={handleInstrDelete}
@@ -128,28 +152,31 @@ const CreateRecipeForm = ({ setShowModal }) => {
         </div>
     );
 
-    const ingrForPayload = (amountList, foodItemList, measureList) => {
+    const ingrForPayload = (ingredients, ingredientsDeleted = []) => {
         const res = {};
-
-        foodItemList.forEach((item, idx) => {
-
-            res[`ingredient-${idx}-amount`] = amountList[idx];
-            res[`ingredient-${idx}-food_item`] = item;
-            res[`ingredient-${idx}-measurement_unit_id`] = parseInt(measureList[idx])
-
+        ingredients.forEach((item, idx) => {
+            res[`ingredient-${idx}-amount`] = item.amount;
+            res[`ingredient-${idx}-food_item`] = item.food_item;
+            res[`ingredient-${idx}-measurement_unit_id`] = parseInt(item.measurement_unit_id)
+            res[`ingredient-${idx}-identifier`] = item.id;
+        });
+        ingredientsDeleted.forEach((item, idx) => {
+            res[`ingredient_deleted-${idx}-identifier`] = item.id;
         });
 
         return res;
     };
 
-    const instrForPayload = (instructionsList) => {
+    const instrForPayload = (instructions, instructionDeleted = []) => {
         const obj = {};
-        instructionsList.forEach((instr, idx) => {
-
-            obj[`instructions-${idx}-specification`] = instr;
+        instructions.forEach((instr, idx) => {
+            obj[`instructions-${idx}-specification`] = instr.specification;
             obj[`instructions-${idx}-list_order`] = idx + 1;
+            obj[`instructions-${idx}-identifier`] = instr.id;
+        });
 
-
+        instructionDeleted.forEach((instr, idx) => {
+            obj[`instructions_deleted-${idx}-identifier`] = instr.id;
         });
 
         return obj;
@@ -162,7 +189,7 @@ const CreateRecipeForm = ({ setShowModal }) => {
         reader.onerror = error => reject(error);
     });
 
-    const handleSubmit = async (e) => {
+    const handleAdd = async (e) => {
         e.preventDefault();
 
         const payload = {
@@ -171,7 +198,7 @@ const CreateRecipeForm = ({ setShowModal }) => {
             description,
             servings,
             image: image ? await toBase64(image) : null,
-            ...ingrForPayload(amountList, foodItemList, measureList),
+            ...ingrForPayload(ingredients),
             ...instrForPayload(instructionsList)
         };
 
@@ -213,12 +240,62 @@ const CreateRecipeForm = ({ setShowModal }) => {
         oFReader.onload = function (oFREvent) {
             document.getElementById("uploadPreview").src = oFREvent.target.result;
         };
+    };
+
+    const handleEdit = async (e) => {
+        e.preventDefault();
+
+        const payload = {
+            title,
+            time_to_cook: time,
+            description,
+            servings,
+            image: image ? await toBase64(image) : recipe.img_url,
+            ...ingrForPayload(ingredients, deletedIngredients),
+            ...instrForPayload(instructionsList, deletedInstructions)
+        };
+
+        const res = await dispatch(editRecipe(payload, id));
+
+        if (!Array.isArray(res)) {
+            setShowModal(false);
+        } else {
+            const errors = {};
+            if (Array.isArray(res)) {
+                res.forEach(error => {
+                    const label = error.split(":")[0].slice(0, -1);
+                    let message;
+                    if (label === "instructions") {
+
+                    }
+                    message = error.split(":")[1].slice(1)
+                    let rest = [...error.split(':').slice(1)];
+                    let tmp2 = rest.join(':').replaceAll("'", '"');
+                    if (tmp2.indexOf(":") > 0) {
+                        let remainder = rest.join(':').replaceAll("'", '"');
+                        let tmp = JSON.parse(remainder)
+                        errors[label] = tmp;
+                    } else {
+                        errors[label] = message;
+                    }
+                })
+            } else {
+                errors.overall = res;
+            }
+            setErrorMessages(errors);
+        }
     }
+
+    if (!recipes) {
+        return null
+    };
 
     return (
         <div className='new-recipe-form-container'>
-            <h1>Add a recipe</h1>
-            <form onSubmit={handleSubmit} className="new-recipe">
+            {edit ? <h1>Edit recipe</h1> :
+                <h1>Add a recipe</h1>
+            }
+            <form onSubmit={edit ? handleEdit : handleAdd} className="new-recipe">
                 <ErrorMessage label={""} message={errorMessages.overall} />
                 <div className='input-container'>
                     <input
@@ -263,12 +340,15 @@ const CreateRecipeForm = ({ setShowModal }) => {
                             accept="image/jpg, image/png, image/jpeg, image/gif"
                             onChange={(e) => {
                                 PreviewImage();
-                                return setImage(e.target.files[0])}}
+                                return setImage(e.target.files[0])
+                            }}
                         />
                         {image ?
-                        <img id="uploadPreview" alt="upload-preview"/>
-                        : null
+                            <img id="uploadPreview" alt="upload-preview" />
+                            : null
                         }
+                        {edit ? <img id="preview" alt="preview" src={recipe.img_url} />
+                            : null}
                     </div>
                     <ErrorMessage label={""} message={errorMessages.img_url} />
                 </div>
@@ -285,8 +365,10 @@ const CreateRecipeForm = ({ setShowModal }) => {
                     <div>
                         <h3>Ingredients</h3>
                     </div>
-                    <div className='addedIngredients'>
-                        {foodItemList.length ? ingredientsList() :
+                    <div
+                        style={{ overflowY: (ingredients.length > 3) ? "scroll" : "none" }}
+                        className='addedIngredients'>
+                        {ingredients.length ? ingredientsList() :
                             <div>No ingredients. Add some in the fields below</div>
                         }
                     </div>
@@ -335,7 +417,9 @@ const CreateRecipeForm = ({ setShowModal }) => {
                 </div>
                 <div className='instructions-form'>
                     <div><h3>Instructions</h3></div>
-                    <div className='added-instructions'>
+                    <div
+                        style={{ overflowY: (instructionsList.length > 2) ? "scroll" : "none" }}
+                        className='added-instructions'>
                         {instructionsList.length ? instructionList() :
                             <div>Add your instructions below...</div>
                         }
@@ -352,17 +436,18 @@ const CreateRecipeForm = ({ setShowModal }) => {
                         <div className='add-btn'><button
                             disabled={!instruction}
                             onClick={(e) => addIstruction(e)}
-                            style={{ cursor: (!foodItem || !amount || !measure) ? 'not-allowed' : "pointer" }}
+                            style={{ cursor: (!instruction) ? 'not-allowed' : "pointer" }}
                         >
                             Add
                         </button></div>
                     </div>
                     <ErrorMessage label={""} message={errorMessages?.instructions?.specification} />
                 </div>
+                <div className='warning'>All fields required<sup>*</sup></div>
                 <div className='buttons'>
                     <button
                         type="submit"
-                    >Add new recipe</button>
+                    >{edit ? "Edit recipe" : "Add new recipe"}</button>
                     <button
                         onClick={(e) => {
                             e.preventDefault();
