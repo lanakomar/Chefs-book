@@ -31,6 +31,7 @@
     overflow-wrap: break-word;
     text-align: center;
     margin: 10px;
+    width: 75%;
 }
 
 .card-container .time-serv-container {
@@ -58,4 +59,26 @@
     position: absolute;
     left: 210px;
     top: 10px;
+    width: 15px;
+    height: 15px;
+    transition: background-color .2s ease-in-out;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid 666;
+}
+
+.fa-xmark {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: block;
+    text-shadow: white;
+}
+
+.delete-recipe:hover {
+    background-color: red;
+    transition: opacity .15s ease-out, background-color .2s ease-in-out;
 }
