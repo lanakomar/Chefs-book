@@ -8,6 +8,7 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import ErrorMessage from "../ErrorMessage";
 import { login } from '../../store/session';
+import logo from '../../images/logo.png'
 import './index.css';
 
 const NavBar = () => {
@@ -50,12 +51,11 @@ const NavBar = () => {
     )
   }
 
-
   return (
     <nav>
         <div>
           <NavLink to='/' exact={true} activeClassName='active'>
-            Home/Logo
+            <img className='logo' src={logo} alt="chef's-book-logo" />
           </NavLink>
         </div>
         {sessionLinks}

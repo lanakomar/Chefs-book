@@ -1,10 +1,15 @@
 const SET_ONE_RECIPE = 'recipe/SET_ONE_RECIPE';
 const ADD_NEW_NOTE = 'recipe/ADD_NEW_NOTE';
 const DELETE_NOTE = 'recipe/DELETE_NOTE';
+const REMOVE_SINGLE_RECIPE = 'recipe/REMOVE_SINGLE_RECIPE';
 
 export const setOnerRecipe = (recipe) => ({
     type: SET_ONE_RECIPE,
     recipe
+});
+
+export const removeSingleRecipe = () => ({
+    type: REMOVE_SINGLE_RECIPE
 });
 
 const addNewNote = (note) => ({
@@ -119,6 +124,8 @@ const singleRecipeReducer = (state = initialState, action) => {
             newState2.notes = { ...state.notes}
             delete newState2.notes[action.noteId]
             return newState2
+        case REMOVE_SINGLE_RECIPE:
+            return { ...initialState }
         default:
             return state;
     }

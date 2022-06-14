@@ -36,6 +36,10 @@ const HomePage = () => {
         history.push(`/recipes/${recipeId}`)
     }
 
+    if (!recipes || !recipesArr.length) {
+        return null
+    }
+
     return (
         <div className='home-page-container'>
             <div
@@ -44,7 +48,7 @@ const HomePage = () => {
                 <div className='day-recipe-card'>
                     <div className='badge'><p>RECIPE OF THE DAY</p></div>
                     <h3>{dayRecipe?.title}</h3>
-                    <p>{dayRecipe?.description}</p>
+                    <p className='reicpe-description'>{dayRecipe?.description}</p>
                 </div>
             </div>
             <div className='recipes-container'>

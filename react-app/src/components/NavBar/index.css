@@ -8,6 +8,20 @@ nav {
     padding: 0 20px;
 }
 
+.btn-nav {
+    width: 150px;
+    height: 90%;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    transition: box-shadow .2s ease-in-out;
+}
+
+.btn-nav:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    transition: opacity .15s ease-out, box-shadow .2s ease-in-out;
+}
 
 .links-loggedin {
     display: flex;
@@ -88,4 +102,9 @@ nav {
 
 .logout-btn:hover {
  cursor: pointer;
+}
+
+.logo {
+    height: 65px;
+    margin-left: 70px;
 }
