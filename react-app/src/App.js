@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from './store/session';
 import { setRecipeBox } from './store/recipeBox';
 import { setGroceryList } from './store/groceryList';
+import { setAllRecipes } from './store/recipe';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
@@ -31,6 +32,18 @@ function App() {
         if (res.ok) {
           const data = await res.json();
           await dispatch(setRecipeBox(data));
+        }
+      }
+    })();
+  }, [dispatch, session]);
+
+  useEffect(() => {
+    (async () => {
+      if (session) {
+        const res = await fetch(`/api/recipes`);
+        if (res.ok) {
+          const data = await res.json();
+          await dispatch(setAllRecipes(data));
         }
       }
     })();
