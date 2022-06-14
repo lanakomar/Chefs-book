@@ -13,7 +13,6 @@
 .card-container:hover {
     box-shadow: 0 0 15px rgb(0 0 0 / 30%);
     transition: opacity .15s ease-out, box-shadow .2s ease-in-out;
-    cursor: pointer;
 }
 
 .card-container .img-container {
@@ -38,9 +37,10 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    font-size: smaller;
+    font-size: small;
     justify-self: end;
     margin-top: auto;
+    gap: 5px;
 }
 
 .card-container .time-serv-container p {

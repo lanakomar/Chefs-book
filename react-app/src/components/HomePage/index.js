@@ -53,7 +53,7 @@ const HomePage = () => {
                         <div className='image-container' style={{ backgroundImage: `url(${recipe?.img_url})` }}></div>
                         <h4>{recipe.title}</h4>
                         <div className='time-serv-container'>
-                            <p>Time to cook: {recipe.time_to_cook}</p>
+                            <p>Time: {recipe.time_to_cook}</p>
                             <p>Servings: {recipe.servings}</p>
                         </div>
                     </div>
