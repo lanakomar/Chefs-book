@@ -2,8 +2,9 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.awsS3 import upload_base64_to_s3
 
-from app.models import db, Recipe, Instruction, Ingredient
+from app.models import db, Recipe, Instruction, Ingredient, Note
 from app.forms.recipe_form import RecipeForm
+from app.forms.note_form import NoteForm
 
 
 recipe_routes = Blueprint('recipes', __name__)
@@ -106,3 +107,36 @@ def delete_recipe(id):
         return {'message': f'Recipe {id} successfully deleted.'}
     else:
         return {'errors': 'Recipe not found.'}, 404
+
+
+@recipe_routes.route('/<int:id>')
+@login_required
+def get_one_recipe(id):
+    '''
+    Get single recipe
+    '''
+    recipe = Recipe.query.get(id)
+    if recipe:
+        return recipe.to_dict()
+    else:
+        return {'errors': 'Recipe not found.'}, 404
+
+
+@recipe_routes.route('/<int:id>/notes', methods=["POST"])
+@login_required
+def add_note(id):
+    '''
+    Create new Note
+    '''
+    form = NoteForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        note = Note(
+            content = form.data["content"],
+            recipe_id = id,
+            author_id = current_user.id
+        )
+        db.session.add(note)
+        db.session.commit()
+        return note.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

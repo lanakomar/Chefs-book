@@ -1,0 +1,31 @@
+.confirmation-continer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 40px;
+}
+
+.confirm-buttons button {
+    padding: 10px;
+    background-color: rgba(202, 211, 220, 0.3);
+    border-radius: 5px;
+    border: 1px solid rgba(202, 211, 220, 0.6);
+    width: 70px;
+}
+
+.confirm-buttons button:hover {
+    cursor: pointer;
+    background-color: rgb(202, 211, 220);
+    color: rgb(61, 100, 255);
+}
+
+.confirm-buttons .delete-note-confirm:hover {
+    background-color: red;
+    color: white;
+}

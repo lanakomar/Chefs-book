@@ -18,10 +18,7 @@ const DeleteRecipeForm = ({ setShowModal, id }) => {
         e.stopPropagation();
 
         const data = await dispatch(deleteRecipe(id));
-        console.log(data);
-        if (data === null) {
-            setShowModal(false);
-        } else {
+        if (data) {
             const errors = {};
             if (Array.isArray(data.errors)) {
                 data.errors.forEach((error) => {

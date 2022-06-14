@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: 5px;
   align-items: center;
+  margin: 0 auto;
 }
 
 .delete-form-container h3 {

@@ -1,0 +1,178 @@
+.single-recipe-container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.recipe-overview-container {
+    width: 82%;
+    margin: 0 auto;
+}
+
+.single-recipe-container h3 {
+    text-transform: capitalize;
+    font-size: 2em;
+    text-align: center;
+}
+
+.single-recipe-container .time-and-serving {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.recipe-overview-container .overview {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #000;
+}
+
+.overview p {
+    width: 370px;
+    padding-right: 10px;
+}
+
+.overview .image-container {
+    width: 600px;
+    height: 410px;
+    background-size: cover;
+}
+
+.cooking-instructions {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cooking-instructions .ingredients-container {
+    width: 370px;
+}
+
+.ingredients-container div,
+.instructions-container div {
+    margin-bottom: 15px;
+}
+
+.ingredients-container h4,
+.instructions-container h4,
+.notes h4 {
+    font-size: 1.5em;
+}
+
+.ingredients-container div {
+    padding-left: 40px;
+}
+
+.cooking-instructions .instructions-container {
+    width: 600px;
+}
+
+.instructions-container h5 {
+    margin: 15px 0;
+    font-size: 1em;
+}
+
+.notes {
+    width: 82%;
+    margin: 0 auto;
+}
+
+.all-notes-container {
+    width: 600px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+}
+
+.note textarea {
+    height: 100px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid hsl(0, 0%, 80%);
+    font-family: inherit;
+}
+
+.note button {
+    margin-left: auto;
+    padding: 5px 10px;
+    width: fit-content;
+    margin-top: 10px;
+}
+
+.note button:hover {
+    cursor:pointer
+}
+
+.about-note {
+    display: flex;
+}
+
+.about-note .author {
+    font-weight: bold;
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 1px solid rgb(204, 204, 204);
+    color: rgb(34, 34, 34)
+}
+
+.about-note .date {
+    font-size: smaller;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.notes-container > div {
+    border-top: 1px solid rgb(231, 231, 231);
+    margin-bottom: 20px;
+}
+
+.note-edit-delete {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-edit-delete .fa-solid {
+    font-size: smaller;
+    color: rgb(107, 107, 107);
+}
+
+.note-edit-delete .fa-solid:hover {
+    cursor: pointer;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-buttons button {
+    margin: 0;
+}
+
+.form-buttons .cancel-edit {
+    border: none;
+    background-color: transparent;
+    margin-right: 10px;
+}
+
+.form-buttons .cancel-edit:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
