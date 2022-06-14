@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template, request
+from flask import Blueprint, request
 from flask_login import login_required
 from app.awsS3 import upload_base64_to_s3
 from app.models import db, User, Recipe, Instruction, Ingredient
@@ -87,3 +87,23 @@ def create_recipe(id):
         return recipe.to_dict()
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+
+@user_routes.route('/<int:id>/groceries', methods=["POST"])
+@login_required
+def add_groceries(id):
+    '''
+    Adds items to user's Grocery List
+    '''
+    user = User.query.get(id)
+
+    item_ids = request.get_json()
+    for idx in item_ids:
+        item = Ingredient.query.get(idx)
+        user.ingredients_to_buy.append(item)
+
+    db.session.add(user)
+    db.session.commit()
+
+    return user.to_dict()
