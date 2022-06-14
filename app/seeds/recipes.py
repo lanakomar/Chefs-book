@@ -139,6 +139,51 @@ def seed_recipes():
         user_id=1
     )
 
+    chebureki = Recipe(
+        title="Chebureki",
+        time_to_cook="4 hours",
+        description="Chebureki are the southern Ukrainian branch of the global family of empanadas, potstickers, pasties and salteñas — dough pockets filled with meat and deep-fried until golden and juicy. A blistered, chewy crust is the sign of a really good cheburek according to Olga Koutseridi, who grew up in Mariupol, Ukraine, and adapted this recipe for her home kitchen in Austin, Texas. ",
+        servings=12,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image16.jpg",
+        user_id=2
+    )
+
+    pork_chops = Recipe(
+        title="Pan-Fried Breaded Pork Chops",
+        time_to_cook="30 mins",
+        description="Look for beautiful good-quality pork, such as Berkshire, and ask for center-cut loin chops with bone. Make sure to fry these chops very gently over medium-high heat, to allow the bread-crumb coating to brown slowly, creating a crisp, golden crust. Serve with a tart salad or braised greens, such as broccoli rabe.",
+        servings=4,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image17.jpg",
+        user_id=3
+    )
+
+    pancakes = Recipe(
+        title="Chez Ma Tante’s Pancakes",
+        time_to_cook="20 mins",
+        description="At the Brooklyn restaurant Chez Ma Tante, the brunch pancakes come two to an order, big as dessert plates and almost burnt. “I knew I wanted them to be really, really crispy,” said the chef de cuisine Jake Leiber. ",
+        servings=8,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image18.jpg",
+        user_id=4
+    )
+
+    flan = Recipe(
+        title="Zucchini Flan",
+        time_to_cook="1 hour",
+        description="Zucchini flan makes a good brunch, lunch or light supper dish. For the best texture, be careful not to overbake; remove from the oven when the custard is still a little jiggly. The flan tastes best served at room temperature.",
+        servings=6,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image19.jpg",
+        user_id=5
+    )
+
+    pavlova = Recipe(
+        title="Dessert 'Pavlova'",
+        time_to_cook="2 hours 15 minutes",
+        description="This Pavlova is a perfect dessert, crisp on the outside with marshmallowy goodness on the inside, piled high with fluffy cream and loads of fresh fruit.",
+        servings=15,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image20.jpg",
+        user_id=6
+    )
+
     # creamy_shrimp = Recipe(
     #     title="",
     #     time_to_cook="20 mins",
@@ -163,6 +208,10 @@ def seed_recipes():
     db.session.add(watermelon_salad)
     db.session.add(corn)
     db.session.add(camambert)
+    db.session.add(chebureki)
+    db.session.add(pork_chops)
+    db.session.add(pancakes)
+    db.session.add(flan)
     db.session.commit()
 
 
