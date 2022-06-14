@@ -116,7 +116,12 @@ const SingleRecipePage = () => {
                 errors.overall = data;
             }
             setErrorMessages(errors);
+        } else {
+            setContent("");
+            setIsEdit(false);
+            setEditId();
         }
+
     };
 
     return (

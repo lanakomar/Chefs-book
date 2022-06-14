@@ -82,3 +82,7 @@
     background-color: red;
     transition: opacity .15s ease-out, background-color .2s ease-in-out;
 }
+
+.edit-recipe:hover {
+    cursor: pointer;
+}
