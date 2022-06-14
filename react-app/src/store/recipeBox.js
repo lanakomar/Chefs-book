@@ -1,12 +1,19 @@
+import { removeSingleRecipe } from './recipe';
+
 const SET_RECIPE_BOX = 'recipeBox/SET_RECIPE_BOX';
 const ADD_RECIPE = 'recipeBox/ADD_RECIPE';
 const UPDATE_RECIPE = 'recipeBox/UPDATE_RECIPE';
 const DELETE_RECIPE = 'recipeBox/DELETE_RECIPE';
+const REMOVE_RECIPE_BOX = 'recipeBox/REMOVE_RECIPE_BOX';
 
 export const setRecipeBox = (recipes) => ({
     type: SET_RECIPE_BOX,
     recipes
 });
+
+export const removeRecipeBox = () => ({
+    type: REMOVE_RECIPE_BOX
+})
 
 const addRecipe = (recipe) => ({
     type: ADD_RECIPE,
@@ -75,6 +82,8 @@ export const deleteRecipe = (id) => async (dispatch) => {
     });
     if (res.ok) {
         dispatch(removeRecipe(id));
+        //dispatch to all_recipes to update
+        dispatch(removeSingleRecipe(id))
         return null
     } else if (res.status < 500) {
         const data = await res.json();
@@ -109,6 +118,8 @@ const recipeBoxReducer = (state = initialState, action) => {
             let newState = { ...state };
             delete newState[action.id];
             return newState;
+        case REMOVE_RECIPE_BOX:
+            return { ...initialState }
         default:
             return state;
     }

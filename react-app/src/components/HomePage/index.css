@@ -19,8 +19,8 @@
 .day-recipe-card {
     background-color: #fff;
     display: table-cell;
-    width: 150px;
-    padding: 52px 30px 30px;
+    width: 240px;
+    padding: 52px 0 30px 0;
     vertical-align: middle;
     margin-bottom: 200px;
     margin-left: auto;
@@ -43,7 +43,7 @@
     align-items: center;
     justify-content: center;
     top: -55px;
-    left: 150px;
+    left: 190px;
 }
 
 .badge p {
@@ -55,6 +55,13 @@
 .day-recipe-card h3 {
     text-transform: uppercase;
     text-align: center;
+    margin: 0 30px;
+}
+
+.day-recipe .reicpe-description {
+    max-height: 150px;
+    overflow-y: scroll;
+    margin-left: 20px;
 }
 
 .recipes-container {
@@ -70,4 +77,8 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.recipes-container .card-container:hover {
+    cursor: pointer;
 }
