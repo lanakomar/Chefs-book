@@ -12,7 +12,6 @@ const addThingsToBuy = (listItems) => ({
 });
 
 export const addToGroceryList = (payload, userId) => async (dispatch) => {
-    console.log(payload);
     const res = await fetch(`/api/users/${userId}/groceries`, {
         method: "POST",
         headers: {
@@ -22,19 +21,18 @@ export const addToGroceryList = (payload, userId) => async (dispatch) => {
     });
 
     if (res.ok) {
-        const newGL = await res.json();
-        console.log("####", newGL);
+        const data = await res.json();
+        dispatch(addThingsToBuy(data));
+        return null;
     } else if (res.status < 500) {
         const data = await res.json();
-        console.log("******", data)
         if (data.errors) {
             return data.errors;
         }
     } else {
         return "An error occurred. Please try again.";
     };
-
-}
+};
 
 const to_obj = (array) => {
     const newObj = {};
@@ -44,7 +42,7 @@ const to_obj = (array) => {
     });
 
     return newObj;
-}
+};
 
 
 const initialState = {};
@@ -57,6 +55,12 @@ const groceryListReducer = (state = initialState, action) => {
                 ...state,
                 ...groceryList
             };
+        case ADD_GROCERY_LIST:
+            const added = to_obj(action.listItems)
+            return {
+                ...state,
+                ...added
+            }
         default:
             return state;
     }

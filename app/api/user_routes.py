@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import login_required
 from app.awsS3 import upload_base64_to_s3
 from app.models import db, User, Recipe, Instruction, Ingredient
@@ -99,11 +99,13 @@ def add_groceries(id):
     user = User.query.get(id)
 
     item_ids = request.get_json()
+    added_items = []
     for idx in item_ids:
         item = Ingredient.query.get(idx)
         user.ingredients_to_buy.append(item)
+        added_items.append(item.to_dict())
 
     db.session.add(user)
     db.session.commit()
 
-    return user.to_dict()
+    return jsonify(added_items)

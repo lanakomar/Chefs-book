@@ -23,22 +23,21 @@ const SingleRecipePage = () => {
     const recipe = useSelector(state => state.singleRecipe);
     const cur_user = useSelector(state => state.session.user);
     const groceries  = useSelector(state => state.groceryList);
-
-
-    const isInGL = () => {
-        const inGL = Object.keys(groceries);
-        if (inGL.includes(recipeId)) {
-            setAdded(true);
-        }
-    };
+    const inGL = Object.keys(groceries);
 
     useEffect(() => {
         async function fetchData() {
             await dispatch(viewRecipe(recipeId))
         };
+
         fetchData();
-        isInGL();
     }, [dispatch, recipeId])
+
+    useEffect(() => {
+        if (inGL.includes(recipeId)) {
+            setAdded(true);
+        }
+    }, [])
 
     const measurements = {
         14: "",
@@ -140,6 +139,7 @@ const SingleRecipePage = () => {
         e.preventDefault();
         const ingrIds = ingredients.map(ingr => ingr.id)
         await dispatch(addToGroceryList(ingrIds, cur_user.id));
+        setAdded(true);
     };
 
     const addedToGL = (
