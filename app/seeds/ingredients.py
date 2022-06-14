@@ -1,157 +1,170 @@
-from app.models import db, Ingredient
-
+from app.models import db, Ingredient, User
 
 def seed_ingredients():
+    user_1 = User.query.get(1)
+    user_2 = User.query.get(2)
+    user_3 = User.query.get(3)
+    user_4 = User.query.get(4)
+    user_5 = User.query.get(5)
+    user_6 = User.query.get(6)
+    user_7 = User.query.get(7)
+    user_8 = User.query.get(8)
+    user_9 = User.query.get(9)
+    user_10 = User.query.get(10)
+    user_11 = User.query.get(11)
+    user_12 = User.query.get(12)
+    user_13 = User.query.get(13)
+
     crab_cheddar_quiche_1 = Ingredient(
         amount=1, food_item='(9 inch) unbaked pie crust',\
-        measurement_unit_id=14, recipe_id=1
+        measurement_unit_id=14, recipe_id=1, shoppers = [user_1]
     )
 
     crab_cheddar_quiche_2 = Ingredient(
-        amount=3, food_item='eggs', measurement_unit_id=14, recipe_id=1
+        amount=3, food_item='eggs', measurement_unit_id=14, recipe_id=1, shoppers = [user_1]
     )
 
     crab_cheddar_quiche_3 = Ingredient(
-        amount=0.5, food_item='mayonnaise', measurement_unit_id=1, recipe_id=1
+        amount=0.5, food_item='mayonnaise', measurement_unit_id=1, recipe_id=1, shoppers = [user_1]
     )
 
     crab_cheddar_quiche_4 = Ingredient(
-            amount=0.5, food_item='whole milk', measurement_unit_id=1, recipe_id=1
+            amount=0.5, food_item='whole milk', measurement_unit_id=1, recipe_id=1, shoppers = [user_1]
         )
 
     crab_cheddar_quiche_5 = Ingredient(
-            amount=2, food_item='all-purpose flour', measurement_unit_id=12, recipe_id=1
+            amount=2, food_item='all-purpose flour', measurement_unit_id=12, recipe_id=1, shoppers = [user_1]
         )
 
     crab_cheddar_quiche_6 = Ingredient(
-            amount=1, food_item='seafood seasoning', measurement_unit_id=13, recipe_id=1
+            amount=1, food_item='seafood seasoning', measurement_unit_id=13, recipe_id=1, shoppers = [user_1]
         )
 
     crab_cheddar_quiche_7 = Ingredient(
-            amount=1, food_item='shredded Cheddar cheese', measurement_unit_id=1, recipe_id=1
+            amount=1, food_item='shredded Cheddar cheese', measurement_unit_id=1, recipe_id=1, shoppers = [user_1]
         )
 
     crab_cheddar_quiche_8 = Ingredient(
-            amount=0.5, food_item='chopped fresh parsley', measurement_unit_id=1, recipe_id=1
+            amount=0.5, food_item='chopped fresh parsley', measurement_unit_id=1, recipe_id=1, shoppers = [user_1]
         )
 
     crab_cheddar_quiche_9 = Ingredient(
-            amount=1, food_item='crabmeat', measurement_unit_id=1, recipe_id=1
+            amount=1, food_item='crabmeat', measurement_unit_id=1, recipe_id=1, shoppers = [user_1]
         )
 
     crab_cheddar_quiche_10 = Ingredient(
-            amount=1, food_item='seafood seasoning', measurement_unit_id=8, recipe_id=1
+            amount=1, food_item='seafood seasoning', measurement_unit_id=8, recipe_id=1, shoppers = [user_1]
         )
 
     autumn_cheesecake_1 = Ingredient(
-            amount=1, food_item='graham cracker crumbs', measurement_unit_id=1, recipe_id=2
+            amount=1, food_item='graham cracker crumbs', measurement_unit_id=1, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_2 = Ingredient(
-            amount=0.5, food_item='finely chopped pecans', measurement_unit_id=1, recipe_id=2
+            amount=0.5, food_item='finely chopped pecans', measurement_unit_id=1, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_3 = Ingredient(
-            amount=3, food_item='white sugar', measurement_unit_id=12, recipe_id=2
+            amount=3, food_item='white sugar', measurement_unit_id=12, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_4 = Ingredient(
-            amount=0.5, food_item='ground cinnamon', measurement_unit_id=13, recipe_id=2
+            amount=0.5, food_item='ground cinnamon', measurement_unit_id=13, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_5 = Ingredient(
-            amount=0.25, food_item='unsalted butter, melted', measurement_unit_id=1, recipe_id=2
+            amount=0.25, food_item='unsalted butter, melted', measurement_unit_id=1, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_6 = Ingredient(
-            amount=16, food_item='cream cheese, softened', measurement_unit_id=7, recipe_id=2
+            amount=16, food_item='cream cheese, softened', measurement_unit_id=7, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_7 = Ingredient(
-            amount=0.5, food_item='white sugar', measurement_unit_id=1, recipe_id=2
+            amount=0.5, food_item='white sugar', measurement_unit_id=1, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_8 = Ingredient(
-            amount=2, food_item='eggs', measurement_unit_id=14, recipe_id=2
+            amount=2, food_item='eggs', measurement_unit_id=14, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_9 = Ingredient(
-            amount=0.5, food_item='vanilla extract', measurement_unit_id=13, recipe_id=2
+            amount=0.5, food_item='vanilla extract', measurement_unit_id=13, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_10 = Ingredient(
-            amount=4, food_item='apples - peeled, cored and thinly sliced', measurement_unit_id=1, recipe_id=2
+            amount=4, food_item='apples - peeled, cored and thinly sliced', measurement_unit_id=1, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_11 = Ingredient(
-            amount=0.3, food_item='white sugar', measurement_unit_id=1, recipe_id=2
+            amount=0.3, food_item='white sugar', measurement_unit_id=1, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_12 = Ingredient(
-            amount=0.5, food_item='ground cinnamon', measurement_unit_id=13, recipe_id=2
+            amount=0.5, food_item='ground cinnamon', measurement_unit_id=13, recipe_id=2, shoppers = [user_13]
         )
 
     autumn_cheesecake_13 = Ingredient(
-            amount=0.25, food_item='chopped pecans', measurement_unit_id=1, recipe_id=2
+            amount=0.25, food_item='chopped pecans', measurement_unit_id=1, recipe_id=2, shoppers = [user_13]
         )
 
     db.session.add_all([
         Ingredient(
-            amount=4, food_item='(1/2 pounds) rib-eye steaks, or steak of choice', measurement_unit_id=14, recipe_id=3
+            amount=4, food_item='(1/2 pounds) rib-eye steaks, or steak of choice', measurement_unit_id=14, recipe_id=3, shoppers = [user_11]
         ),
         Ingredient(
-            amount=2, food_item='sea salt', measurement_unit_id=12, recipe_id=3
+            amount=2, food_item='sea salt', measurement_unit_id=12, recipe_id=3, shoppers = [user_11]
         ),
         Ingredient(
-            amount=2, food_item='lemon pepper', measurement_unit_id=12, recipe_id=3
+            amount=2, food_item='lemon pepper', measurement_unit_id=12, recipe_id=3, shoppers = [user_11]
         ),
         Ingredient(
-            amount=2, food_item='(12 fluid ounces) beer of choice', measurement_unit_id=15, recipe_id=3
+            amount=2, food_item='(12 fluid ounces) beer of choice', measurement_unit_id=15, recipe_id=3, shoppers = [user_11]
         )
     ])
 
     db.session.add_all([
         Ingredient(
-            amount=1, food_item='cubed seeded watermelon', measurement_unit_id=1, recipe_id=4
+            amount=1, food_item='cubed seeded watermelon', measurement_unit_id=1, recipe_id=4, shoppers = [user_12]
         ),
         Ingredient(
-            amount=1.25, food_item='water', measurement_unit_id=1, recipe_id=4
+            amount=1.25, food_item='water', measurement_unit_id=1, recipe_id=4, shoppers = [user_12]
         ),
         Ingredient(
-            amount=3, food_item='sweetened strawberry lemonade drink mix', measurement_unit_id=12, recipe_id=4
+            amount=3, food_item='sweetened strawberry lemonade drink mix', measurement_unit_id=12, recipe_id=4, shoppers = [user_12]
         ),
     ])
 
     db.session.add_all([
         Ingredient(
-            amount=0.5, food_item='panko bread crumbs', measurement_unit_id=1, recipe_id=5
+            amount=0.5, food_item='panko bread crumbs', measurement_unit_id=1, recipe_id=5, shoppers = [user_1]
         ),
         Ingredient(
-            amount=0.3, food_item='Parmesan cheese', measurement_unit_id=1, recipe_id=5
+            amount=0.3, food_item='Parmesan cheese', measurement_unit_id=1, recipe_id=5, shoppers = [user_1]
         ),
         Ingredient(
-            amount=0.25, food_item='paprika', measurement_unit_id=13, recipe_id=5
+            amount=0.25, food_item='paprika', measurement_unit_id=13, recipe_id=5, shoppers = [user_1]
         ),
         Ingredient(
-            amount=0.25, food_item='salt', measurement_unit_id=13, recipe_id=5
+            amount=0.25, food_item='salt', measurement_unit_id=13, recipe_id=5, shoppers = [user_1]
         ),
         Ingredient(
-            amount=0.25, food_item='ground black pepper', measurement_unit_id=13, recipe_id=5
+            amount=0.25, food_item='ground black pepper', measurement_unit_id=13, recipe_id=5, shoppers = [user_1]
         ),
         Ingredient(
-            amount=3, food_item='melted butter', measurement_unit_id=12, recipe_id=5
+            amount=3, food_item='melted butter', measurement_unit_id=12, recipe_id=5, shoppers = [user_1]
         ),
         Ingredient(
-            amount=2, food_item='white wine (Optional)', measurement_unit_id=13, recipe_id=5
+            amount=2, food_item='white wine (Optional)', measurement_unit_id=13, recipe_id=5, shoppers = [user_1]
         ),
         Ingredient(
-            amount=1, food_item='Dijon mustard', measurement_unit_id=13, recipe_id=5
+            amount=1, food_item='Dijon mustard', measurement_unit_id=13, recipe_id=5, shoppers = [user_1]
         ),
         Ingredient(
-            amount=1, food_item='clove garlic, crushed', measurement_unit_id=14, recipe_id=5
+            amount=1, food_item='clove garlic, crushed', measurement_unit_id=14, recipe_id=5, shoppers = [user_1]
         ),
         Ingredient(
-            amount=4, food_item='skinless, boneless chicken breast halves, pounded to an even thickness', measurement_unit_id=14, recipe_id=5
+            amount=4, food_item='skinless, boneless chicken breast halves, pounded to an even thickness', measurement_unit_id=14, recipe_id=5, shoppers = [user_1]
         )
     ])
 
@@ -580,6 +593,7 @@ def seed_ingredients():
     #         amount=1, food_item='', measurement_unit_id=1, recipe_id=
     #     ),
     # ])
+
 
 
     db.session.add(crab_cheddar_quiche_1)

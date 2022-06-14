@@ -65,6 +65,22 @@
     padding-left: 40px;
 }
 
+.ingredients-container button.add-to-grocery-list {
+    padding: 10.5px 10px;
+    width: auto;
+    background-color: #fff;
+    border: 1px solid #222;
+    border-radius: 3px;
+    color: #222;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.ingredients-container button.add-to-grocery-list:hover {
+    background-color: #222;
+    color: #fff;
+}
+
 .cooking-instructions .instructions-container {
     width: 600px;
 }

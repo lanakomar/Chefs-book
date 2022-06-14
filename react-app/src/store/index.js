@@ -4,6 +4,7 @@ import session from './session';
 import recipeBox from './recipeBox';
 import recipes from './recipe';
 import singleRecipe from './singleRecipe';
+import groceryList from './groceryList';
 
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   recipeBox,
   recipes,
   singleRecipe,
+  groceryList
 });
 
 

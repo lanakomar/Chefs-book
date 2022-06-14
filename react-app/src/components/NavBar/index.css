@@ -58,6 +58,7 @@ nav {
 .links-loggedin .grocery-list-btn button:hover,
 .logout-btn:hover {
     color: #666;
+    cursor: pointer;
 }
 
 

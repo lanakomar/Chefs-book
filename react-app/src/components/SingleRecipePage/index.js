@@ -124,6 +124,10 @@ const SingleRecipePage = () => {
 
     };
 
+    const addToGroceryList = async (e) => {
+        e.preventDefault();
+    }
+
     return (
         <div className='single-recipe-container'>
             <div className='title-container'>
@@ -146,6 +150,12 @@ const SingleRecipePage = () => {
                                 {ingredient.amount} {measurements[ingredient.measurement_unit_id]} {ingredient.food_item}
                             </div>
                         ))}
+                        <button
+                            onClick={addToGroceryList}
+                            className='add-to-grocery-list'
+                        >
+                            Add to Your Grocery List
+                        </button>
                     </div>
                     <div className='instructions-container'>
                         <h4>Preparation</h4>

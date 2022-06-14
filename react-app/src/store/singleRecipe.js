@@ -29,10 +29,16 @@ export const viewRecipe = (recipeId) => async (dispatch) => {
         dispatch(setOnerRecipe(data));
         return null;
     } else if (res.status < 500) {
-        const data = await res.json();
-        if (data.errors) {
-            return data.errors;
+        if (res.status === 404) {
+            window.location='/404'
+        } else {
+            const data = await res.json();
+            if (data.errors) {
+                return data.errors;
+            }
+
         }
+
     } else {
         return "An error occurred. Please try again.";
     }

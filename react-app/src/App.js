@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { authenticate } from './store/session';
 import { setRecipeBox } from './store/recipeBox';
+import { setGroceryList } from './store/groceryList';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import User from './components/User';
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
 import RecipeBox from './components/RecipeBox';
@@ -30,11 +30,20 @@ function App() {
         const res = await fetch(`/api/users/${session.id}/recipes`);
         if (res.ok) {
           const data = await res.json();
-          dispatch(setRecipeBox(data));
+          await dispatch(setRecipeBox(data));
         }
       }
     })();
-  }, [dispatch, session])
+  }, [dispatch, session]);
+
+  useEffect(() => {
+    (async () => {
+      if (session) {
+          const groceryList = session.grocery_list;
+          dispatch(setGroceryList(groceryList));
+      }
+    })();
+  }, [dispatch, session]);
 
   if (!loaded) {
     return null;
@@ -50,18 +59,11 @@ function App() {
         <ProtectedRoute path='/recipe-box' exact={true} >
           <RecipeBox />
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
         <ProtectedRoute path='/recipes/:recipeId' exact={true}>
           <SingleRecipePage />
         </ProtectedRoute>
-        {/* <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute> */}
-        <ProtectedRoute loaded={loaded}>
-          <NotFound />
-        </ProtectedRoute>
+        <Route path="/404" component={NotFound} />
+        <Redirect to="/404" />
       </Switch>
     </BrowserRouter>
   );
