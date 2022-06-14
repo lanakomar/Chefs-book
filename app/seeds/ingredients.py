@@ -434,9 +434,152 @@ def seed_ingredients():
         )
     ])
 
-        # Ingredient(
-        #     amount=1, food_item='', measurement_unit_id=1, recipe_id=
-        # ),
+    db.session.add_all([
+        Ingredient(
+            amount=1, food_item='medium onion, any kind (except sweet), coarsely chopped ', measurement_unit_id=14, recipe_id=16
+        ),
+        Ingredient(
+            amount=4, food_item='ground beef', measurement_unit_id=7, recipe_id=16
+        ),
+        Ingredient(
+            amount=4, food_item='ground pork', measurement_unit_id=7, recipe_id=16
+        ),
+        Ingredient(
+            amount=2, food_item='coarsely ground black pepper', measurement_unit_id=13, recipe_id=16
+        ),
+        Ingredient(
+            amount=1.5, food_item='salt', measurement_unit_id=13, recipe_id=16
+        ),
+        Ingredient(
+            amount=8, food_item='plain kefir, plus more as needed', measurement_unit_id=7, recipe_id=16
+        ),
+        Ingredient(
+            amount=4, food_item='all-purpose flour, plus more for dusting (if needed)', measurement_unit_id=1, recipe_id=16
+        ),
+        Ingredient(
+            amount=1, food_item='fine salt', measurement_unit_id=13, recipe_id=16
+        ),
+        Ingredient(
+            amount=1, food_item='plus 1 tablespoon cold water', measurement_unit_id=1, recipe_id=16
+        ),
+        Ingredient(
+            amount=8, food_item='Peanut oil or refined sunflower oil, for frying', measurement_unit_id=1, recipe_id=16
+        ),
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=4, food_item='(8-ounce) center-cut pork chops, about 1/2-inch thick', measurement_unit_id=14, recipe_id=17
+        ),
+        Ingredient(
+            amount=1, food_item='salt', measurement_unit_id=8, recipe_id=17
+        ),
+        Ingredient(
+            amount=1, food_item='black pepper', measurement_unit_id=8, recipe_id=17
+        ),
+        Ingredient(
+            amount=2, food_item='eggs, beaten', measurement_unit_id=14, recipe_id=17
+        ),
+        Ingredient(
+            amount=0.5, food_item='milk', measurement_unit_id=1, recipe_id=17
+        ),
+        Ingredient(
+            amount=1, food_item='cayenne powder', measurement_unit_id=8, recipe_id=17
+        ),
+        Ingredient(
+            amount=3, food_item='fresh bread crumbs (from 8 slices crustless day-old sandwich bread)', measurement_unit_id=1, recipe_id=17
+        ),
+        Ingredient(
+            amount=1, food_item='clarified butter, extra-virgin olive oil or lard, plus more as needed', measurement_unit_id=1, recipe_id=17
+        ),
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=1, food_item='large egg', measurement_unit_id=14, recipe_id=18
+        ),
+        Ingredient(
+            amount=1, food_item='egg yolk', measurement_unit_id=14, recipe_id=18
+        ),
+        Ingredient(
+            amount=2.5, food_item='baking powder', measurement_unit_id=12, recipe_id=18
+        ),
+        Ingredient(
+            amount=2, food_item='granulated sugar', measurement_unit_id=12, recipe_id=18
+        ),
+        Ingredient(
+            amount=1, food_item='salt', measurement_unit_id=13, recipe_id=18
+        ),
+        Ingredient(
+            amount=1.25, food_item='whole milk', measurement_unit_id=1, recipe_id=18
+        ),
+        Ingredient(
+            amount=1, food_item='all-purpose flour', measurement_unit_id=1, recipe_id=18
+        ),
+        Ingredient(
+            amount=1, food_item='plus 2 tablespoons clarified butter (or store-bought), melted', measurement_unit_id=1, recipe_id=18
+        ),
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=1.5, food_item='zucchini, thinly sliced', measurement_unit_id=10, recipe_id=19
+        ),
+        Ingredient(
+            amount=4, food_item='eggs', measurement_unit_id=14, recipe_id=19
+        ),
+        Ingredient(
+            amount=2.5, food_item='milk or half-and-half', measurement_unit_id=1, recipe_id=19
+        ),
+        Ingredient(
+            amount=1, food_item='grated nutmeg', measurement_unit_id=8, recipe_id=19
+        ),
+        Ingredient(
+            amount=1, food_item='chopped thyme', measurement_unit_id=13, recipe_id=19
+        ),
+        Ingredient(
+            amount=2, food_item='butter for greasing baking dish', measurement_unit_id=12, recipe_id=19
+        ),
+        Ingredient(
+            amount=2, food_item='grated cheese, such as Gruyère or Cheddar', measurement_unit_id=7, recipe_id=19
+        ),
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=6, food_item='large egg whites, room temperature', measurement_unit_id=14, recipe_id=20
+        ),
+        Ingredient(
+            amount=1.5, food_item='granulated sugar', measurement_unit_id=1, recipe_id=20
+        ),
+        Ingredient(
+            amount=2, food_item='corn starch', measurement_unit_id=13, recipe_id=20
+        ),
+        Ingredient(
+            amount=0.5, food_item='lemon juice', measurement_unit_id=12, recipe_id=20
+        ),
+        Ingredient(
+            amount=0.5, food_item='vanilla extract', measurement_unit_id=12, recipe_id=20
+        ),
+        Ingredient(
+            amount=1.5, food_item='heavy whipping cream, (very cold)', measurement_unit_id=1, recipe_id=20
+        ),
+        Ingredient(
+            amount=2, food_item='granulated sugar', measurement_unit_id=12, recipe_id=20
+        ),
+        Ingredient(
+            amount=5, food_item='fresh fruit, blueberries, kiwi, raspberries, sliced strawberries, etc', measurement_unit_id=1, recipe_id=20
+        ),
+        Ingredient(
+            amount=15, food_item='Mint leaves , for garnish, optional', measurement_unit_id=14, recipe_id=20
+        ),
+    ])
+
+    # db.session.add_all([
+    #     Ingredient(
+    #         amount=1, food_item='', measurement_unit_id=1, recipe_id=
+    #     ),
+    # ])
 
 
     db.session.add(crab_cheddar_quiche_1)

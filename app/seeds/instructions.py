@@ -244,6 +244,141 @@ def seed_instructions():
     ),
 ])
 
+    db.session.add_all([
+    Instruction(
+        specification="Make the meat filling: Place the chopped onion in a food processor and process until it is very fine and has started to release moisture. Transfer the onion to a large bowl. Add the beef, pork, black pepper and salt, and mix very well. Gradually add kefir to the mixture and mix it into the meat using a spoon. The consistency should be pourable and almost soupy, not stiff. If necessary, add more kefir, 1 tablespoon at a time, to achieve the desired consistency. Cover mixture and place it in the refrigerator to chill for 1 hour.",\
+        list_order=1, recipe_id=16
+    ),
+    Instruction(
+        specification="Make the dough: Place 3 cups of the flour in a large bowl. Add the fine salt and mix with a fork. Add the water and mix until combined. Sprinkle a work surface with some of the remaining flour and knead in the rest of the flour little by little (you may not need all of it), until the dough is pliable and not sticky, about 15 minutes. (The dough should spring back when you make a slight indent with your finger.) Shape the dough into a ball, place in a bowl, cover tightly with plastic wrap and let rest for at least 1 hour.",\
+        list_order=2, recipe_id=16
+    ),
+    Instruction(
+        specification="Set up your frying station: Pour 2 inches of oil into a wok or a Dutch oven. Line a sheet pan with a wire rack and some paper towels to absorb any excess oil from the finished chebureki. Heat the oil over medium-high until the temperature reaches between 350 and 375 degrees.",\
+        list_order=3, recipe_id=16
+    ),
+    Instruction(
+        specification="Divide the rested dough into 12 pieces and roll them into balls. (The dough should be pliable and shouldn’t need much flour.) Flatten the pieces into disks and cover with plastic wrap so they don’t dry out. Working with one piece at a time, lightly dust the counter with flour and roll out the dough into a very thin round about 8 inches in diameter. (You should be able to read text through the dough.)",\
+        list_order=4, recipe_id=16
+    ),
+    Instruction(
+        specification="Place 3 level tablespoons of filling on one side of the round and spread it into a thin half-moon, leaving a 1-inch border around the filling. Make sure not to add too much filling! Overfilling increases the risk of leakage during frying.",\
+        list_order=5, recipe_id=16
+    ),
+    Instruction(
+        specification="Fill a small bowl with water, and using your finger, dampen the edges of the whole round to help seal the cheburek. Fold the dough over the side with the filling, trying to make sure there are no air bubbles between the filling and the dough to help decrease the chance of bursting. Press the edges to seal tightly, then seal them completely with a fork. Use a pasta wheel or paring knife to trim off any uneven edges, if you like.",\
+        list_order=6, recipe_id=16
+    ),
+    Instruction(
+        specification="Once the oil is at 350 degrees, carefully lower the shaped cheburek into the oil and fry until the dough is golden brown and bubbly, about 2 minutes per side. Using tongs or a large slotted spatula, transfer the fried cheburek to the rack. Repeat shaping, filling and frying with the remaining dough and filling.",\
+        list_order=7, recipe_id=16
+    ),
+    Instruction(
+        specification="Let the cheburek cool slightly, then dig in! These are best eaten hot. Enjoy with a glass of ryazhanka or kefir.",\
+        list_order=8, recipe_id=16
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Lay pork chops on a baking sheet, and season well on both sides with salt and pepper.",\
+        list_order=1, recipe_id=17
+    ),
+    Instruction(
+        specification="Combine eggs and milk in a low, flat bowl. Season with salt, pepper and the small pinch of cayenne.",\
+        list_order=2, recipe_id=17
+    ),
+    Instruction(
+        specification="Sprinkle flour generously over the chops on both sides, then shake off excess.",\
+        list_order=3, recipe_id=17
+    ),
+    Instruction(
+        specification="Submerge the floured chops in the egg mixture, and turn them over several times to coat well. Leave chops in egg mixture for 5 minutes.",\
+        list_order=4, recipe_id=17
+    ),
+    Instruction(
+        specification="Use your left hand to remove a chop from the batter and drain off excess liquid. Place chop on a baking sheet and, with your right hand, heavily sprinkle with bread crumbs on both sides. Repeat with remaining chops.",\
+        list_order=5, recipe_id=17
+    ),
+    Instruction(
+        specification="Sprinkle each chop again with crumbs, patting with your hand to make sure crumbs adhere and coat well. Refrigerate, uncovered, until ready to fry.",\
+        list_order=6, recipe_id=17
+    ),
+    Instruction(
+        specification="Set a wide cast-iron or other heavy skillet over medium-high heat. Add clarified butter to a depth of 1/2 inch. When butter is hot, lay in the chops without crowding, and let them fry very gently, about 4 to 5 minutes per side, until beautifully golden brown. (Turn down heat if they seem to be browning too fast.) If your pan is small, cook in 2 batches and keep finished chops warm in a 250-degree oven.",\
+        list_order=7, recipe_id=17
+    ),
+    Instruction(
+        specification="Blot cooked chops on paper towels. Transfer to a warm platter or individual plates. Serve with lemon wedges.",\
+        list_order=8, recipe_id=17
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Whisk egg and yolk together in a medium bowl. Add baking powder, sugar and salt; whisk until smooth and fluffy. Pour in half the milk, then half the flour. Using a wooden spoon, stir to combine. Add the remaining milk and flour plus 2 tablespoons clarified butter and stir briefly just until batter comes together but is still somewhat lumpy.",\
+        list_order=1, recipe_id=18
+    ),
+    Instruction(
+        specification="Heat a large 12-inch cast-iron skillet or griddle over medium-high for at least 5 minutes. Pour about 1/4 cup clarified butter into the pan. When the surface of the clarified butter starts to shimmer, ladle about 1/3 cup of the batter into the skillet for each pancake, leaving a couple of inches between each pancake. Add more clarified butter as pancakes cook to keep about 1/8 inch of fat in the bottom of the pan at all times.",\
+        list_order=2, recipe_id=18
+    ),
+    Instruction(
+        specification="Cook until the top of the pancake starts to bubble and edges turn browned and crisp, 2 to 3 minutes. Use a spatula to flip each pancake. The cooked surface should be very crispy, with a dark ring around the edge. Cook until the second side is browned and crisp, 2 to 3 minutes. Repeat to cook the remaining pancakes, adding more clarified butter as needed.",\
+        list_order=3, recipe_id=18
+    ),
+    Instruction(
+        specification="Serve immediately with pats of salted butter, if desired, and maple syrup. If making a large batch, cooked pancakes can be kept warm on a wire rack set in a rimmed metal baking sheet in a 300-degree oven.",\
+        list_order=4, recipe_id=18
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Heat oven to 375. Bring a large pot of salted water to boil. Add zucchini and blanch for 1 minute. Drain and spread zucchini out to cool on a towel. Season lightly with salt and pepper.",\
+        list_order=1, recipe_id=19
+    ),
+    Instruction(
+        specification="Beat eggs and milk with 1/2 teaspoon salt, then add nutmeg, thyme and basil leaves.",\
+        list_order=2, recipe_id=19
+    ),
+    Instruction(
+        specification="Butter a 2-quart low-sided baking dish, and arrange blanched zucchini over bottom. Scatter cheese over zucchini, then pour in custard.",\
+        list_order=3, recipe_id=19
+    ),
+    Instruction(
+        specification="Bake for 30 minutes or until custard is still a bit jiggly, but an inserted knife comes out clean. Cool to room temperature before serving.",\
+        list_order=4, recipe_id=19
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Preheat the Oven to 225˚F. Line a large baking sheet with parchment paper. Using your stand mixer, beat 6 egg whites on high speed 1 min until soft peaks form. With the mixer on, gradually add 1 1/2 cups sugar and beat 10 min on high speed, or until stiff peaks form. It will be smooth and glossy.",\
+        list_order=1, recipe_id=20
+    ),
+    Instruction(
+        specification="Use a spatula to quickly fold in 1/2 Tbsp lemon juice and 1/2 Tbsp vanilla extract, then fold in 2 tsp corn starch and mix until well blended.",\
+        list_order=2, recipe_id=20
+    ),
+    Instruction(
+        specification="Pipe meringue into 3 to 3 1/2 inches wide nests onto the parchment paper using a Wilton 1M Tip. Indent the center with a spoon to allow room for cream. Bake at 225˚ for 1 hr and 15 min then turn the oven off and without opening the door, let meringue in the hot oven another 30 min. Outsides will be dry and crisp to the tap and very pale cream-colored and insides will still be marshmallow soft.",\
+        list_order=3, recipe_id=20
+    ),
+    Instruction(
+        specification="Transfer the pavlova with the parchment paper onto the counter or a cookie rack and allow it to cool to room temp. Once cool, you can top them with whipped cream and fruit or store in an airtight container for 3-5 days at room temperature (in a low humidity place).",\
+        list_order=4, recipe_id=20
+    ),
+    Instruction(
+        specification="Beat cold whipping cream with 2 Tbsp sugar in the cold bowl for 2 to 2 1/2 minutes or until whipped and spreadable.",\
+        list_order=5, recipe_id=20
+    ),
+    Instruction(
+        specification="Pipe frosting onto the pavlova and top with fresh fruit.",\
+        list_order=6, recipe_id=20
+    ),
+])
+
 #     db.session.add_all([
 #     Instruction(
 #         specification="",\
