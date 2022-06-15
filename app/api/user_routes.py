@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template, request
+from flask import Blueprint, request, jsonify
 from flask_login import login_required
 from app.awsS3 import upload_base64_to_s3
 from app.models import db, User, Recipe, Instruction, Ingredient
@@ -17,13 +17,6 @@ def validation_errors_to_error_messages(validation_errors):
         for error in validation_errors[field]:
             errorMessages.append(f'{field} : {error}')
     return errorMessages
-
-
-# @user_routes.route('/')
-# @login_required
-# def users():
-#     users = User.query.all()
-#     return {'users': [user.to_dict() for user in users]}
 
 
 @user_routes.route('/<int:id>')
@@ -87,3 +80,44 @@ def create_recipe(id):
         return recipe.to_dict()
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+
+@user_routes.route('/<int:id>/groceries', methods=["POST"])
+@login_required
+def add_groceries(id):
+    '''
+    Adds items to user's Grocery List
+    '''
+    user = User.query.get(id)
+
+    item_ids = request.get_json()
+    added_items = []
+    for idx in item_ids:
+        item = Ingredient.query.get(idx)
+        user.ingredients_to_buy.append(item)
+        added_items.append(item.to_dict())
+
+    db.session.add(user)
+    db.session.commit()
+
+    return jsonify(added_items)
+
+
+@user_routes.route('/<int:id>/groceries', methods=["DELETE"])
+@login_required
+def delete_grocery_items(id):
+    '''
+    Deletes items from user's Grocery List
+    '''
+
+    user = User.query.get(id)
+
+    item_ids = request.get_json()
+    for idx in item_ids:
+        item = Ingredient.query.get(idx)
+        user.ingredients_to_buy.remove(item)
+
+    db.session.commit()
+
+    return {'message': "success"}

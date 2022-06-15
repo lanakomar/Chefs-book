@@ -6,6 +6,7 @@ import ErrorMessage from '../ErrorMessage';
 import DeleteNoteModal from '../DeleteNoteModal';
 import { viewRecipe } from '../../store/singleRecipe';
 import { addNote, editNote } from '../../store/singleRecipe';
+import { addToGroceryList } from '../../store/groceryList';
 import './index.css'
 
 const SingleRecipePage = () => {
@@ -14,19 +15,30 @@ const SingleRecipePage = () => {
     const [errorMessages, setErrorMessages] = useState({});
     const [isEdit, setIsEdit] = useState(false);
     const [editId, setEditId] = useState();
+    const [added, setAdded] = useState(false);
 
     const inputRef = useRef();
 
     const dispatch = useDispatch();
     const recipe = useSelector(state => state.singleRecipe);
-    const cur_user = useSelector(state => state.session.user)
+    const cur_user = useSelector(state => state.session.user);
+    const groceries  = useSelector(state => state.groceryList);
 
     useEffect(() => {
         async function fetchData() {
             await dispatch(viewRecipe(recipeId))
         };
-        fetchData()
+
+        fetchData();
     }, [dispatch, recipeId])
+
+    useEffect(() => {
+        if (Object.keys(groceries).includes(recipeId)) {
+            setAdded(true);
+        } else {
+            setAdded(false);
+        }
+    }, [groceries, recipeId])
 
     const measurements = {
         14: "",
@@ -124,6 +136,30 @@ const SingleRecipePage = () => {
 
     };
 
+    const addToGL = async (e) => {
+        e.preventDefault();
+        const ingrIds = ingredients.map(ingr => ingr.id)
+        await dispatch(addToGroceryList(ingrIds, cur_user.id));
+        setAdded(true);
+    };
+
+    const addedToGL = (
+        <div className='added-to-list'>
+            <i className="fa-solid fa-check"/>
+            In the Grocery List
+        </div>
+    );
+
+    const addButton = (
+        <button
+            onClick={addToGL}
+            className='add-to-grocery-list'
+        >
+            Add to Your Grocery List
+        </button>
+    );
+
+
     return (
         <div className='single-recipe-container'>
             <div className='title-container'>
@@ -146,6 +182,7 @@ const SingleRecipePage = () => {
                                 {ingredient.amount} {measurements[ingredient.measurement_unit_id]} {ingredient.food_item}
                             </div>
                         ))}
+                        { added ? addedToGL : addButton }
                     </div>
                     <div className='instructions-container'>
                         <h4>Preparation</h4>
