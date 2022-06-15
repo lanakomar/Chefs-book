@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { setAllRecipes } from '../../store/recipe';
 import { Modal } from '../../context/Modal';
@@ -110,16 +110,16 @@ const HomePage = () => {
                         <h4>Personal Links:</h4>
                         <ul>
                             <li>
-                                <Link to="https://github.com/lanakomar">
+                                <a href="https://github.com/lanakomar">
                                     <i className="fa-brands fa-github-square fa-xl" />
                                     GitHub
-                                </Link>
+                                </a>
                             </li>
                             <li>
-                                <Link to="https://www.linkedin.com/in/lana-komar">
+                                <a href="https://www.linkedin.com/in/lana-komar">
                                     <i className="fa-brands fa-linkedin fa-xl" />
                                     LinkedIn
-                                </Link>
+                                </a>
                             </li>
                         </ul>
                     </div>
