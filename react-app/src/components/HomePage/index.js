@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import { setAllRecipes } from '../../store/recipe';
-import './index.css';
-
 import { Modal } from '../../context/Modal';
 import LoginForm from "../LoginFormModal/LoginForm";
+import './index.css';
+import docker from '../../images/technologies/docker.svg';
+import flask from '../../images/technologies/flask.svg';
+import github from '../../images/technologies/github.svg';
+import javascript from '../../images/technologies/javascript.svg';
+import nodejs from '../../images/technologies/nodejs.svg';
+import python from '../../images/technologies/python.svg';
+import react from '../../images/technologies/react.svg';
+import redux from '../../images/technologies/redux.svg';
+import sqlalchemy from '../../images/technologies/sqlalchemy.svg';
+import css from '../../images/technologies/css.svg';
+import postgresql from '../../images/technologies/postgresql.svg';
 
 
 const HomePage = () => {
@@ -87,6 +97,70 @@ const HomePage = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+            </div>
+            <div className='footer-wrapper'>
+                <div className='footer'>
+                    <div className='about-developer'>
+                        <h4>About Developer:</h4>
+                        <p className='name'>Lana Komar</p>
+                        <p>Love to create beautiul things from scratch.</p>
+                    </div>
+                    <div className='personal-links'>
+                        <h4>Personal Links:</h4>
+                        <ul>
+                            <li>
+                                <Link to="https://github.com/lanakomar">
+                                    <i className="fa-brands fa-github-square fa-xl" />
+                                    GitHub
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="https://www.linkedin.com/in/lana-komar">
+                                    <i className="fa-brands fa-linkedin fa-xl" />
+                                    LinkedIn
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className='technologies'>
+                        <h4>Technologies: </h4>
+                        <ul>
+                            <li><div><img src={postgresql} alt="postgresql" /></div>
+                                <span>postgresql</span>
+                            </li>
+                            <li><div><img src={python} alt="python" /></div>
+                                <span>python</span>
+                            </li>
+                            <li><div><img src={sqlalchemy} alt="sqlalchemy" /></div>
+                                <span>sqlalchemy</span>
+                            </li>
+                            <li><div><img src={flask} alt="flask" /></div>
+                                <span>flask</span>
+                            </li>
+                            <li><div><img src={redux} alt="redux" /></div>
+                                <span>redux</span>
+                            </li>
+                            <li><div><img src={react} alt="react" /></div>
+                                <span>react</span>
+                            </li>
+                            <li><div><img src={nodejs} alt="nodejs" /></div>
+                                <span>nodejs</span>
+                            </li>
+                            <li><div><img src={javascript} alt="javascript" /></div>
+                                <span>javascript</span>
+                            </li>
+                            <li><div><img src={css} alt="css3" /></div>
+                                <span>css3</span>
+                            </li>
+                            <li><div><img src={github} alt="github" /></div>
+                                <span>github</span>
+                            </li>
+                            <li><div><img src={docker} alt="docker" /></div>
+                                <span>docker</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
