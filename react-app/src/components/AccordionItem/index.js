@@ -1,13 +1,17 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { deleteItemsFromGL } from '../../store/groceryList';
+import { deleteItemsFromGL, deleteItemFromGL } from '../../store/groceryList';
+import EmptyGroceryList from '../EmptyGroceryList';
 
 
-const AccordionItem = ({ recipeId, recipes, groceryList}) => {
+const AccordionItem = ({ recipeId, recipes, groceryList }) => {
 
     const [clicked, setClicked] = useState(false);
+    const [deletedIngr, setDeletedIngr] = useState([]);
     const contentEl = useRef();
+
+    const recipeIngrs = Object.keys(recipes[recipeId].ingredients);
 
     const handleToggle = () => {
         setClicked((prev) => !prev);
@@ -42,40 +46,53 @@ const AccordionItem = ({ recipeId, recipes, groceryList}) => {
         const recipeGL = groceryList[e.target.id]
         const ingrsIdToDelete = Object.keys(recipeGL);
         await dispatch(deleteItemsFromGL(ingrsIdToDelete, user.id, recipeId))
+    };
+
+    const handleItemDelete = async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const itemToDelete = [e.target.id];
+        const res = await dispatch(deleteItemFromGL(itemToDelete, user.id, recipeId))
+        if (!res) {
+            setDeletedIngr([...deletedIngr, itemToDelete]);
+        }
     }
 
     return (
-        <>
-            <div className='recipe-part'>
-                <div className='title' onClick={handleToggle}>
-                    <i className={clicked ? "fa-solid fa-chevron-right rotate": "fa-solid fa-chevron-right" } />
-                    <div>{recipes[recipeId].title}</div>
-                </div>
-                <button
-                    id={recipeId}
-                    className="remove-all-ingr"
-                    onClick={handleRemoveRecipe}
-                >
-                    Remove
-                </button>
-            </div>
-            <ul ref={contentEl}
-                style={
-                    clicked
-                        ? { height: contentEl.current.scrollHeight }
-                        : { height: "0px" }
-                }>
-                {Object.values(groceryList[recipeId]).map(ingr => (
-                    <li key={ingr.id} className='ingredient'>
-                        <div>{ingr.amount} {measurements[ingr.measurement_unit_id]} {ingr.food_item}</div>
-                        <div><i className="fa-solid fa-xmark"
-                            id={ingr.id}
-                        // onClick={handleItemDelete}
-                        ></i></div>
-                    </li>
-                ))}
-            </ul>
-        </>
+        (<>
+            {(recipeIngrs.length === deletedIngr.length) ? <EmptyGroceryList /> :
+                <li>
+                    <div className='recipe-part'>
+                        <div className='title' onClick={handleToggle}>
+                            <i className={clicked ? "fa-solid fa-chevron-right rotate" : "fa-solid fa-chevron-right"} />
+                            <div>{recipes[recipeId].title}</div>
+                        </div>
+                        <button
+                            id={recipeId}
+                            className="remove-all-ingr"
+                            onClick={handleRemoveRecipe}
+                        >
+                            Remove
+                        </button>
+                    </div>
+                    <ul ref={contentEl}
+                        style={
+                            clicked
+                                ? { height: contentEl.current.scrollHeight }
+                                : { height: "0px" }
+                        }>
+                        {Object.values(groceryList[recipeId]).map(ingr => (
+                            <li key={ingr.id} className='ingredient'>
+                                <div>{ingr.amount} {measurements[ingr.measurement_unit_id]} {ingr.food_item}</div>
+                                <div><i className="fa-solid fa-xmark"
+                                    id={ingr.id}
+                                    onClick={handleItemDelete}
+                                ></i></div>
+                            </li>
+                        ))}
+                    </ul>
+                </li>}
+        </>)
     )
 }
 

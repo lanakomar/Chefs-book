@@ -23,7 +23,6 @@ const SingleRecipePage = () => {
     const recipe = useSelector(state => state.singleRecipe);
     const cur_user = useSelector(state => state.session.user);
     const groceries  = useSelector(state => state.groceryList);
-    const inGL = Object.keys(groceries);
 
     useEffect(() => {
         async function fetchData() {
@@ -34,10 +33,12 @@ const SingleRecipePage = () => {
     }, [dispatch, recipeId])
 
     useEffect(() => {
-        if (inGL.includes(recipeId)) {
+        if (Object.keys(groceries).includes(recipeId)) {
             setAdded(true);
+        } else {
+            setAdded(false);
         }
-    }, [])
+    }, [groceries, recipeId])
 
     const measurements = {
         14: "",

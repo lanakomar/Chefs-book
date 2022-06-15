@@ -110,3 +110,31 @@
 .done:hover {
     box-shadow: 0 0 5px 2px rgb(158, 158, 158);
 }
+
+.emptyGL {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.empty-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.emptyGL h3 {
+    width: fit-content;
+    margin-bottom: 20px;
+    font-size: larger;
+}
+
+.emptyGL p {
+    margin: 0;
+    font-weight: normal;
+    text-transform: none;
+    font-size: 1em;
+}
