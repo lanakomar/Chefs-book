@@ -69,10 +69,10 @@ function App() {
         <Route path='/' exact={true}>
           <HomePage />
         </Route>
-        <ProtectedRoute path='/recipe-box' exact={true} >
+        <ProtectedRoute path='/recipe-box' exact={true} loaded={loaded}>
           <RecipeBox />
         </ProtectedRoute>
-        <ProtectedRoute path='/recipes/:recipeId' exact={true}>
+        <ProtectedRoute path='/recipes/:recipeId' exact={true} loaded={loaded}>
           <SingleRecipePage />
         </ProtectedRoute>
         <Route path="/404" component={NotFound} />

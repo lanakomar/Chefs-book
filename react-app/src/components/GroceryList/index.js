@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import GroceryList from "./GroceryList";
 import { Modal } from '../../context/Modal';
-// import './index.css'
 
 
 const GroceryListModal = () => {
