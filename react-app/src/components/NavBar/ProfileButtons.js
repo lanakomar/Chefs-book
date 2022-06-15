@@ -50,7 +50,7 @@ function ProfileButtons () {
                     className="dropdown-menu"
                 >
                     <ul onMouseLeave={closeMenu}>
-                        <li>Profile</li>
+                        {/* <li>Profile</li> */}
                         <li><LogoutButton /></li>
                     </ul>
                 </div>

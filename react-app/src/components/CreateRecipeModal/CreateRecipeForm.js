@@ -421,7 +421,7 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                         style={{ overflowY: (instructionsList.length > 2) ? "scroll" : "none" }}
                         className='added-instructions'>
                         {instructionsList.length ? instructionList() :
-                            <div>Add your instructions below...</div>
+                            <div>Add your instructions below</div>
                         }
                     </div>
                     <div className='instr-inputs'>

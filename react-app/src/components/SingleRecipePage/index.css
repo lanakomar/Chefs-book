@@ -204,3 +204,10 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+@media screen and (min-width: 2000px) {
+    .recipe-overview-container,
+    .notes {
+        width: 65%;
+    }
+}

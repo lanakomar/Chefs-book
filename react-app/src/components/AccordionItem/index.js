@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useStateIfMounted } from "use-state-if-mounted";
 
 import { deleteItemsFromGL, deleteItemFromGL } from '../../store/groceryList';
 import EmptyGroceryList from '../EmptyGroceryList';
@@ -8,7 +9,7 @@ import EmptyGroceryList from '../EmptyGroceryList';
 const AccordionItem = ({ recipeId, recipes, groceryList }) => {
 
     const [clicked, setClicked] = useState(false);
-    const [deletedIngr, setDeletedIngr] = useState([]);
+    const [deletedIngr, setDeletedIngr] = useStateIfMounted([]);
     const contentEl = useRef();
 
     const recipeIngrs = Object.keys(recipes[recipeId].ingredients);

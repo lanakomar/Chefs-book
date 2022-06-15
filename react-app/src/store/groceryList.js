@@ -71,7 +71,6 @@ export const deleteItemsFromGL = (payload, userId, recipeId) => async (dispatch)
 };
 
 export const deleteItemFromGL = (payload, userId, recipeId) => async (dispatch) => {
-    console.log(payload);
     const res = await fetch(`/api/users/${userId}/groceries`, {
         method: "DELETE",
         headers: {
