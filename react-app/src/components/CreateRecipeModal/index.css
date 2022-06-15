@@ -110,13 +110,6 @@
     cursor: pointer;
 }
 
-/* .new-recipe .ingredient-inputs, */
-/* .new-recipe .instr-inputs {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-top: 10px;
-} */
 
 .new-recipe .ingredient-inputs {
     display: grid;
@@ -184,6 +177,7 @@
                          "instr-er but";
     grid-template-columns: 356px 1fr;
     grid-template-rows: 1fr 1fr;
+    margin-top: 10px;
 }
 
 .instructions-form #instruction {
@@ -237,4 +231,18 @@
     margin-top: 15px;
     font-size: smaller;
     color: red;
+}
+
+
+.added-instructions ol {
+    height: 80px;
+    overflow-y: scroll;
+    margin: 0;
+}
+
+.added-instructions ol li {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-bottom: 5px;
 }

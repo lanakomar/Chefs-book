@@ -141,7 +141,9 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
             <ol>
                 {instructionsList.map((instruction, idx) => (
                     <li key={idx}>
-                        {instruction.specification}
+                        <div className='instr-text'>
+                            {instruction.list_order + 1}. {instruction.specification}
+                        </div>
                         <i className="fa-solid fa-xmark"
                             id={idx}
                             onClick={handleInstrDelete}
@@ -420,7 +422,6 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                 <div className='instructions-form'>
                     <div><h3>Instructions</h3></div>
                     <div
-                        style={{ overflowY: (instructionsList.length > 2) ? "scroll" : "none" }}
                         className='added-instructions'>
                         {instructionsList.length ? instructionList() :
                             <div>Add your instructions below</div>
