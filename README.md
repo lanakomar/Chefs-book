@@ -7,7 +7,7 @@
 <h4 align= "center" dir="auto">
   <a href="https://github.com/lanakomar/Chefs-book/wiki">» Explore the Wiki «</a>
 </h4>
-Chef's book is a food-focused web apllication inspired by [NYTCooking](https://cooking.nytimes.com/). The recipes on the website are posted by members of the Chef's Book community.  Members of the community can also customize theri owm Grocery list so they could easily shop for the required items for their next culinary adventure.
+Chef's book is a food-focused web apllication inspired by <a href="https://cooking.nytimes.com/">NYT Cooking</a>. The recipes on the website are posted by members of the Chef's Book community.  Members of the community can also customize theri owm Grocery list so they could easily shop for the required items for their next culinary adventure.
 
 # Technologies Used
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
@@ -26,15 +26,26 @@ Chef's book is a food-focused web apllication inspired by [NYTCooking](https://c
 ### Home Page
 Users can scroll through the existing recipes, as well as log into an existing account, sign up or test the site by clicking on the Demo User feature to explore the app.
 
+<img width="1271" alt="home" src="https://user-images.githubusercontent.com/97191078/173894672-507cc9d0-1e69-47de-bd73-ddc9c1161333.png">
+
+
 ### Navigation
 * The navigation bar is displayed on the top of the page and persists on each page.
 Once the user is logged in, they can open detailed description of every recipe, create their own recipes and store them in the recipe box.
 
+<img width="1509" alt="nav-anuth" src="https://user-images.githubusercontent.com/97191078/173894706-6ca6d385-78fc-4548-8157-17e2e35cec59.png">
+<img width="1533" alt="navigation" src="https://user-images.githubusercontent.com/97191078/173894929-0d830fa1-03c8-4256-a511-079ae4071de9.png">
+
 ### Notes
 * Notes section is displayed on the recipe page. Logged in user can easily read through the notes left by other members of the community, as well as create their own notes on every recipe.
+* 
+<img width="869" alt="single-rec-notes" src="https://user-images.githubusercontent.com/97191078/173895007-1621bf81-542f-4b74-b60b-c5e370175e8c.png">
 
 ### Grocery List
 * Logged in user can add recipe ingredients to their own grocery list. User can easily modify the existing list by removing separate items or delelting the required ingredients for the whole recipe.
+* 
+<img width="396" alt="empty-gl" src="https://user-images.githubusercontent.com/97191078/173895061-f9fae67b-c4ec-40f4-a2fc-5b77d10bcb23.png">
+<img width="817" alt="gl" src="https://user-images.githubusercontent.com/97191078/173895073-d19aa297-5cf3-497e-9801-cde17af515ba.png">
 
 # Getting started
 1. Clone this repository (only this branch)
