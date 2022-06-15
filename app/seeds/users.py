@@ -1,4 +1,5 @@
-from app.models import db, User
+from app.models import db, User, Ingredient, Recipe
+
 
 
 # Adds a demo user, you can add other users here if you want
@@ -14,7 +15,7 @@ def seed_users():
         username='pelicangal', email='pelicangal@aa.io', password='1lovese@food')
 
     gordon_ramsay = User(
-        username='gordon_ramsay', email='gordon_ramsay@aa.io', password='1amTheBest@cooking!')
+        username='Gordon Ramsay', email='gordon_ramsay@aa.io', password='1amTheBest@cooking!')
 
     mary = User(
         username='Mary', email='mary@gmail.com', password='B@n@n@Mi1lk')
@@ -23,22 +24,22 @@ def seed_users():
         username='banana_milk', email='banana_milk@yahoo.com', password='1amTheBest@!')
 
     boba_fett = User(
-        username='boba_fett', email='boba_fett@aa.io', password='bob@Fett2!')
+        username='Boba Fett', email='boba_fett@aa.io', password='bob@Fett2!')
 
     guy_fieri = User(
-        username='guy_fieri', email='guy_fieri@gmail.com', password='superSTRONGpassword1!')
+        username='Guy Fieri', email='guy_fieri@gmail.com', password='superSTRONGpassword1!')
 
     jamie_oliver = User (
-        username = 'jamie_oliver', email='jamie_oliver@gmail.com', password='!Host@TheNakedChef1')
+        username = 'Jamie Oliver', email='jamie_oliver@gmail.com', password='!Host@TheNakedChef1')
 
     martha_stewart = User (
-        username = 'martha_stewart', email='martha_stewart@gmail.com', password='!Host@TMarthaKnowsBest1')
+        username = 'Martha Stewart', email='martha_stewart@gmail.com', password='!Host@TMarthaKnowsBest1')
 
     rachel_ray = User (
-        username = 'rachel_ray', email='rachel_ray@gmail.com', password='!Host@30MinutesMeals')
+        username = 'Rachel Ray', email='rachel_ray@gmail.com', password='!Host@30MinutesMeals')
 
     james_t_kirk = User (
-        username = 'james_t_kirk', email='james_t_kirk@aa.com', password='!james!t!kirk1')
+        username = 'James T. Kirk', email='james_t_kirk@aa.com', password='!james!t!kirk1')
 
     db.session.add(demo)
     db.session.add(marnie)

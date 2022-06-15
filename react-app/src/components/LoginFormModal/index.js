@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useStateIfMounted } from "use-state-if-mounted";
 
 import LoginForm from "./LoginForm";
 import { Modal } from '../../context/Modal';
@@ -6,7 +7,7 @@ import './LoginForm.css';
 
 
 const LoginFormModal = () => {
-    const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useStateIfMounted(false);
 
     return (
         <>

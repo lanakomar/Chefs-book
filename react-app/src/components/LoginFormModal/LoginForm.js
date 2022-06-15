@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from "react-router-dom";
 
+
 import { login } from '../../store/session';
 import ErrorMessage from "../ErrorMessage";
 import './LoginForm.css';
@@ -29,6 +30,8 @@ const LoginForm = ({ setShowModal }) => {
                 errors.overall = data;
             }
             setErrorMessages(errors);
+        } else {
+            setShowModal(false);
         }
     }
 

@@ -65,6 +65,34 @@
     padding-left: 40px;
 }
 
+.added-to-list {
+    padding: 10.5px 10px;
+    color: rgb(9, 124, 9);
+    font-weight: 800;
+}
+
+.added-to-list .fa-check {
+    margin-right: 10px;
+    font-size: smaller;
+}
+
+.ingredients-container button.add-to-grocery-list {
+    padding: 10.5px 10px;
+    width: auto;
+    background-color: #fff;
+    border: 1px solid #222;
+    border-radius: 3px;
+    color: #222;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.ingredients-container button.add-to-grocery-list:hover {
+    background-color: #222;
+    color: #fff;
+}
+
 .cooking-instructions .instructions-container {
     width: 600px;
 }
@@ -175,4 +203,11 @@
 .form-buttons .cancel-edit:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+@media screen and (min-width: 2000px) {
+    .recipe-overview-container,
+    .notes {
+        width: 65%;
+    }
 }

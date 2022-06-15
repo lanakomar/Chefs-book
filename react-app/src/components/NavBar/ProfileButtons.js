@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import LogoutButton from '../auth/LogoutButton';
+import GroceryListModal from '../GroceryList';
 
 
 function ProfileButtons () {
@@ -29,7 +30,7 @@ function ProfileButtons () {
     return (
         <div className="links-loggedin">
             <div className="grocery-list-btn">
-            <button >Your Grocery List</button>
+            <GroceryListModal />
             </div>
             <Link
                 onMouseEnter={closeMenu}
@@ -49,7 +50,7 @@ function ProfileButtons () {
                     className="dropdown-menu"
                 >
                     <ul onMouseLeave={closeMenu}>
-                        <li>Profile</li>
+                        {/* <li>Profile</li> */}
                         <li><LogoutButton /></li>
                     </ul>
                 </div>

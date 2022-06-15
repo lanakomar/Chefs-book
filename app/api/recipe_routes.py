@@ -64,8 +64,6 @@ def edit_recipe(id):
 
 
             for intruction_to_delete in instructions_deleted:
-                print("instructions_deleted:")
-                print(instructions_deleted)
                 instr_to_delete = Instruction.query.get(intruction_to_delete['identifier'])
                 if instr_to_delete:
                     db.session.delete(instr_to_delete)

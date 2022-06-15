@@ -12,9 +12,6 @@ export const removeSingleRecipe = (recipeId) => ({
     recipeId
 });
 
-
-
-
 const initialState = {};
 
 const recipeReducer = (state = initialState, action) => {
