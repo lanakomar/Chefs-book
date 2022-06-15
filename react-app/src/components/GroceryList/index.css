@@ -13,6 +13,10 @@
     margin: 0;
     padding-left: 25px;
     margin-bottom: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: smaller;
+    letter-spacing: .15px;
 }
 
 .list-container .gl-recipes-container {
@@ -45,6 +49,7 @@
 
 .recipe-part .title div {
     font-weight: 700;
+    text-transform: capitalize;
 }
 
 .fa-chevron-right {

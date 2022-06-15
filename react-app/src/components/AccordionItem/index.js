@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { deleteItemsFromGL } from '../../store/groceryList';
 
 
 const AccordionItem = ({ recipeId, recipes, groceryList}) => {
@@ -10,6 +12,10 @@ const AccordionItem = ({ recipeId, recipes, groceryList}) => {
     const handleToggle = () => {
         setClicked((prev) => !prev);
     };
+
+    const dispatch = useDispatch();
+
+    const user = useSelector((state => state.session.user))
 
     const measurements = {
         14: "",
@@ -31,6 +37,13 @@ const AccordionItem = ({ recipeId, recipes, groceryList}) => {
         17: "splash",
     };
 
+    const handleRemoveRecipe = async (e) => {
+        e.preventDefault();
+        const recipeGL = groceryList[e.target.id]
+        const ingrsIdToDelete = Object.keys(recipeGL);
+        await dispatch(deleteItemsFromGL(ingrsIdToDelete, user.id, recipeId))
+    }
+
     return (
         <>
             <div className='recipe-part'>
@@ -38,7 +51,13 @@ const AccordionItem = ({ recipeId, recipes, groceryList}) => {
                     <i className={clicked ? "fa-solid fa-chevron-right rotate": "fa-solid fa-chevron-right" } />
                     <div>{recipes[recipeId].title}</div>
                 </div>
-                <button className="remove-all-ingr">Remove</button>
+                <button
+                    id={recipeId}
+                    className="remove-all-ingr"
+                    onClick={handleRemoveRecipe}
+                >
+                    Remove
+                </button>
             </div>
             <ul ref={contentEl}
                 style={

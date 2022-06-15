@@ -1,5 +1,6 @@
 const SET_GROCERY_LIST = 'groceryList/SET_GROCERY_LIST';
 const ADD_GROCERY_LIST = 'groceryList/ADD_GROCERY_LIST';
+const DELETE_ITEMS_FROM_GL = 'groceryList/DELETE_ITEMS_FROM_GL';
 
 export const setGroceryList = (listItems) => ({
     type: SET_GROCERY_LIST,
@@ -10,6 +11,11 @@ const addThingsToBuy = (listItems) => ({
     type: ADD_GROCERY_LIST,
     listItems
 });
+
+const deleteRecipeIngr = (recipeId) => ({
+    type: DELETE_ITEMS_FROM_GL,
+    recipeId
+})
 
 export const addToGroceryList = (payload, userId) => async (dispatch) => {
     const res = await fetch(`/api/users/${userId}/groceries`, {
@@ -33,6 +39,29 @@ export const addToGroceryList = (payload, userId) => async (dispatch) => {
         return "An error occurred. Please try again.";
     };
 };
+
+export const deleteItemsFromGL = (payload, userId, recipeId) => async (dispatch) => {
+    const res = await fetch(`/api/users/${userId}/groceries`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(deleteRecipeIngr(recipeId));
+        return data;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return "An error occurred. Please try again.";
+    };
+}
 
 const to_obj = (array) => {
     const newObj = {};
@@ -61,6 +90,10 @@ const groceryListReducer = (state = initialState, action) => {
                 ...state,
                 ...added
             }
+        case DELETE_ITEMS_FROM_GL:
+            const newState = { ...state };
+            delete newState[action.recipeId]
+            return newState;
         default:
             return state;
     }
