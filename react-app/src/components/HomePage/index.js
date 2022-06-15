@@ -55,6 +55,7 @@ const HomePage = () => {
 
     return (
         <div className='home-page-container'>
+            {loginModal}
             <div
                 style={{ backgroundImage: `url(${dayRecipe?.img_url})` }}
                 className='day-recipe'>
@@ -64,18 +65,29 @@ const HomePage = () => {
                     <p className='reicpe-description'>{dayRecipe?.description}</p>
                 </div>
             </div>
-            {loginModal}
-            <div className='recipes-container'>
-                {recipesArr?.map(recipe => (
-                    <div key={recipe.id} id={recipe.id} className="card-container" onClick={cardClick}>
-                        <div className='image-container' style={{ backgroundImage: `url(${recipe?.img_url})` }}></div>
-                        <h4>{recipe.title}</h4>
-                        <div className='time-serv-container'>
-                            <p>Time: {recipe.time_to_cook}</p>
-                            <p>Servings: {recipe.servings}</p>
-                        </div>
+            <div className='main-container'>
+                <div className='about-app'>
+                    <div className='about-title'><h2>The only cookbook Real Chef needs</h2></div>
+                    <div className='about-content'><p>Chef's book helps home cooks of every level discover, save and organize the world’s best recipes</p>
+                        <p>You could easily add your favourite recipe to the recipe box,
+                            edit them (if needed) and delete them.
+                            Add necessary ingredients to the shopping list for your next
+                            culinary adventure.</p>
+                        <div><span>Inspired by NYTCooking</span></div>
                     </div>
-                ))}
+                </div>
+                <div className='recipes-container'>
+                    {recipesArr?.map(recipe => (
+                        <div key={recipe.id} id={recipe.id} className="card-container" onClick={cardClick}>
+                            <div className='image-container' style={{ backgroundImage: `url(${recipe?.img_url})` }}></div>
+                            <h4>{recipe.title}</h4>
+                            <div className='time-serv-container'>
+                                <p>Time: {recipe.time_to_cook}</p>
+                                <p>Servings: {recipe.servings}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

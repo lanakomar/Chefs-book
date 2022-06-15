@@ -12,8 +12,7 @@
 }
 
 .recipes-container {
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .day-recipe-card {
@@ -62,6 +61,49 @@
     max-height: 150px;
     overflow-y: scroll;
     margin-left: 20px;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.about-app {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.about-app p,
+.about-app span {
+    width: fit-content;
+}
+
+.about-app .about-title {
+    width: 100%;
+    border-bottom: 7px solid #222;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 7px solid #222;
 }
 
 .recipes-container {
