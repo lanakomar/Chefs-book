@@ -343,14 +343,16 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                                 return setImage(e.target.files[0])
                             }}
                         />
+                        <div className='preview-image-container'>
                         {image ?
                             <img id="uploadPreview" alt="upload-preview" />
                             : null
                         }
                         {edit ? <img id="preview" alt="preview" src={recipe.img_url} />
                             : null}
+                        </div>
                     </div>
-                    <ErrorMessage label={""} message={errorMessages.img_url} />
+                    <ErrorMessage label={""} message={errorMessages.image} />
                 </div>
                 <div>
                     <textarea

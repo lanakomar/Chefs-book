@@ -31,17 +31,23 @@
 .new-recipe .image-container {
     display: flex;
     flex-direction: column;
+    height: auto;
 }
 
 .new-recipe .image-container label {
     margin-bottom: 10px;
 }
 
-.image-container div {
+.new-recipe .image-container div {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: fit-content;
+    flex-direction: column;
+}
+
+.new-recipe div.preview-image-container {
+    flex-direction: row;
 }
 
 .new-recipe #image {
