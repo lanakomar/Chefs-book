@@ -7,7 +7,7 @@
 <h4 align= "center" dir="auto">
   <a href="https://github.com/lanakomar/Chefs-book/wiki">» Explore the Wiki «</a>
 </h4>
-Chef's book is a food-focused web apllication inspired by <a href="https://cooking.nytimes.com/">NYT Cooking</a>. The recipes on the website are posted by members of the Chef's Book community.  Members of the community can also customize theri owm Grocery list so they could easily shop for the required items for their next culinary adventure.
+Chef's book is a food-focused web apllication inspired by <a href="https://cooking.nytimes.com/">NYT Cooking</a>. The recipes on the website are posted by members of the Chef's Book community.  Members of the community can also customize their own Grocery list so they could easily shop for the required items for the next culinary adventure.
 
 # Technologies Used
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
