@@ -19,29 +19,35 @@
 
 .new-recipe #title {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .new-recipe .time-serv-container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
 .new-recipe .image-container {
     display: flex;
     flex-direction: column;
+    height: auto;
 }
 
 .new-recipe .image-container label {
     margin-bottom: 10px;
 }
 
-.image-container div {
+.new-recipe .image-container div {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: fit-content;
+    flex-direction: column;
+}
+
+.new-recipe div.preview-image-container {
+    flex-direction: row;
 }
 
 .new-recipe #image {
@@ -77,6 +83,16 @@
     margin-bottom: 10px;
 }
 
+.addedIngredients li {
+    display: flex;
+    gap: 5px;
+}
+
+.ingr-text {
+    max-height: 30px;
+    overflow-y: hidden;
+}
+
 .addedIngredients ul {
     margin: 0;
     list-style: none;
@@ -94,17 +110,48 @@
     cursor: pointer;
 }
 
-.new-recipe .ingredient-inputs,
-.new-recipe .instr-inputs {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-top: 10px;
+
+.new-recipe .ingredient-inputs {
+    display: grid;
+    gap: 5px;
+    grid-template-areas: "amount select food but"
+                         "am-er sel-er food-er but";
+    grid-template-columns: 128px 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.ingredient-inputs div.amount {
+    grid-area: amount;
+}
+
+.ingredient-inputs div.amount > p.error-message {
+    grid-area: am-er;
+}
+
+.ingredient-inputs div.select {
+    grid-area: select;
+}
+
+.ingredient-inputs div.select > p.error-message {
+    grid-area: sel-er;
+}
+
+.ingredient-inputs div.food {
+    grid-area: food;
+}
+
+.ingredient-inputs div.food > p.error-message {
+    grid-area: food-er;
+}
+
+.ingredient-inputs div.add-btn {
+    grid-area: but;
+    margin-top: 4px;
 }
 
 .ingredient-inputs #amount {
     box-sizing: border-box;
-    width: 75px;
+    width: 128px;
     height: 37px;
 }
 
@@ -124,10 +171,31 @@
     padding: 5px 10px;
 }
 
+.new-recipe .instr-inputs {
+    display: grid;
+    grid-template-areas: "instr but"
+                         "instr-er but";
+    grid-template-columns: 356px 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-top: 10px;
+}
+
 .instructions-form #instruction {
     width: 356px;
 }
 
+.new-recipe .instr-inputs div.instr {
+    grid-area: instr;
+}
+
+.instr-inputs div.instr > p.error-message {
+    grid-area: instr-er;
+}
+
+.instr-inputs div.add-btn {
+    grid-area: but;
+    margin-top: 5px;
+}
 
 .new-recipe .buttons {
     display: flex;
@@ -163,4 +231,18 @@
     margin-top: 15px;
     font-size: smaller;
     color: red;
+}
+
+
+.added-instructions ol {
+    height: 80px;
+    overflow-y: scroll;
+    margin: 0;
+}
+
+.added-instructions ol li {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-bottom: 5px;
 }
