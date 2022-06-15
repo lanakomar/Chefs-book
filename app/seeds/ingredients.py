@@ -388,12 +388,6 @@ def seed_ingredients():
         Ingredient(
             amount=0.3, food_item='crumbled feta', measurement_unit_id=1, recipe_id=13
         ),
-        Ingredient(
-            amount=1, food_item='', measurement_unit_id=1, recipe_id=13
-        ),
-        Ingredient(
-            amount=1, food_item='', measurement_unit_id=1, recipe_id=13
-        ),
     ])
 
     db.session.add_all([
