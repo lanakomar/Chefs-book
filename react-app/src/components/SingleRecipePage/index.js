@@ -124,6 +124,7 @@ const SingleRecipePage = () => {
         setContent("");
         setIsEdit(false);
         setEditId();
+        setErrorMessages({});
     }
 
     const editNoteClick = async (e) => {
@@ -229,7 +230,7 @@ const SingleRecipePage = () => {
                             <div className='form-buttons'>
                                 <button
                                     className='cancel-edit'
-                                    hidden={!isEdit}
+                                    hidden={!content.length}
                                     onClick={cancelEditClick}
                                 >
                                     Cancel
