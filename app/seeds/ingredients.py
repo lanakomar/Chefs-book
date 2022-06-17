@@ -741,11 +741,167 @@ def seed_ingredients():
         ),
     ])
 
-    # db.session.add_all([
-    #     Ingredient(
-    #         amount=1, food_item='', measurement_unit_id=1, recipe_id=
-    #     ),
-    # ])
+    db.session.add_all([
+        Ingredient(
+            amount=0.5, food_item='saffron', measurement_unit_id=13, recipe_id=26
+        ),
+        Ingredient(
+            amount=2, food_item='whole-milk yogurt', measurement_unit_id=1, recipe_id=26
+        ),
+        Ingredient(
+            amount=1, food_item='chopped garlic', measurement_unit_id=12, recipe_id=26
+        ),
+        Ingredient(
+            amount=2.5, food_item='boneless, skinless chicken thighs', measurement_unit_id=10, recipe_id=26
+        ),
+        Ingredient(
+            amount=2.25, food_item='flour', measurement_unit_id=1, recipe_id=26
+        ),
+        Ingredient(
+            amount=2.5, food_item='paprika', measurement_unit_id=13, recipe_id=26
+        ),
+        Ingredient(
+            amount=1, food_item=' plus 3/4 teaspoon dried mint', measurement_unit_id=12, recipe_id=26
+        ),
+        Ingredient(
+            amount=1, food_item='plus 3/4 teaspoon salt, more for sprinkling', measurement_unit_id=12, recipe_id=26
+        ),
+        Ingredient(
+            amount=0.5, food_item='black pepper', measurement_unit_id=13, recipe_id=26
+        ),
+        Ingredient(
+            amount=1, food_item='walnut pieces', measurement_unit_id=1, recipe_id=26
+        ),
+        Ingredient(
+            amount=1, food_item='lemon, cut into wedges', measurement_unit_id=14, recipe_id=26
+        ),
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=4, food_item='ripe tomatoes, preferably heirloom', measurement_unit_id=10, recipe_id=27
+        ),
+        Ingredient(
+            amount=1, food_item='small red onion, sliced thinly crosswise', measurement_unit_id=14, recipe_id=27
+        ),
+        Ingredient(
+            amount=2, food_item='small sweet peppers, such as bell or corno di toro, sliced into thin rings', measurement_unit_id=14, recipe_id=27
+        ),
+        Ingredient(
+            amount=4, food_item='Greek feta cheese', measurement_unit_id=7, recipe_id=27
+        ),
+        Ingredient(
+            amount=2, food_item='roughly chopped mint', measurement_unit_id=12, recipe_id=27
+        ),
+        Ingredient(
+            amount=0.5, food_item='dried oregano', measurement_unit_id=13, recipe_id=27
+        ),
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=0.5, food_item='lean flank steak', measurement_unit_id=10, recipe_id=28
+        ),
+        Ingredient(
+            amount=1.5, food_item='cornstarch', measurement_unit_id=13, recipe_id=28
+        ),
+        Ingredient(
+            amount=1, food_item='plus 1 teaspoon rice wine or dry sherry', measurement_unit_id=12, recipe_id=28
+        ),
+        Ingredient(
+            amount=1, food_item='low sodium soy sauce', measurement_unit_id=13, recipe_id=28
+        ),
+        Ingredient(
+            amount=2, food_item='fat garlic cloves, minced', measurement_unit_id=14, recipe_id=28
+        ),
+        Ingredient(
+            amount=1, food_item='sesame oil', measurement_unit_id=13, recipe_id=28
+        ),
+        Ingredient(
+            amount=2, food_item='hoisin sauce', measurement_unit_id=12, recipe_id=28
+        ),
+        Ingredient(
+            amount=2, food_item='peanut oil, rice bran oil or canola oil', measurement_unit_id=12, recipe_id=28
+        ),
+        Ingredient(
+            amount=1, food_item='minced ginger', measurement_unit_id=12, recipe_id=28
+        ),
+        Ingredient(
+            amount=0.5, food_item='red pepper flakes', measurement_unit_id=13, recipe_id=28
+        ),
+        Ingredient(
+            amount=8, food_item='shiitake mushrooms, stems removed, caps quartered', measurement_unit_id=7, recipe_id=28
+        ),
+        Ingredient(
+            amount=4, food_item='bell peppers of varying colors', measurement_unit_id=14, recipe_id=28
+        ),
+        Ingredient(
+            amount=1, food_item='cold water', measurement_unit_id=13, recipe_id=28
+        ),
+        Ingredient(
+            amount=1, food_item='anaheim pepper', measurement_unit_id=14, recipe_id=28
+        ),
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=2, food_item='unsalted butter', measurement_unit_id=12, recipe_id=29
+        ),
+        Ingredient(
+            amount=1, food_item='cottage cheese (not low-fat)', measurement_unit_id=1, recipe_id=29
+        ),
+        Ingredient(
+            amount=2, food_item='milk (not skim)', measurement_unit_id=1, recipe_id=29
+        ),
+        Ingredient(
+            amount=1, food_item='dry mustard', measurement_unit_id=13, recipe_id=29
+        ),
+        Ingredient(
+            amount=1, food_item='ground cayenne', measurement_unit_id=8, recipe_id=29
+        ),
+        Ingredient(
+            amount=1, food_item='ground nutmeg', measurement_unit_id=8, recipe_id=29
+        ),
+        Ingredient(
+            amount=0.5, food_item='salt', measurement_unit_id=13, recipe_id=29
+        ),
+        Ingredient(
+            amount=0.25, food_item='black pepper', measurement_unit_id=13, recipe_id=29
+        ),
+        Ingredient(
+            amount=1, food_item='sharp or extra-sharp Cheddar, grated', measurement_unit_id=10, recipe_id=29
+        ),
+        Ingredient(
+            amount=0.5, food_item='elbow pasta, uncooked', measurement_unit_id=10, recipe_id=29
+        )
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=85, food_item='bittersweet chocolate, 70 to 74 percent cacao (not chips), chopped (about 1/2 cup)', measurement_unit_id=4, recipe_id=30
+        ),
+        Ingredient(
+            amount=3, food_item='unsalted butter, cut into cubes, plus more for the ramekin', measurement_unit_id=12, recipe_id=30
+        ),
+        Ingredient(
+            amount=3, food_item='granulated sugar, plus more for the ramekin', measurement_unit_id=13, recipe_id=30
+        ),
+        Ingredient(
+            amount=1, food_item='large egg', measurement_unit_id=14, recipe_id=30
+        ),
+        Ingredient(
+            amount=1, food_item='large egg yolk', measurement_unit_id=14, recipe_id=30
+        ),
+        Ingredient(
+            amount=0.5, food_item='vanilla extract', measurement_unit_id=13, recipe_id=30
+        ),
+        Ingredient(
+            amount=1, food_item='salt', measurement_unit_id=8, recipe_id=30
+        ),
+        Ingredient(
+            amount=2, food_item='all-purpose flour', measurement_unit_id=12, recipe_id=30
+        ),
+    ])
 
 
 

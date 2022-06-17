@@ -154,7 +154,25 @@ def seed_notes():
         Note(content="Bad. If you don't like fish, this is the marinade for you. The cumin and coriander completely overpower the swordfish.", date_created="2021-08-08", recipe_id=25, author_id=8),\
         Note(content="Absolutely wonderful. And the timing (4 mins, 3 mins) resulted in perfectly grilled fish with no complaints about it being under or over done!", date_created="2022-06-12", recipe_id=25, author_id=6),\
 
-        # Note(content="", date_created="2020-10-30", recipe_id=, author_id=5),\
+        Note(content="Persia, now Iran, has always been famous for pistachios - if you add finely chopped pistachios to the flour then fry up it becomes a WOW dish!", date_created="2019-09-15", recipe_id=26, author_id=3),\
+        Note(content="Love the flavors. Truth be told I don't like to fry chicken, so I baked it instead, drizzled with a little olive oil, in a 450° oven until the pieces tested at 170 (for mine about 25-30 minutes). Anyone looking for a lighter option might try that. Either way I think this is a keeper.", date_created="2020-10-30", recipe_id=26, author_id=7),\
+        Note(content="Cardamom is another spice that is surprisingly good, with chicken.", date_created="2021-08-11", recipe_id=26, author_id=9),\
+        Note(content="Leave the yogurt coating on, just drip off the excess. It's what turns the flour into a batter-like coating.", date_created="2022-02-02", recipe_id=26, author_id=1),\
+
+        Note(content="Of all the delicious tomato recipes we have made so far this summer, we found this to be simply the best. It may have been the fresh mint and the dried oregano with the feta, but the entire salad was so fresh tasting, we thought we were actually sitting on the beach in Greece.", date_created="2020-10-30", recipe_id=27, author_id=12),\
+        Note(content="To look at the photo, you think:meh. Eat it and you'll think it's one of the best, simple salads you'll ever eat. If you have perfect, homegrown tomatoes, this is an excellent way to enjoy them.", date_created="2021-11-03", recipe_id=27, author_id=11),\
+        Note(content="Nice dish w fresh tomatos from the farmers market. We used an Anaheim pepper instead of a bell pepper.", date_created="2022-03-11", recipe_id=27, author_id=10),\
+
+        Note(content="I made this last night. I cut the peppers in strips about 1/3\" wide. Also, added one thinly sliced celery stalk. To go with it, I used fresh soba noodles, which have a much more pronounced flavor (and scent) than the dry variety.", date_created="2022-01-07", recipe_id=28, author_id=2),\
+        Note(content="A Serrano pepper went well and added a bit of heat.", date_created="2022-04-28", recipe_id=28, author_id=1),\
+
+        Note(content="This is now my go-to Mac & Cheese, with only one alteration to the recipe as published. Omit the added salt. It was way too salty with it. Here is a helpful hint: if you combine all ingredients in your baking dish in the morning, and let it sit in the fridge during the day, it will cook in half the time.", date_created="2022-01-03", recipe_id=29, author_id=2),\
+        Note(content="The more aged the cheese, the drier it will be. You need to use a moister (i.e. younger) cheddar for a creamier result", date_created="2022-02-16", recipe_id=29, author_id=3),\
+        Note(content="Be sure to put a sheet pan under this to catch any spills.", date_created="2022-03-22", recipe_id=29, author_id=5),\
+        Note(content="This macaroni and cheese has distinct advantage above all others: you neither boil the pasta, nor make a roux. The process is as unfussy as the dish itself, and the dish itself is outrageously good.", date_created="2022-04-11", recipe_id=29, author_id=6),\
+
+        Note(content="I reduced baking time by two minutes! Also, I bought some ramekins this weekend. Used them twice already. Everything I eat will be in individual serving sizes from here on out.", date_created="2022-03-22", recipe_id=30, author_id=5),\
+        Note(content="Glass Pyrex custard cups hold 6 ounces and work great.", date_created="2022-06-10", recipe_id=30, author_id=5),\
     ])
 
     db.session.commit()

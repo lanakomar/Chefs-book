@@ -459,21 +459,96 @@ def seed_instructions():
     ),
 ])
 
-#     db.session.add_all([
-#     Instruction(
-#         specification="",\
-#         list_order=1, recipe_id=
-#     ),
-#     Instruction(
-#         specification="",\
-#         list_order=2, recipe_id=
-#     ),
-#     Instruction(
-#         specification="",\
-#         list_order=3, recipe_id=
-#     ),
-# ])
+    db.session.add_all([
+    Instruction(
+        specification="In a small bowl, combine saffron with 1 tablespoon water and let soak 10 minutes. Place in food processor with yogurt and garlic and purée until smooth and yellow. Place chicken in glass or ceramic bowl; pour yogurt mixture on top, turn to coat; cover and refrigerate at least 3 hours or overnight.",\
+        list_order=1, recipe_id=26
+    ),
+    Instruction(
+        specification="In a medium bowl, combine flour, paprika, mint, salt and pepper. Heat a generous half-inch oil in a deep skillet over medium heat. Drop in a bit of bread to test temperature; oil should bubble vigorously. Working in batches to avoid crowding, dredge chicken pieces in flour mixture, then fry until golden brown on both sides, about 5 minutes a side. Remove and drain on paper towels.",\
+        list_order=2, recipe_id=26
+    ),
+    Instruction(
+        specification="Sprinkle with salt and serve immediately, topped with walnuts and lemon wedges.",\
+        list_order=3, recipe_id=26
+    ),
+])
 
+    db.session.add_all([
+    Instruction(
+        specification="Wash, core and slice tomatoes 1/2-inch thick. Arrange slices on a platter or in a shallow wide bowl.",\
+        list_order=1, recipe_id=27
+    ),
+    Instruction(
+        specification="Scatter onion and pepper slices over tomatoes and season everything with sea salt. Let sit 10 minutes to draw out juices.",\
+        list_order=2, recipe_id=27
+    ),
+    Instruction(
+        specification="Break feta into rough chunks and scatter over salad. Sprinkle mint and oregano over top, drizzle generously with olive oil and serve.",\
+        list_order=3, recipe_id=27
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Slice the steak first with the grain into 2-inch wide strips. Then cut each strip across the grain into 1/4-inch thick slices. Place in a medium bowl and toss with the cornstarch, 1 teaspoon of the rice wine or sherry, the soy sauce, one of the minced garlic cloves, salt and pepper to taste, 1 teaspoon cold water, and the sesame oil.",\
+        list_order=1, recipe_id=28
+    ),
+    Instruction(
+        specification="Combine the remaining rice wine or sherry and the hoisin sauce in a small bowl and set aside.",\
+        list_order=2, recipe_id=28
+    ),
+    Instruction(
+        specification="Heat a 14-inch flat-bottomed wok over high heat until a drop of water evaporates within a second or two when added to the pan. Swirl in 1 tablespoon of the oil and add the beef in a single layer. Let sit in the pan for about 1 minute, until it begins to sear, then stir fry for 1 minute. Transfer to a plate or bowl.",\
+        list_order=3, recipe_id=28
+    ),
+    Instruction(
+        specification="Swirl in the remaining oil, then add the garlic, ginger and red pepper flakes and stir-fry for no more than 10 seconds. Add the mushrooms and peppers, sprinkle with salt to taste and stir-fry for 1 to 2 minutes. Return the beef and any juices that have accumulated on the plate or bowl to the wok, add the hoisin sauce mixture and stir-fry for another 30 seconds to a minute, until the beef is cooked through. Remove from the heat and serve with rice, grains or noodles.",\
+        list_order=4, recipe_id=28
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Heat oven to 375 degrees and position an oven rack in upper third of oven. Use 1 tablespoon butter to grease a 9-inch round or square baking pan.",\
+        list_order=1, recipe_id=29
+    ),
+    Instruction(
+        specification="In a blender, purée cottage cheese, milk, mustard, cayenne, nutmeg and salt and pepper. Reserve 1/4 cup grated Cheddar for topping. In a large bowl, combine remaining grated Cheddar, milk mixture and uncooked pasta. Pour into prepared pan, cover tightly with foil and bake 30 minutes.",\
+        list_order=2, recipe_id=29
+    ),
+    Instruction(
+        specification="Uncover pan, stir gently, sprinkle with reserved cheese and dot with remaining tablespoon butter. Bake, uncovered, 30 minutes more, until browned. Let cool at least 15 minutes before serving.",\
+        list_order=3, recipe_id=29
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Heat oven to 425 degrees and butter a 10-ounce ramekin. Dust the buttered ramekin with granulated sugar.",\
+        list_order=1, recipe_id=30
+    ),
+    Instruction(
+        specification="Combine the chocolate and 3 tablespoons butter in a heat-safe bowl set over a pan of simmering water. Cook, stirring occasionally, until melted and smooth. (Alternatively, combine in a bowl and microwave in 30-second blasts, stirring in between, until melted and smooth, about 1 minute.) Remove from the heat and set aside.",\
+        list_order=2, recipe_id=30
+    ),
+    Instruction(
+        specification="In a medium bowl, combine the 3 tablespoons sugar, egg, egg yolk, vanilla and salt. Whisk vigorously until the mixture is thick, foamy and pale, about 2 minutes. Whisk in the flour until smooth.",\
+        list_order=3, recipe_id=30
+    ),
+    Instruction(
+        specification="Using a spatula, add the chocolate to the egg mixture and stir gently until combined.",\
+        list_order=4, recipe_id=30
+    ),
+    Instruction(
+        specification="Pour the mixture into the ramekin. Bake for 12 to 14 minutes or until the edges are set and puffed, but the center is still soft when lightly pressed. (You can also cover and refrigerate the batter up to a day in advance. Add an additional minute or 2 to baking time if you are baking the cake directly from the refrigerator.)",\
+        list_order=5, recipe_id=30
+    ),
+    Instruction(
+        specification="Use an offset spatula or small knife to loosen the edges of the cake from the ramekin. Place a plate over the ramekin and carefully invert the warm cake. Use an oven mitt or clean kitchen towel to remove the ramekin, dust the cake with confectioners’ sugar and serve with ice cream or whipped cream.",\
+        list_order=6, recipe_id=30
+    ),
+])
 
 
     db.session.add(crab_cheddar_quiche_1)
