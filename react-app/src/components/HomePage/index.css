@@ -57,6 +57,15 @@
     margin: 0 30px;
 }
 
+.day-recipe-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.day-recipe-card a:visited {
+    color: inherit;
+}
+
 .day-recipe .reicpe-description {
     max-height: 150px;
     overflow-y: scroll;

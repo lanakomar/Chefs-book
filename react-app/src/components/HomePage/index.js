@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import { setAllRecipes } from '../../store/recipe';
 import { Modal } from '../../context/Modal';
@@ -71,7 +71,7 @@ const HomePage = () => {
                 className='day-recipe'>
                 <div className='day-recipe-card'>
                     <div className='badge'><p>RECIPE OF THE DAY</p></div>
-                    <h3>{dayRecipe?.title}</h3>
+                    <Link to={`/recipes/${dayRecipe.id}`}><h3>{dayRecipe?.title}</h3></Link>
                     <p className='reicpe-description'>{dayRecipe?.description}</p>
                 </div>
             </div>
