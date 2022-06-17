@@ -7,7 +7,7 @@ import { login } from '../../store/session';
 import ErrorMessage from "../ErrorMessage";
 import './LoginForm.css';
 
-const LoginForm = ({ setShowModal }) => {
+const LoginForm = ({ setShowModal, recipeId }) => {
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -36,7 +36,11 @@ const LoginForm = ({ setShowModal }) => {
     }
 
     if (user) {
-        return <Redirect to="/" />;
+        if (recipeId) {
+            return <Redirect to={`/recipes/${recipeId}`} />
+        } else {
+            return <Redirect to="/" />;
+        }
     }
 
     return (

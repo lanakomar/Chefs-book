@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { setAllRecipes } from '../../store/recipe';
 import { Modal } from '../../context/Modal';
@@ -21,6 +21,7 @@ import postgresql from '../../images/technologies/postgresql.svg';
 
 const HomePage = () => {
     const [showModal, setShowModal] = useState(false);
+    const [redirectId, setRedirectId] = useState();
     const history = useHistory();
     const user = useSelector((state) => state.session.user)
     const recipes = useSelector((state) => state.recipes);
@@ -47,17 +48,27 @@ const HomePage = () => {
 
     const loginModal = (showModal && (
         <Modal onClose={() => setShowModal(false)}>
-            <LoginForm setShowModal={setShowModal} />
+            <LoginForm setShowModal={setShowModal} recipeId={redirectId} />
         </Modal>));
 
     const cardClick = (e) => {
+        const recipeId = e.currentTarget.id;
         if (user) {
-            const recipeId = e.currentTarget.id;
             history.push(`/recipes/${recipeId}`)
         } else {
+            setRedirectId(recipeId);
             setShowModal(true);
         }
-    }
+    };
+
+    const dayRecipeClick = () => {
+        if (user) {
+            history.push(`/recipes/${dayRecipe.id}`)
+        } else {
+            setRedirectId(dayRecipe.id);
+            setShowModal(true);
+        }
+    };
 
     if (!recipes || !recipesArr.length) {
         return null
@@ -71,7 +82,7 @@ const HomePage = () => {
                 className='day-recipe'>
                 <div className='day-recipe-card'>
                     <div className='badge'><p>RECIPE OF THE DAY</p></div>
-                    <Link to={`/recipes/${dayRecipe.id}`}><h3>{dayRecipe?.title}</h3></Link>
+                    <h3 onClick={dayRecipeClick}>{dayRecipe?.title}</h3>
                     <p className='reicpe-description'>{dayRecipe?.description}</p>
                 </div>
             </div>

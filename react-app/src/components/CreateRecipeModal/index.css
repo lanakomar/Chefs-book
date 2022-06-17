@@ -28,6 +28,10 @@
     margin: 15px 0;
 }
 
+.new-recipe #time_to_cook {
+    width: 210px;
+}
+
 .new-recipe .image-container {
     display: flex;
     flex-direction: column;
