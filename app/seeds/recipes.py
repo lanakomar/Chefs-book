@@ -234,7 +234,7 @@ def seed_recipes():
         time_to_cook="45 mins",
         description="Here is a fried chicken recipe that is the best kind of weeknight cooking, with ingredients found quickly at most local grocery stores, whirled in a food processor and then left overnight to turn into something delicious the next evening.",
         servings=8,
-        img_url="26",
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image26.jpeg",
         user_id=11
     )
 
@@ -243,7 +243,7 @@ def seed_recipes():
         time_to_cook="20 mins",
         description="The Greek approach to a good tomato salad, whether it has cucumbers and lettuce or not (this one doesn’t), is all about keeping it simple. Sweet, ripe summer tomatoes, salt and olive oil are all you need. The flourishes here — green pepper, red onion, chopped mint and pinch of oregano — are optional, but they add brightness. Good Greek feta cheese takes it over the top.",
         servings=6,
-        img_url="27",
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image27.jpeg",
         user_id=12
     )
 
@@ -252,7 +252,7 @@ def seed_recipes():
         time_to_cook="20 mins",
         description="In this version of a stir-fry classic I am using less beef than a typical recipe would call for and adding in some shiitake mushrooms and extra peppers.",
         servings=4,
-        img_url="28",
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image28.jpeg",
         user_id=13
     )
 
@@ -261,7 +261,7 @@ def seed_recipes():
         time_to_cook="1 hour\n40 mins",
         description="This creamy version has one powerful advantage for the cook: There’s no need to preboil the pasta. It cooks in the oven, absorbing the liquid from the dairy products.",
         servings=8,
-        img_url="29",
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image29.jpeg",
         user_id=1
     )
 
@@ -270,7 +270,7 @@ def seed_recipes():
         time_to_cook="25 mins",
         description="Chocolate lava cakes gained popularity in the late 1990s thanks to the chef Jean-Georges Vongerichten, and they have stuck around on dessert menus for good reason: They are rich chocolate cake and velvety sauce all in one, and they are surprisingly easy to make in under an hour. ",
         servings=2,
-        img_url="30",
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image30.jpeg",
         user_id=5
     )
 
