@@ -22,7 +22,7 @@ const SingleRecipePage = () => {
     const dispatch = useDispatch();
     const recipe = useSelector(state => state.singleRecipe);
     const cur_user = useSelector(state => state.session.user);
-    const groceries  = useSelector(state => state.groceryList);
+    const groceries = useSelector(state => state.groceryList);
 
     useEffect(() => {
         async function fetchData() {
@@ -79,20 +79,38 @@ const SingleRecipePage = () => {
 
     const addCommentClick = async (e) => {
         e.preventDefault();
-        const payload = {
-            content,
-        };
 
-        const res = await dispatch(addNote(payload, recipeId));
+        if (content.trim().length) {
+            const payload = {
+                content,
+            };
 
-        if (!Array.isArray(res)) {
-            setContent("");
-            setErrorMessages({});
+            const res = await dispatch(addNote(payload, recipeId));
+
+            if (!res) {
+                setContent("");
+                setErrorMessages({});
+            } else {
+
+                const errors = {};
+                if (Array.isArray(res.errors)) {
+                    res.errors.forEach((error) => {
+                        const label = error.split(":")[0].slice(0, -1);
+                        const message = error.split(":")[1].slice(1);
+                        errors[label] = message;
+                    });
+                } else {
+                    errors.overall = res;
+                }
+                setErrorMessages(errors);
+            };
         } else {
-            const errors = res.map(error => error.split(":")[1].slice(1));
-            setErrorMessages(errors);
-        };
-    };
+            const errors = {};
+            errors.content = "Note cannot be empty"
+            setErrorMessages(errors)
+        }
+    }
+
 
     const handleEditPencilClick = (e, note) => {
         setContent(note);
@@ -145,7 +163,7 @@ const SingleRecipePage = () => {
 
     const addedToGL = (
         <div className='added-to-list'>
-            <i className="fa-solid fa-check"/>
+            <i className="fa-solid fa-check" />
             In the Grocery List
         </div>
     );
@@ -182,7 +200,7 @@ const SingleRecipePage = () => {
                                 {ingredient.amount} {measurements[ingredient.measurement_unit_id]} {ingredient.food_item}
                             </div>
                         ))}
-                        { added ? addedToGL : addButton }
+                        {added ? addedToGL : addButton}
                     </div>
                     <div className='instructions-container'>
                         <h4>Preparation</h4>
