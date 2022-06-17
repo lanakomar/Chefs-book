@@ -146,7 +146,7 @@ def seed_notes():
         Note(content="Don’t throw our the egg whites. Instead, use them to make a meringue.", date_created="2022-02-05", recipe_id=23, author_id=10),\
         Note(content="I was taught, in culinary school, to use half regular limes and half regular lemons - if one can’t find key limes. Has always worked for me.", date_created="2022-05-27", recipe_id=23, author_id=1),\
 
-        Note(content="Ok, after 50 years of guac, this was the champ. First time ever without lime. Had primo avocados, And Pati’s additions made the whole dish so bright and flavorful. White onions are essential. Don’t even try this with a yellow onion. Revolutionary.", date_created="2022-02-30", recipe_id=24, author_id=1),\
+        Note(content="Ok, after 50 years of guac, this was the champ. First time ever without lime. Had primo avocados, And Pati’s additions made the whole dish so bright and flavorful. White onions are essential. Don’t even try this with a yellow onion. Revolutionary.", date_created="2022-02-25", recipe_id=24, author_id=1),\
         Note(content="I’ve been a devoted “lime in my guacamole” maker but will definitely try this recipe. One thing I’ve done in my version is to grate some onion, on a box grater, rather than mince, which gives an extra juicy onion “bite” to the flavor. Try it!", date_created="2022-03-22", recipe_id=24, author_id=4),\
         Note(content="Just stopped reading this recipe and went and made this. Avacados were perfectly ripe. Had everything on hand and made myself some avacado toast (actually avacado english muffins that were homemade. Oh my, soooooooooo good. I added about a tablespoon of sour cream. Will surly make this again. Thanks much.", date_created="2022-05-03", recipe_id=24, author_id=13),\
 
