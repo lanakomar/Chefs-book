@@ -331,7 +331,7 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                             value={time}
                             onChange={(e) => setTime(e.target.value)}
                             placeholder="Cook time, i.e. 1 hour"
-                            pattern="(0?[0-9]|[1-5][0-9]) (hours?|minutes?)$"
+                            // pattern="(0?[0-9]|[1-5][0-9]) (hours?|minutes?|mins?)$"
                         />
                         <ErrorMessage label={""} message={errorMessages.time_to_cook} />
                     </div>

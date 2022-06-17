@@ -10,7 +10,7 @@ import re
 
 def is_correct_input(form, field):
     expression = field.data
-    reg = "(0?[0-9]|[1-5][0-9]) (hours?|minutes?)$"
+    reg = "(0?[0-9]|[1-5][0-9]) (hours?|minutes?|mins?)$"
 
     # compiling regex
     pattern = re.compile(reg)
@@ -20,7 +20,7 @@ def is_correct_input(form, field):
 
     # validating conditions
     if not match:
-        raise ValidationError("Valid format example '1 hour'")
+        raise ValidationError("Invalid format, i.e. '1 hour'")
 
 class RecipeForm(FlaskForm):
     title = StringField("title", validators=[DataRequired(message="This field is required."),\
