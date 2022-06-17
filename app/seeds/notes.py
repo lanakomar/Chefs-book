@@ -133,6 +133,27 @@ def seed_notes():
         Note(content="I made it today for very first time and it came out great! My sister always makes them by this recipe and they always look and taste wonderful", date_created="2022-01-26", recipe_id=20, author_id=9),\
         Note(content="Great and easy to follow recipe. It’s as tasty as it is eye popping pretty. I substituted the sugar with monk fruit sweetener to make it Keto friendly. Although it came out a little browner, it was awesome! Highly recommended!", date_created="2022-05-29", recipe_id=20, author_id=11),\
 
+        Note(content="Substituted heavy cream for Grapeseed Vegenaise. Used Spicy", date_created="2021-02-03", recipe_id=21, author_id=3),\
+        Note(content="I was introduced to the dish by the lovely young Jamaican woman who cared for my late mother. Her version includes a package of Knorr Parma Rosa mix added with coconut milk to yellow onions, peppers, and garlic sauteed with about a tablespoon of jerk seasoning. No heavy cream or stock. The richness comes from about two cups of shredded mozzarella or cheddar cheese added at the end, just before the pasta. We absolutely love this dish, which is a favorite of my vegetarian daughter.", date_created="2021-06-20", recipe_id=21, author_id=8),\
+        Note(content="Substituted chicken thighs for the breast.", date_created="2022-03-16", recipe_id=21, author_id=12),\
+        Note(content="You can make your own jerk seasoning by combining allspice (of the utmost importance), ground coriander, ground ginger, dried thyme, and S P. I typically also add a little dark brown sugar, turmeric, smoked paprika, garlic powder and/or granulated onion.", date_created="2022-05-24", recipe_id=21, author_id=10),\
+
+        Note(content="Lovely! I added a bag of spinach for more greens. Served with some garlic naan on the side.", date_created="2022-03-15", recipe_id=22, author_id=5),\
+        Note(content="This was really quick and delicious, but next time I would use slightly less shrimp, more beans, and more broth. ", date_created="2022-04-22", recipe_id=22, author_id=5),\
+
+        Note(content="If you squeeze half lemon juice and half lime juice it will taste like authentic key lime pie. Key limes are more sour than regular limes, so this is the way to go! Got this hint from a Florida native. Trust me, it’s perfect!", date_created="2021-04-22", recipe_id=23, author_id=2),\
+        Note(content="This is not enough filling for a 9 inch pie crust. There is nearly an inch of empty space at the top of my pie. Next time I will use an 8 inch crust!", date_created="2021-10-10", recipe_id=23, author_id=12),\
+        Note(content="Don’t throw our the egg whites. Instead, use them to make a meringue.", date_created="2022-02-05", recipe_id=23, author_id=10),\
+        Note(content="I was taught, in culinary school, to use half regular limes and half regular lemons - if one can’t find key limes. Has always worked for me.", date_created="2022-05-27", recipe_id=23, author_id=1),\
+
+        Note(content="Ok, after 50 years of guac, this was the champ. First time ever without lime. Had primo avocados, And Pati’s additions made the whole dish so bright and flavorful. White onions are essential. Don’t even try this with a yellow onion. Revolutionary.", date_created="2022-02-30", recipe_id=24, author_id=1),\
+        Note(content="I’ve been a devoted “lime in my guacamole” maker but will definitely try this recipe. One thing I’ve done in my version is to grate some onion, on a box grater, rather than mince, which gives an extra juicy onion “bite” to the flavor. Try it!", date_created="2022-03-22", recipe_id=24, author_id=4),\
+        Note(content="Just stopped reading this recipe and went and made this. Avacados were perfectly ripe. Had everything on hand and made myself some avacado toast (actually avacado english muffins that were homemade. Oh my, soooooooooo good. I added about a tablespoon of sour cream. Will surly make this again. Thanks much.", date_created="2022-05-03", recipe_id=24, author_id=13),\
+
+        Note(content="Swordfish can be very chewy when not cooked through. We recommend a temperature closer to well done.", date_created="2020-07-04", recipe_id=25, author_id=12),\
+        Note(content="Bad. If you don't like fish, this is the marinade for you. The cumin and coriander completely overpower the swordfish.", date_created="2021-08-08", recipe_id=25, author_id=8),\
+        Note(content="Absolutely wonderful. And the timing (4 mins, 3 mins) resulted in perfectly grilled fish with no complaints about it being under or over done!", date_created="2022-06-12", recipe_id=25, author_id=6),\
+
         # Note(content="", date_created="2020-10-30", recipe_id=, author_id=5),\
     ])
 

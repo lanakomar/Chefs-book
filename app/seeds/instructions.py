@@ -379,6 +379,86 @@ def seed_instructions():
     ),
 ])
 
+    db.session.add_all([
+    Instruction(
+        specification="Prepare the chicken: In a medium bowl, combine jerk seasoning, 1 tablespoon olive oil, garlic powder and smoked paprika. Add chicken and toss to coat. Cover bowl with plastic wrap and let sit in the refrigerator for 2 hours or up to 24 hours. Pull chicken out about 1 hour before cooking, so it comes to room temperature.",\
+        list_order=1, recipe_id=21
+    ),
+    Instruction(
+        specification="Heat oven to 400 degrees. Heat the remaining 1 tablespoon olive oil in a cast-iron skillet over medium. Add the chicken to the skillet, and sear chicken on both sides until browned, about 3 minutes per side.",\
+        list_order=2, recipe_id=21
+    ),
+    Instruction(
+        specification="Once chicken is seared, transfer the skillet to the oven and roast chicken until internal temperature reaches 165 degrees, 15 to 20 minutes. Transfer to a cutting board, let rest for about 10 minutes, and slice on a bias.",\
+        list_order=3, recipe_id=21
+    ),
+    Instruction(
+        specification="As chicken roasts, prepare the pasta: Set a pot of well-salted water to a boil over high heat. Add the pasta, and cook according to the package instructions. Drain and set aside.",\
+        list_order=4, recipe_id=21
+    ),
+    Instruction(
+        specification="Add 2 tablespoons oil to a heavy pot set over medium, and sauté bell peppers with green onions until peppers are barely softened, about 4 minutes. Add the minced garlic and cook until it’s fragrant, about another minute.",\
+        list_order=5, recipe_id=21
+    ),
+    Instruction(
+        specification="Add the 1/4 cup jerk seasoning to the pot and combine. Add the thyme and pierced pepper. Add heavy cream and vegetable stock and bring to a simmer. Mix in the Parmesan, then add pasta.",\
+        list_order=6, recipe_id=21
+    ),
+    Instruction(
+        specification="Top with the jerk chicken, and garnish with green onions. Serve hot.",\
+        list_order=7, recipe_id=21
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Combine lemon zest, paprika, garlic, 3/4 teaspoon salt and 3/4 teaspoon pepper in a medium bowl. Add shrimp and toss to coat.",\
+        list_order=1, recipe_id=22
+    ),
+    Instruction(
+        specification="In a large pot, melt butter over medium-high heat. When butter is foaming, add shrimp and cook, stirring occasionally, until pink and starting to curl, 2 to 3 minutes. Using a slotted spoon, transfer shrimp to a plate; set aside.",\
+        list_order=2, recipe_id=22
+    ),
+    Instruction(
+        specification="Add leeks, season with salt and pepper, and cook over medium until leeks are soft and starting to brown on the edges, 4 to 5 minutes, stirring occasionally. Add beans and chicken broth and bring to a boil over high. Lower heat and simmer, 8 to 10 minutes. Stir in reserved shrimp and any juices from the plate, parsley and lemon juice, and season with salt and pepper. Serve with toasted bread.",\
+        list_order=3, recipe_id=22
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Heat the oven to 325 degrees. With an electric mixer, beat the egg yolks on high speed until thick and light in color. Add the condensed milk and mix on low speed. Still on low speed, add half the lime juice, cream of tartar and then the remaining lime juice, mixing after each addition. Mix well until blended.",\
+        list_order=1, recipe_id=23
+    ),
+    Instruction(
+        specification="Pour into pie crust and bake for 10 to 15 minutes, or until the center is firm and dry to the touch. Freeze for at least 3 hours. Serve with whipped cream.",\
+        list_order=2, recipe_id=23
+    )
+])
+
+    db.session.add_all([
+    Instruction(
+        specification="Place the Anaheim chile on a small baking sheet covered with aluminum foil. Roast it under the broiler, flipping a couple times, until the chile is wilted and its skin is completely charred and wrinkly, 9 to 12 minutes. (Alternatively, you can char the chile directly on a hot comal or a cast-iron pan set over medium heat, or on a grill set to high.)",\
+        list_order=1, recipe_id=24
+    ),
+    Instruction(
+        specification="Place the charred Anaheim chile in a plastic bag and close it well. Let it steam and sweat for 5 to 10 minutes.",\
+        list_order=2, recipe_id=24
+    ),
+    Instruction(
+        specification="As the Anaheim chile steams, add the serrano chile, onion, cilantro and salt in a bowl or molcajete, and mash until combined. Add the avocado and continue to mix and mash until you form a chunky purée.",\
+        list_order=3, recipe_id=24
+    ),
+    Instruction(
+        specification="Once it is cool enough to handle, remove the Anaheim chile from the bag, slip off the charred skin, make a slit down the side and remove the seeds and stem. You could rinse the chile under a thin stream of water, to help remove the seeds, or rinse it off by dipping it into a bowl of water.",\
+        list_order=4, recipe_id=24
+    ),
+    Instruction(
+        specification="Finely chop the Anaheim chile. Add it to the avocado mixture, and stir to combine. Season to taste with salt.",\
+        list_order=5, recipe_id=24
+    ),
+])
+
 #     db.session.add_all([
 #     Instruction(
 #         specification="",\

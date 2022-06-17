@@ -530,25 +530,25 @@ def seed_ingredients():
 
     db.session.add_all([
         Ingredient(
-            amount=1.5, food_item='zucchini, thinly sliced', measurement_unit_id=10, recipe_id=19
+            amount=1.5, food_item='zucchini, thinly sliced', measurement_unit_id=10, recipe_id=19, shoppers = [user_1]
         ),
         Ingredient(
-            amount=4, food_item='eggs', measurement_unit_id=14, recipe_id=19
+            amount=4, food_item='eggs', measurement_unit_id=14, recipe_id=19, shoppers = [user_1]
         ),
         Ingredient(
-            amount=2.5, food_item='milk or half-and-half', measurement_unit_id=1, recipe_id=19
+            amount=2.5, food_item='milk or half-and-half', measurement_unit_id=1, recipe_id=19, shoppers = [user_1]
         ),
         Ingredient(
-            amount=1, food_item='grated nutmeg', measurement_unit_id=8, recipe_id=19
+            amount=1, food_item='grated nutmeg', measurement_unit_id=8, recipe_id=19, shoppers = [user_1]
         ),
         Ingredient(
-            amount=1, food_item='chopped thyme', measurement_unit_id=13, recipe_id=19
+            amount=1, food_item='chopped thyme', measurement_unit_id=13, recipe_id=19, shoppers = [user_1]
         ),
         Ingredient(
-            amount=2, food_item='butter for greasing baking dish', measurement_unit_id=12, recipe_id=19
+            amount=2, food_item='butter for greasing baking dish', measurement_unit_id=12, recipe_id=19, shoppers = [user_1]
         ),
         Ingredient(
-            amount=2, food_item='grated cheese, such as Gruyère or Cheddar', measurement_unit_id=7, recipe_id=19
+            amount=2, food_item='grated cheese, such as Gruyère or Cheddar', measurement_unit_id=7, recipe_id=19, shoppers = [user_1]
         ),
     ])
 
@@ -579,6 +579,165 @@ def seed_ingredients():
         ),
         Ingredient(
             amount=15, food_item='Mint leaves , for garnish, optional', measurement_unit_id=14, recipe_id=20
+        ),
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=2, food_item='jerk seasoning', measurement_unit_id=12, recipe_id=21
+        ),
+        Ingredient(
+            amount=1, food_item='extra-virgin olive oil', measurement_unit_id=12, recipe_id=21
+        ),
+        Ingredient(
+            amount=1, food_item='garlic powder', measurement_unit_id=13, recipe_id=21
+        ),
+        Ingredient(
+            amount=1, food_item='smoked paprika', measurement_unit_id=13, recipe_id=21
+        ),
+        Ingredient(
+            amount=2, food_item='boneless, skinless chicken breasts', measurement_unit_id=14, recipe_id=21
+        ),
+        Ingredient(
+            amount=1, food_item='salt', measurement_unit_id=8, recipe_id=21
+        ),
+        Ingredient(
+            amount=2, food_item='extra-virgin olive oil', measurement_unit_id=14, recipe_id=21
+        ),
+        Ingredient(
+            amount=1, food_item='penne pasta', measurement_unit_id=10, recipe_id=21
+        ),
+        Ingredient(
+            amount=3, food_item='bell peppers, preferably a mix of colors, thinly sliced', measurement_unit_id=14, recipe_id=21
+        ),
+        Ingredient(
+            amount=4, food_item='green onions, sliced, plus more for garnish', measurement_unit_id=14, recipe_id=21
+        ),
+        Ingredient(
+            amount=2, food_item='garlic cloves, minced', measurement_unit_id=14, recipe_id=21
+        ),
+        Ingredient(
+            amount=0.25, food_item='jerk seasoning', measurement_unit_id=1, recipe_id=21
+        ),
+        Ingredient(
+            amount=2, food_item='fresh thyme sprigs', measurement_unit_id=14, recipe_id=21
+        ),
+        Ingredient(
+            amount=1, food_item='Scotch bonnet pepper, pierced, not sliced (optional)', measurement_unit_id=14, recipe_id=21
+        ),
+        Ingredient(
+            amount=0.5, food_item='heavy cream', measurement_unit_id=1, recipe_id=21
+        ),
+        Ingredient(
+            amount=0.25, food_item='vegetable or chicken stock', measurement_unit_id=1, recipe_id=21
+        ),
+        Ingredient(
+            amount=0.5, food_item='grated Parmesan', measurement_unit_id=1, recipe_id=21
+        )
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=1, food_item='fresh lemon zest', measurement_unit_id=13, recipe_id=22
+        ),
+        Ingredient(
+            amount=2, food_item='lemon juice', measurement_unit_id=12, recipe_id=22
+        ),
+        Ingredient(
+            amount=1, food_item='sweet or smoked paprika', measurement_unit_id=13, recipe_id=22
+        ),
+        Ingredient(
+            amount=2, food_item='garlic cloves, grated', measurement_unit_id=14, recipe_id=22
+        ),
+        Ingredient(
+            amount=1, food_item='peeled, deveined large shrimp (tails removed)', measurement_unit_id=10, recipe_id=22
+        ),
+        Ingredient(
+            amount=4, food_item='peeled, deveined large shrimp (tails removed)', measurement_unit_id=12, recipe_id=22
+        ),
+        Ingredient(
+            amount=1, food_item='large onion, minced', measurement_unit_id=14, recipe_id=22
+        ),
+        Ingredient(
+            amount=1, food_item='cannellini beans or other white beans, rinsed', measurement_unit_id=15, recipe_id=22
+        ),
+        Ingredient(
+            amount=2, food_item='chicken stock or vegetable stock', measurement_unit_id=1, recipe_id=22
+        ),
+        Ingredient(
+            amount=2, food_item='finely chopped fresh parsley (optional)', measurement_unit_id=12, recipe_id=22
+        )
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=4, food_item='egg yolks', measurement_unit_id=14, recipe_id=23
+        ),
+        Ingredient(
+            amount=1, food_item='sweetened condensed milk', measurement_unit_id=15, recipe_id=23
+        ),
+        Ingredient(
+            amount=0.5, food_item='Key lime juice', measurement_unit_id=1, recipe_id=23
+        ),
+        Ingredient(
+            amount=0.5, food_item='cream of tartar', measurement_unit_id=13, recipe_id=23
+        ),
+        Ingredient(
+            amount=1, food_item='9-inch graham cracker crust', measurement_unit_id=14, recipe_id=23
+        )
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=1, food_item='fresh Anaheim chile', measurement_unit_id=14, recipe_id=24, shoppers = [user_1]
+        ),
+        Ingredient(
+            amount=1, food_item='serrano chile, finely chopped', measurement_unit_id=14, recipe_id=24, shoppers = [user_1]
+        ),
+        Ingredient(
+            amount=3, food_item='finely chopped white onion', measurement_unit_id=12, recipe_id=24, shoppers = [user_1]
+        ),
+        Ingredient(
+            amount=2, food_item='coarsely chopped cilantro leaves and tender stems', measurement_unit_id=12, recipe_id=24, shoppers = [user_1]
+        ),
+        Ingredient(
+            amount=1, food_item='sea salt, plus more to taste', measurement_unit_id=13, recipe_id=24, shoppers = [user_1]
+        ),
+        Ingredient(
+            amount=3, food_item='ripe avocados, halved and pitted, meat diced and mashed', measurement_unit_id=14, recipe_id=24, shoppers = [user_1]
+        ),
+    ])
+
+    db.session.add_all([
+        Ingredient(
+            amount=4, food_item='center-cut swordfish steaks, about 6 ounces each, one-inch thick', measurement_unit_id=14, recipe_id=25
+        ),
+        Ingredient(
+            amount=3, food_item='olive oil', measurement_unit_id=12, recipe_id=25
+        ),
+        Ingredient(
+            amount=2, food_item='soy sauce', measurement_unit_id=13, recipe_id=25
+        ),
+        Ingredient(
+            amount=1, food_item='red-wine vinegar', measurement_unit_id=12, recipe_id=25
+        ),
+        Ingredient(
+            amount=4, food_item='sprigs rosemary', measurement_unit_id=14, recipe_id=25
+        ),
+        Ingredient(
+            amount=1, food_item='finely chopped garlic', measurement_unit_id=12, recipe_id=25
+        ),
+        Ingredient(
+            amount=2, food_item='ground coriander', measurement_unit_id=13, recipe_id=25
+        ),
+        Ingredient(
+            amount=1, food_item='ground cumin', measurement_unit_id=13, recipe_id=25
+        ),
+        Ingredient(
+            amount=2, food_item='grated lemon rind', measurement_unit_id=13, recipe_id=25
+        ),
+        Ingredient(
+            amount=0.25, food_item='red pepper flakes', measurement_unit_id=13, recipe_id=25
         ),
     ])
 

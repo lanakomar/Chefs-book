@@ -184,6 +184,51 @@ def seed_recipes():
         user_id=6
     )
 
+    pasta_chicken = Recipe(
+        title="Rasta Pasta With Jerk Chicken",
+        time_to_cook="45 mins",
+        description="Comforting and spicy in just the right way, Rasta pasta is popular in Jamaican communities across New York and beyond. This version gets its spice from jerk seasoning and a single Scotch bonnet.",
+        servings=4,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image21.jpeg",
+        user_id=1
+    )
+
+    lemony_shrimp = Recipe(
+        title="Lemony Shrimp and Bean Stew",
+        time_to_cook="30 mins",
+        description="With minimal prep and a quick cook time, this shrimp stew feels elegant for such an easy weeknight meal. You can also take the dish in a number of directions: Substitute the shrimp with an equal amount of flaky white fish or even seared scallops, or stretch the dish into a meal for six by stirring in some butter and serving over cooked spaghetti or rigatoni. A good glug of your best olive oil would also be a welcome.image22",
+        servings=4,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image22.jpeg",
+        user_id=1
+    )
+
+    key_lime_pie = Recipe(
+        title="Key Lime Pie",
+        time_to_cook="30 mins",
+        description="Key limes are small, yellowish, seedy and wildly more tart than their ordinary Persian counterparts. Unfortunately, Key limes grow slowly, so many Florida farmers replaced their Key lime trees with Persian ones. You can buy bottled Key lime juice at most supermarkets, but you can also make this easy pie with regular limes, although it won't be quite as delightfully tart.",
+        servings=8,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image23.jpeg",
+        user_id=8
+    )
+
+    guacamole = Recipe(
+        title="Chile Verde Guacamole",
+        time_to_cook="30 mins",
+        description="Mexicans are split into two camps when it comes to guacamole: those who always add lime juice and those who absolutely do not. Many Sonoran friends shout “Never!” at the mere suggestion. Having grown up in the pro-lime camp in Mexico City, I was filled with skepticism before trying versions from the deep Mexican north, but what a pleasant surprise. (I hate to admit it, but this guacamole really needs no lime.)",
+        servings=6,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image24.jpeg",
+        user_id=7
+    )
+
+    swordfish = Recipe(
+        title="Grilled Marinated Swordfish Steaks",
+        time_to_cook="30 mins",
+        description="Swordfish, with its firm, lean flesh, is an ideal candidate for grilling. It's not as forgiving as some fatty fish, like tuna and black sea bass, so proceed with caution. If you remove the fish from the fire when the center is still slightly pink, by the time it gets to the table it should be cooked through. ",
+        servings=4,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image25.jpeg",
+        user_id=10
+    )
+
     # creamy_shrimp = Recipe(
     #     title="",
     #     time_to_cook="20 mins",
@@ -213,6 +258,11 @@ def seed_recipes():
     db.session.add(pancakes)
     db.session.add(flan)
     db.session.add(pavlova)
+    db.session.add(pasta_chicken)
+    db.session.add(lemony_shrimp)
+    db.session.add(key_lime_pie)
+    db.session.add(guacamole)
+    db.session.add(swordfish)
     db.session.commit()
 
 
