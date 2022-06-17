@@ -184,14 +184,95 @@ def seed_recipes():
         user_id=6
     )
 
-    # creamy_shrimp = Recipe(
-    #     title="",
-    #     time_to_cook="20 mins",
-    #     description="",
-    #     servings=2,
-    #     img_url="",
-    #     user_id=9
-    # )
+    pasta_chicken = Recipe(
+        title="Rasta Pasta With Jerk Chicken",
+        time_to_cook="45 mins",
+        description="Comforting and spicy in just the right way, Rasta pasta is popular in Jamaican communities across New York and beyond. This version gets its spice from jerk seasoning and a single Scotch bonnet.",
+        servings=4,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image21.jpeg",
+        user_id=1
+    )
+
+    lemony_shrimp = Recipe(
+        title="Lemony Shrimp and Bean Stew",
+        time_to_cook="30 mins",
+        description="With minimal prep and a quick cook time, this shrimp stew feels elegant for such an easy weeknight meal. You can also take the dish in a number of directions: Substitute the shrimp with an equal amount of flaky white fish or even seared scallops, or stretch the dish into a meal for six by stirring in some butter and serving over cooked spaghetti or rigatoni. A good glug of your best olive oil would also be a welcome.image22",
+        servings=4,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image22.jpeg",
+        user_id=1
+    )
+
+    key_lime_pie = Recipe(
+        title="Key Lime Pie",
+        time_to_cook="30 mins",
+        description="Key limes are small, yellowish, seedy and wildly more tart than their ordinary Persian counterparts. Unfortunately, Key limes grow slowly, so many Florida farmers replaced their Key lime trees with Persian ones. You can buy bottled Key lime juice at most supermarkets, but you can also make this easy pie with regular limes, although it won't be quite as delightfully tart.",
+        servings=8,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image23.jpeg",
+        user_id=8
+    )
+
+    guacamole = Recipe(
+        title="Chile Verde Guacamole",
+        time_to_cook="30 mins",
+        description="Mexicans are split into two camps when it comes to guacamole: those who always add lime juice and those who absolutely do not. Many Sonoran friends shout “Never!” at the mere suggestion. Having grown up in the pro-lime camp in Mexico City, I was filled with skepticism before trying versions from the deep Mexican north, but what a pleasant surprise. (I hate to admit it, but this guacamole really needs no lime.)",
+        servings=6,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image24.jpeg",
+        user_id=7
+    )
+
+    swordfish = Recipe(
+        title="Grilled Marinated Swordfish Steaks",
+        time_to_cook="30 mins",
+        description="Swordfish, with its firm, lean flesh, is an ideal candidate for grilling. It's not as forgiving as some fatty fish, like tuna and black sea bass, so proceed with caution. If you remove the fish from the fire when the center is still slightly pink, by the time it gets to the table it should be cooked through. ",
+        servings=4,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image25.jpeg",
+        user_id=10
+    )
+
+    yogurt_chicken = Recipe(
+        title="Yogurt-Marinated Fried Chicken With Saffron and Paprika",
+        time_to_cook="45 mins",
+        description="Here is a fried chicken recipe that is the best kind of weeknight cooking, with ingredients found quickly at most local grocery stores, whirled in a food processor and then left overnight to turn into something delicious the next evening.",
+        servings=8,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image26.jpeg",
+        user_id=11
+    )
+
+    greek_tomato_salad = Recipe(
+        title="Greek Tomato Salad",
+        time_to_cook="20 mins",
+        description="The Greek approach to a good tomato salad, whether it has cucumbers and lettuce or not (this one doesn’t), is all about keeping it simple. Sweet, ripe summer tomatoes, salt and olive oil are all you need. The flourishes here — green pepper, red onion, chopped mint and pinch of oregano — are optional, but they add brightness. Good Greek feta cheese takes it over the top.",
+        servings=6,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image27.jpeg",
+        user_id=12
+    )
+
+    rainbow_beef = Recipe(
+        title="Rainbow Beef",
+        time_to_cook="20 mins",
+        description="In this version of a stir-fry classic I am using less beef than a typical recipe would call for and adding in some shiitake mushrooms and extra peppers.",
+        servings=4,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image28.jpeg",
+        user_id=13
+    )
+
+    mac_cheese = Recipe(
+        title="Creamy Macaroni and Cheese",
+        time_to_cook="1 hour\n40 mins",
+        description="This creamy version has one powerful advantage for the cook: There’s no need to preboil the pasta. It cooks in the oven, absorbing the liquid from the dairy products.",
+        servings=8,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image29.jpeg",
+        user_id=1
+    )
+
+    lava_cake = Recipe(
+        title="Chocolate Lava Cake for Two",
+        time_to_cook="25 mins",
+        description="Chocolate lava cakes gained popularity in the late 1990s thanks to the chef Jean-Georges Vongerichten, and they have stuck around on dessert menus for good reason: They are rich chocolate cake and velvety sauce all in one, and they are surprisingly easy to make in under an hour. ",
+        servings=2,
+        img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image30.jpeg",
+        user_id=5
+    )
 
     db.session.add(crab_cheddar_quiche)
     db.session.add(autumn_cheesecake)
@@ -213,6 +294,16 @@ def seed_recipes():
     db.session.add(pancakes)
     db.session.add(flan)
     db.session.add(pavlova)
+    db.session.add(pasta_chicken)
+    db.session.add(lemony_shrimp)
+    db.session.add(key_lime_pie)
+    db.session.add(guacamole)
+    db.session.add(swordfish)
+    db.session.add(yogurt_chicken)
+    db.session.add(greek_tomato_salad)
+    db.session.add(rainbow_beef)
+    db.session.add(mac_cheese)
+    db.session.add(lava_cake)
     db.session.commit()
 
 
