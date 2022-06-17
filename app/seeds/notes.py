@@ -133,7 +133,46 @@ def seed_notes():
         Note(content="I made it today for very first time and it came out great! My sister always makes them by this recipe and they always look and taste wonderful", date_created="2022-01-26", recipe_id=20, author_id=9),\
         Note(content="Great and easy to follow recipe. It’s as tasty as it is eye popping pretty. I substituted the sugar with monk fruit sweetener to make it Keto friendly. Although it came out a little browner, it was awesome! Highly recommended!", date_created="2022-05-29", recipe_id=20, author_id=11),\
 
-        # Note(content="", date_created="2020-10-30", recipe_id=, author_id=5),\
+        Note(content="Substituted heavy cream for Grapeseed Vegenaise. Used Spicy", date_created="2021-02-03", recipe_id=21, author_id=3),\
+        Note(content="I was introduced to the dish by the lovely young Jamaican woman who cared for my late mother. Her version includes a package of Knorr Parma Rosa mix added with coconut milk to yellow onions, peppers, and garlic sauteed with about a tablespoon of jerk seasoning. No heavy cream or stock. The richness comes from about two cups of shredded mozzarella or cheddar cheese added at the end, just before the pasta. We absolutely love this dish, which is a favorite of my vegetarian daughter.", date_created="2021-06-20", recipe_id=21, author_id=8),\
+        Note(content="Substituted chicken thighs for the breast.", date_created="2022-03-16", recipe_id=21, author_id=12),\
+        Note(content="You can make your own jerk seasoning by combining allspice (of the utmost importance), ground coriander, ground ginger, dried thyme, and S P. I typically also add a little dark brown sugar, turmeric, smoked paprika, garlic powder and/or granulated onion.", date_created="2022-05-24", recipe_id=21, author_id=10),\
+
+        Note(content="Lovely! I added a bag of spinach for more greens. Served with some garlic naan on the side.", date_created="2022-03-15", recipe_id=22, author_id=5),\
+        Note(content="This was really quick and delicious, but next time I would use slightly less shrimp, more beans, and more broth. ", date_created="2022-04-22", recipe_id=22, author_id=5),\
+
+        Note(content="If you squeeze half lemon juice and half lime juice it will taste like authentic key lime pie. Key limes are more sour than regular limes, so this is the way to go! Got this hint from a Florida native. Trust me, it’s perfect!", date_created="2021-04-22", recipe_id=23, author_id=2),\
+        Note(content="This is not enough filling for a 9 inch pie crust. There is nearly an inch of empty space at the top of my pie. Next time I will use an 8 inch crust!", date_created="2021-10-10", recipe_id=23, author_id=12),\
+        Note(content="Don’t throw our the egg whites. Instead, use them to make a meringue.", date_created="2022-02-05", recipe_id=23, author_id=10),\
+        Note(content="I was taught, in culinary school, to use half regular limes and half regular lemons - if one can’t find key limes. Has always worked for me.", date_created="2022-05-27", recipe_id=23, author_id=1),\
+
+        Note(content="Ok, after 50 years of guac, this was the champ. First time ever without lime. Had primo avocados, And Pati’s additions made the whole dish so bright and flavorful. White onions are essential. Don’t even try this with a yellow onion. Revolutionary.", date_created="2022-02-25", recipe_id=24, author_id=1),\
+        Note(content="I’ve been a devoted “lime in my guacamole” maker but will definitely try this recipe. One thing I’ve done in my version is to grate some onion, on a box grater, rather than mince, which gives an extra juicy onion “bite” to the flavor. Try it!", date_created="2022-03-22", recipe_id=24, author_id=4),\
+        Note(content="Just stopped reading this recipe and went and made this. Avacados were perfectly ripe. Had everything on hand and made myself some avacado toast (actually avacado english muffins that were homemade. Oh my, soooooooooo good. I added about a tablespoon of sour cream. Will surly make this again. Thanks much.", date_created="2022-05-03", recipe_id=24, author_id=13),\
+
+        Note(content="Swordfish can be very chewy when not cooked through. We recommend a temperature closer to well done.", date_created="2020-07-04", recipe_id=25, author_id=12),\
+        Note(content="Bad. If you don't like fish, this is the marinade for you. The cumin and coriander completely overpower the swordfish.", date_created="2021-08-08", recipe_id=25, author_id=8),\
+        Note(content="Absolutely wonderful. And the timing (4 mins, 3 mins) resulted in perfectly grilled fish with no complaints about it being under or over done!", date_created="2022-06-12", recipe_id=25, author_id=6),\
+
+        Note(content="Persia, now Iran, has always been famous for pistachios - if you add finely chopped pistachios to the flour then fry up it becomes a WOW dish!", date_created="2019-09-15", recipe_id=26, author_id=3),\
+        Note(content="Love the flavors. Truth be told I don't like to fry chicken, so I baked it instead, drizzled with a little olive oil, in a 450° oven until the pieces tested at 170 (for mine about 25-30 minutes). Anyone looking for a lighter option might try that. Either way I think this is a keeper.", date_created="2020-10-30", recipe_id=26, author_id=7),\
+        Note(content="Cardamom is another spice that is surprisingly good, with chicken.", date_created="2021-08-11", recipe_id=26, author_id=9),\
+        Note(content="Leave the yogurt coating on, just drip off the excess. It's what turns the flour into a batter-like coating.", date_created="2022-02-02", recipe_id=26, author_id=1),\
+
+        Note(content="Of all the delicious tomato recipes we have made so far this summer, we found this to be simply the best. It may have been the fresh mint and the dried oregano with the feta, but the entire salad was so fresh tasting, we thought we were actually sitting on the beach in Greece.", date_created="2020-10-30", recipe_id=27, author_id=12),\
+        Note(content="To look at the photo, you think:meh. Eat it and you'll think it's one of the best, simple salads you'll ever eat. If you have perfect, homegrown tomatoes, this is an excellent way to enjoy them.", date_created="2021-11-03", recipe_id=27, author_id=11),\
+        Note(content="Nice dish w fresh tomatos from the farmers market. We used an Anaheim pepper instead of a bell pepper.", date_created="2022-03-11", recipe_id=27, author_id=10),\
+
+        Note(content="I made this last night. I cut the peppers in strips about 1/3\" wide. Also, added one thinly sliced celery stalk. To go with it, I used fresh soba noodles, which have a much more pronounced flavor (and scent) than the dry variety.", date_created="2022-01-07", recipe_id=28, author_id=2),\
+        Note(content="A Serrano pepper went well and added a bit of heat.", date_created="2022-04-28", recipe_id=28, author_id=1),\
+
+        Note(content="This is now my go-to Mac & Cheese, with only one alteration to the recipe as published. Omit the added salt. It was way too salty with it. Here is a helpful hint: if you combine all ingredients in your baking dish in the morning, and let it sit in the fridge during the day, it will cook in half the time.", date_created="2022-01-03", recipe_id=29, author_id=2),\
+        Note(content="The more aged the cheese, the drier it will be. You need to use a moister (i.e. younger) cheddar for a creamier result", date_created="2022-02-16", recipe_id=29, author_id=3),\
+        Note(content="Be sure to put a sheet pan under this to catch any spills.", date_created="2022-03-22", recipe_id=29, author_id=5),\
+        Note(content="This macaroni and cheese has distinct advantage above all others: you neither boil the pasta, nor make a roux. The process is as unfussy as the dish itself, and the dish itself is outrageously good.", date_created="2022-04-11", recipe_id=29, author_id=6),\
+
+        Note(content="I reduced baking time by two minutes! Also, I bought some ramekins this weekend. Used them twice already. Everything I eat will be in individual serving sizes from here on out.", date_created="2022-03-22", recipe_id=30, author_id=5),\
+        Note(content="Glass Pyrex custard cups hold 6 ounces and work great.", date_created="2022-06-10", recipe_id=30, author_id=5),\
     ])
 
     db.session.commit()

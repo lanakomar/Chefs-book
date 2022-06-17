@@ -73,16 +73,23 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
         e.preventDefault();
         e.stopPropagation();
 
-        const newIngredient = {
-            amount: amount,
-            food_item: foodItem,
-            measurement_unit_id: measure,
-        };
+        if (amount <= 0) {
+            const errors = {};
+            errors.inputAmount = "Amount should be greater than 0";
+            setErrorMessages(errors);
+        } else {
+            const newIngredient = {
+                amount: amount,
+                food_item: foodItem,
+                measurement_unit_id: measure,
+            };
 
-        setIngredients([...ingredients, newIngredient]);
-        setMeasure("");
-        setFoodItem("");
-        setAmount("");
+            setIngredients([...ingredients, newIngredient]);
+            setMeasure("");
+            setFoodItem("");
+            setAmount("");
+        }
+
     };
 
 
@@ -120,12 +127,19 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
     const addIstruction = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const instructionToAdd = {
-            specification: instruction,
-            list_order: instructionsList.length
-        };
-        setInstructionsList([...instructionsList, instructionToAdd]);
-        setInstruction("");
+
+        if (!instruction.trim().length) {
+            const errors = {};
+            errors.inputInstruction = "Instruction could not be empty";
+            setErrorMessages(errors);
+        } else {
+            const instructionToAdd = {
+                specification: instruction,
+                list_order: instructionsList.length
+            };
+            setInstructionsList([...instructionsList, instructionToAdd]);
+            setInstruction("");
+        }
     };
 
     const handleInstrDelete = (e) => {
@@ -316,7 +330,8 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                             type="text"
                             value={time}
                             onChange={(e) => setTime(e.target.value)}
-                            placeholder="Total time to cook"
+                            placeholder="Cook time, i.e. 1 hour"
+                            // pattern="(0?[0-9]|[1-5][0-9]) (hours?|minutes?|mins?)$"
                         />
                         <ErrorMessage label={""} message={errorMessages.time_to_cook} />
                     </div>
@@ -388,7 +403,7 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                                 placeholder="amount"
                             />
                         </div>
-                        <ErrorMessage label={""} message={errorMessages.ingredient?.amount} />
+                        <ErrorMessage label={""} message={errorMessages.ingredient?.amount || errorMessages?.inputAmount} />
                         <div className='select'>
                             <Select
                                 options={measurementOptions}
@@ -436,7 +451,7 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                                 onChange={(e) => setInstruction(e.target.value)}
                             />
                         </div>
-                        <ErrorMessage label={""} message={errorMessages?.instructions?.specification} />
+                        <ErrorMessage label={""} message={errorMessages?.instructions?.specification || errorMessages?.inputInstruction} />
                         <div className='add-btn'><button
                             disabled={!instruction}
                             onClick={(e) => addIstruction(e)}
