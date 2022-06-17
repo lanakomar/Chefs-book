@@ -258,7 +258,7 @@ def seed_recipes():
 
     mac_cheese = Recipe(
         title="Creamy Macaroni and Cheese",
-        time_to_cook="1 hour\n40 mins",
+        time_to_cook="1 hour 40 mins",
         description="This creamy version has one powerful advantage for the cook: There’s no need to preboil the pasta. It cooks in the oven, absorbing the liquid from the dairy products.",
         servings=8,
         img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image29.jpeg",

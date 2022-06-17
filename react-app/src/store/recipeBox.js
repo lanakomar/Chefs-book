@@ -45,7 +45,6 @@ export const createRecipe = (payload, userId) => async (dispatch) => {
         return recipe
     } else if (res.status < 500) {
         const data = await res.json();
-        console.log(data);
         if (data.errors) {
             return data.errors;
         }
