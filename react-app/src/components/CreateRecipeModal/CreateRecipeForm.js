@@ -77,7 +77,12 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
             const errors = {};
             errors.inputAmount = "Amount should be greater than 0";
             setErrorMessages(errors);
-        } else {
+        } else if (!foodItem.trim().length) {
+            const errors = {};
+            errors.inputFood = "Ingredient could not be empty";
+            setErrorMessages(errors);
+        }
+        else {
             const newIngredient = {
                 amount: amount,
                 food_item: foodItem,
@@ -424,7 +429,7 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                                 placeholder="Food Item"
                             />
                         </div>
-                        <ErrorMessage label={""} message={errorMessages.ingredient?.food_item} />
+                        <ErrorMessage label={""} message={errorMessages.ingredient?.food_item || errorMessages?.inputFood} />
                         <div className='add-btn'><button
                             disabled={!foodItem || !amount || !measure}
                             onClick={(e) => addIngredient(e)}
