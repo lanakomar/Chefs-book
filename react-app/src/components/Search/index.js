@@ -11,14 +11,14 @@ const Search = () => {
 
     const handleInput = (e) => {
         setQuery(e.target.value);
-        if (query.trim().length) {
+        if (query.trim().length && query.replace(/[^a-zA-Z0-9 ]/g, '')) {
             setTipMsg(false);
         }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (query && query.trim().length) {
+        if (query && query.trim().length && query.replace(/[^a-zA-Z0-9 ]/g, '')) {
             setTipMsg(false);
             history.push(`/search/${query}`);
             setQuery("");
