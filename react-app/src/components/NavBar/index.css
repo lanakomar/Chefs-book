@@ -8,6 +8,12 @@ nav {
     padding: 0 20px;
 }
 
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn-nav {
     width: 150px;
     height: 90%;

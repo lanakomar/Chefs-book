@@ -12,6 +12,7 @@ import HomePage from './components/HomePage';
 import RecipeBox from './components/RecipeBox';
 import NotFound from './components/NotFound'
 import SingleRecipePage from './components/SingleRecipePage';
+import SearchResult from './components/Search/SearchResult';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -75,6 +76,9 @@ function App() {
         <ProtectedRoute path='/recipes/:recipeId' exact={true} loaded={loaded}>
           <SingleRecipePage />
         </ProtectedRoute>
+        <Route path="/search/:searchQuery" exact={true}>
+          <SearchResult />
+        </Route>
         <Route path="/404" component={NotFound} />
         <Redirect to="/404" />
       </Switch>
