@@ -3,6 +3,7 @@
     border-bottom: 1px solid black;
     padding: 5px;
     width: 170px;
+    height: 30px;
 }
 
 #search input:focus-visible {
