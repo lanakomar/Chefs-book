@@ -1,5 +1,6 @@
 from .db import db
 from .grocery_list import grocery_lists
+from .saved_recipes import saved_recipes
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -21,6 +22,9 @@ class User(db.Model, UserMixin):
 
     #many - many with Ingredient (Grocery_list)
     ingredients_to_buy = db.relationship("Ingredient", back_populates="shoppers", secondary=grocery_lists)
+
+    #many - many with Recipe (saved_recipes)
+    recipes_saved = db.relationship("Recipe", back_populates="users_saved", secondary=saved_recipes)
 
     @property
     def password(self):
