@@ -7,6 +7,7 @@ import DeleteNoteModal from '../DeleteNoteModal';
 import { viewRecipe } from '../../store/singleRecipe';
 import { addNote, editNote } from '../../store/singleRecipe';
 import { addToGroceryList } from '../../store/groceryList';
+import { saveToRecipeBox } from '../../store/savedRecipes';
 import './index.css'
 
 const SingleRecipePage = () => {
@@ -16,6 +17,7 @@ const SingleRecipePage = () => {
     const [isEdit, setIsEdit] = useState(false);
     const [editId, setEditId] = useState();
     const [added, setAdded] = useState(false);
+    const [addedToRecipeBox, setAddedToRecipeBox] = useState(false);
 
     const inputRef = useRef();
 
@@ -23,12 +25,12 @@ const SingleRecipePage = () => {
     const recipe = useSelector(state => state.singleRecipe);
     const cur_user = useSelector(state => state.session.user);
     const groceries = useSelector(state => state.groceryList);
+    const savedRecipes = useSelector(state => state.savedRecipes);
 
     useEffect(() => {
         async function fetchData() {
             await dispatch(viewRecipe(recipeId))
         };
-
         fetchData();
     }, [dispatch, recipeId])
 
@@ -38,7 +40,15 @@ const SingleRecipePage = () => {
         } else {
             setAdded(false);
         }
-    }, [groceries, recipeId])
+    }, [groceries, recipeId]);
+
+    useEffect(() => {
+        if (Object.keys(savedRecipes).includes(recipeId.toString())) {
+            setAddedToRecipeBox(true);
+        } else {
+            setAddedToRecipeBox(false);
+        }
+    }, [savedRecipes, recipeId]);
 
     const measurements = {
         14: "",
@@ -169,6 +179,12 @@ const SingleRecipePage = () => {
         </div>
     );
 
+    const addToRecipeBox = async (e) => {
+        e.preventDefault();
+        await dispatch(saveToRecipeBox(recipeId, cur_user.id));
+        setAddedToRecipeBox(true);
+    }
+
     const addButton = (
         <button
             onClick={addToGL}
@@ -178,6 +194,19 @@ const SingleRecipePage = () => {
         </button>
     );
 
+    const savedToBox = (
+        <>
+            <i className="fa-solid fa-check" />
+            <span>Saved to Recipe Box</span>
+        </>
+    )
+
+    const saveEle = (
+        <>
+            <i className="fa-solid fa-bookmark" />
+            <span>Save to Recipe Box</span>
+        </>
+    );
 
     return (
         <div className='single-recipe-container'>
@@ -186,8 +215,15 @@ const SingleRecipePage = () => {
             </div>
             <div className='recipe-overview-container'>
                 <div className='time-and-serving'>
-                    <p>Servings: {recipe?.servings}</p>
-                    <p>Total time to cook: {recipe?.time_to_cook}</p>
+                    <div>
+                        <p>Servings: {recipe?.servings}</p>
+                        <p>Total time to cook: {recipe?.time_to_cook}</p>
+                    </div>
+                    <button
+                        onClick={addToRecipeBox}
+                        className='add-to-recipe-box'>
+                        {addedToRecipeBox ? savedToBox : saveEle}
+                    </button>
                 </div>
                 <div className='overview'>
                     <p>{recipe?.description}</p>

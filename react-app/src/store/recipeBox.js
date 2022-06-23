@@ -93,7 +93,8 @@ export const deleteRecipe = (id) => async (dispatch) => {
     } else {
         return "An error occurred. Please try again.";
     };
-}
+};
+
 
 const initialState = {};
 

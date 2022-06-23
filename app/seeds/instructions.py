@@ -461,6 +461,21 @@ def seed_instructions():
 
     db.session.add_all([
     Instruction(
+        specification="Preheat a charcoal grill or broiler, or heat a grill pan.",\
+        list_order=1, recipe_id=25
+    ),
+    Instruction(
+        specification="Sprinkle fish with salt and pepper on both sides. Place oil in a flat dish, and add soy sauce, vinegar, rosemary, garlic, coriander, cumin, lemon rind and pepper flakes. Blend well. Place fish steaks in marinade, coat well on both sides, cover with plastic wrap and let stand for 10 to 15 minutes.",\
+        list_order=2, recipe_id=25
+    ),
+    Instruction(
+        specification="If the swordfish is to be cooked on a grill (or grill pan), place fish on grill and cook for 3 to 4 minutes. Turn and cook for 3 minutes more. Cook longer if desired. If it is to be cooked under a broiler, place fish on a rack and cook for 3 to 4 minutes on each side. Serve with a string bean salad.",\
+        list_order=3, recipe_id=25
+    ),
+])
+
+    db.session.add_all([
+    Instruction(
         specification="In a small bowl, combine saffron with 1 tablespoon water and let soak 10 minutes. Place in food processor with yogurt and garlic and purée until smooth and yellow. Place chicken in glass or ceramic bowl; pour yogurt mixture on top, turn to coat; cover and refrigerate at least 3 hours or overnight.",\
         list_order=1, recipe_id=26
     ),

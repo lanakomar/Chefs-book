@@ -42,5 +42,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'grocery_list': [ingredient.to_dict() for ingredient in self.ingredients_to_buy]
+            'grocery_list': [ingredient.to_dict() for ingredient in self.ingredients_to_buy],
+            'recipes_saved': {recipe.id: recipe.to_dict() for recipe in self.recipes_saved}
         }

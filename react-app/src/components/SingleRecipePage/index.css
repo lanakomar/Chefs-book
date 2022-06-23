@@ -19,6 +19,32 @@
     justify-content: space-between;
 }
 
+.add-to-recipe-box {
+    align-self: center;
+    background-color: #e33d26;
+    border-radius: 3px;
+    border: 1px solid #e65f51;
+    bottom: 20px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    height: 34px;
+    line-height: 36px;
+    width: 170px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: box-shadow .2s ease-in-out;
+}
+
+.add-to-recipe-box i {
+    color: #fff;
+}
+
+.add-to-recipe-box:hover {
+    box-shadow: 0 0 5px rgb(0 0 0 / 30%);
+    transition: opacity .15s ease-out, box-shadow .2s ease-in-out;
+}
 
 .recipe-overview-container .overview {
     display: flex;
