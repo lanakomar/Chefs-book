@@ -23,6 +23,10 @@
     margin-top: 20px;
 }
 
+.custom-recipes-container {
+    min-height: 300px;
+}
+
 @media screen and (min-width: 2000px) {
 
     .recipeBox-container {
