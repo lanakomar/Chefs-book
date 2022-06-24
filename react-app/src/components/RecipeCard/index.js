@@ -4,14 +4,14 @@ import EditRecipeModal from "../EditRecipeModal";
 import DeleteRecipeModal from "../DeleteRecipeModal";
 import './index.css'
 
-const RecipeCard = ({ recipe }) => {
+const RecipeCard = ({ recipe, saved }) => {
     return (
         <div className="card-container">
             <div className='img-container'>
                 <Link to={`/recipes/${recipe.id}`}>
                     <img src={recipe.img_url} alt={recipe.title} />
                 </Link>
-                <DeleteRecipeModal id={recipe.id} />
+                <DeleteRecipeModal id={recipe.id} saved={saved} />
             </div>
             <h4>{recipe.title}</h4>
             <div className='edit-recipe'>

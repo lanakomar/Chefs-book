@@ -5,7 +5,19 @@
     flex-direction: column;
 }
 
-.custom-recipes {
+.saved-recipes {
+    margin-top: 60px;
+    border-top: 1px solid #ccc;
+    padding-top: 30px;
+}
+
+.custom-recipes h3,
+.saved-recipes h3 {
+    margin-left: 10px;
+}
+
+.custom-recipes-container,
+.saved-recipes-container {
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
