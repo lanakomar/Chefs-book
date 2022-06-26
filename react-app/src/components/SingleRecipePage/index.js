@@ -208,6 +208,14 @@ const SingleRecipePage = () => {
         </>
     );
 
+    const checkIfAuthor = () => {
+        if (cur_user.id === recipe.user_id) {
+            return true
+        } else {
+            return false
+        }
+    };
+
     return (
         <div className='single-recipe-container'>
             <div className='title-container'>
@@ -219,11 +227,14 @@ const SingleRecipePage = () => {
                         <p>Servings: {recipe?.servings}</p>
                         <p>Total time to cook: {recipe?.time_to_cook}</p>
                     </div>
-                    <button
-                        onClick={addToRecipeBox}
-                        className='add-to-recipe-box'>
-                        {addedToRecipeBox ? savedToBox : saveEle}
-                    </button>
+                    {!checkIfAuthor() ?
+                        <button
+                            onClick={addToRecipeBox}
+                            className='add-to-recipe-box'>
+                            {addedToRecipeBox ? savedToBox : saveEle}
+                        </button>
+                        : null
+                    }
                 </div>
                 <div className='overview'>
                     <p>{recipe?.description}</p>

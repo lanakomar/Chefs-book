@@ -15,7 +15,7 @@ const RecipeCard = ({ recipe, saved }) => {
             </div>
             <h4>{recipe.title}</h4>
             <div className='edit-recipe'>
-                <EditRecipeModal id={recipe.id} />
+                <EditRecipeModal id={recipe.id} author={recipe.user_id} />
             </div>
             <div className='time-serv-container'>
                 <p>Time: {recipe.time_to_cook}</p>
