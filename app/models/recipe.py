@@ -1,4 +1,6 @@
 from .db import db
+from .saved_recipes import saved_recipes
+
 
 
 class Recipe(db.Model):
@@ -21,6 +23,7 @@ class Recipe(db.Model):
 
     ingredient = db.relationship("Ingredient", back_populates="recipe", cascade="all, delete-orphan")
 
+    users_saved = db.relationship("User", back_populates="recipes_saved", secondary=saved_recipes)
 
     def to_dict(self):
         return {

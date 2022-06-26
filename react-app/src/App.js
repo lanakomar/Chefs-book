@@ -6,6 +6,7 @@ import { authenticate } from './store/session';
 import { setRecipeBox } from './store/recipeBox';
 import { setGroceryList } from './store/groceryList';
 import { setAllRecipes } from './store/recipe';
+import { setSavedRecipes } from './store/savedRecipes';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
@@ -54,7 +55,9 @@ function App() {
     (async () => {
       if (session) {
           const groceryList = session.grocery_list;
+          const savedRecipes = session.recipes_saved;
           dispatch(setGroceryList(groceryList));
+          dispatch(setSavedRecipes(savedRecipes));
       }
     })();
   }, [dispatch, session]);

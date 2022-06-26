@@ -1,7 +1,9 @@
-from app.models import db, Recipe
+from app.models import db, Recipe, User
 
 
 def seed_recipes():
+    user_1 = User.query.get(1)
+
     crab_cheddar_quiche = Recipe(
         title="Crab and Cheddar Quiche",
         time_to_cook="55 mins",
@@ -17,7 +19,8 @@ def seed_recipes():
         description="This is a delicious Apple Cheesecake that I usually make in the fall.",
         servings=12,
         img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image2.jpeg",
-        user_id=2
+        user_id=2,
+        users_saved = [user_1]
     )
 
     beer_steak = Recipe(
@@ -26,7 +29,8 @@ def seed_recipes():
         description="Grilled steak with a simple beer marinade!",
         servings=4,
         img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image3.jpeg",
-        user_id=3
+        user_id=3,
+        users_saved = [user_1]
     )
 
     watermelon_lemonade = Recipe(
@@ -35,7 +39,8 @@ def seed_recipes():
         description="Whenever I have excess seasonal fruit, I freeze it in chunks for fast and easy slushes and smoothies. Here's a delicious way to use up some watermelon.",
         servings=2,
         img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image4.webp",
-        user_id=4
+        user_id=4,
+        users_saved = [user_1]
     )
 
     parmesan_chicken = Recipe(
@@ -64,7 +69,6 @@ def seed_recipes():
         img_url="https://theonlychefsbook.s3.us-west-1.amazonaws.com/image7.jpeg",
         user_id=7
     )
-
 
     grilled_jalapeno = Recipe(
         title="Grilled Jalapeno Poppers",

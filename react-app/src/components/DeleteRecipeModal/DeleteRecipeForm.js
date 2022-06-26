@@ -2,15 +2,24 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { deleteRecipe } from "../../store/recipeBox";
+import { deleteFromSaved } from "../../store/savedRecipes";
 import ErrorMessage from '../ErrorMessage';
 import "./DeleteRecipeForm.css";
 
 
-const DeleteRecipeForm = ({ setShowModal, id }) => {
+const DeleteRecipeForm = ({ setShowModal, id, saved }) => {
 
     const [errorMessages, setErrorMessages] = useState({});
     const recipes = useSelector(state => state.recipeBox);
-    const recipe = recipes[id];
+    const savedRecipes = useSelector(state => state.savedRecipes);
+    const user = useSelector(state => state.session.user);
+
+    let recipe;
+    if (saved) {
+        recipe = savedRecipes[id]
+    } else {
+        recipe = recipes[id];
+    }
     const dispatch = useDispatch();
 
     const handleDelete = async (e) => {
@@ -18,6 +27,26 @@ const DeleteRecipeForm = ({ setShowModal, id }) => {
         e.stopPropagation();
 
         const data = await dispatch(deleteRecipe(id));
+        if (data) {
+            const errors = {};
+            if (Array.isArray(data.errors)) {
+                data.errors.forEach((error) => {
+                    const label = error.split(":")[0].slice(0, -1);
+                    const message = error.split(":")[1].slice(1);
+                    errors[label] = message;
+                });
+            } else {
+                errors.overall = data;
+            }
+            setErrorMessages(errors);
+        }
+    };
+
+    const handleDeleteFromRecipeBox = async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const data = await dispatch(deleteFromSaved(id, user.id));
+
         if (data) {
             const errors = {};
             if (Array.isArray(data.errors)) {
@@ -50,7 +79,7 @@ const DeleteRecipeForm = ({ setShowModal, id }) => {
                 </button>
                 <button
                     className="delete-recipe-confirm"
-                    onClick={(e) => handleDelete(e)}
+                    onClick={saved ? handleDeleteFromRecipeBox : handleDelete}
                 >
                     Delete
                 </button>
