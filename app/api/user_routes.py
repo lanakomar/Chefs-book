@@ -2,7 +2,7 @@ from crypt import methods
 from flask import Blueprint, request, jsonify
 from flask_login import login_required
 from app.awsS3 import upload_base64_to_s3
-from app.models import db, User, Recipe, Instruction, Ingredient, recipe
+from app.models import db, User, Recipe, Instruction, Ingredient
 from app.forms.recipe_form import RecipeForm
 
 
