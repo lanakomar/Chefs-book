@@ -2,7 +2,7 @@ import { useState } from "react";
 import DeleteRecipeForm from "./DeleteRecipeForm";
 import { Modal } from "../../context/Modal";
 
-const DeleteRecipeModal = ({id}) => {
+const DeleteRecipeModal = ({ id, saved }) => {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -21,6 +21,7 @@ const DeleteRecipeModal = ({id}) => {
                     <DeleteRecipeForm
                         setShowModal={setShowModal}
                         id={id}
+                        saved={saved}
                     />
                 </Modal>
             )}

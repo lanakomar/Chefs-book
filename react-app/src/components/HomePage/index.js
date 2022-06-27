@@ -23,7 +23,7 @@ const HomePage = () => {
     const [showModal, setShowModal] = useState(false);
     const [redirectId, setRedirectId] = useState();
     const history = useHistory();
-    const user = useSelector((state) => state.session.user)
+    const user = useSelector((state) => state.session.user);
     const recipes = useSelector((state) => state.recipes);
     const recipesArr = Object.values(recipes).sort(function (a, b) {
         return b.id - a.id;

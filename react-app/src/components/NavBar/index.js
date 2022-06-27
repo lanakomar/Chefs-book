@@ -7,6 +7,7 @@ import ProfileButtons from './ProfileButtons';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import ErrorMessage from "../ErrorMessage";
+import Search from '../Search';
 import { login } from '../../store/session';
 import logo from '../../images/logo.png'
 import './index.css';
@@ -53,12 +54,15 @@ const NavBar = () => {
 
   return (
     <nav>
-        <div>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            <img className='logo' src={logo} alt="chef's-book-logo" />
-          </NavLink>
-        </div>
-        {sessionLinks}
+      <div>
+        <NavLink to='/' exact={true} activeClassName='active'>
+          <img className='logo' src={logo} alt="chef's-book-logo" />
+        </NavLink>
+      </div>
+      <div className='search-container'>
+        <Search />
+      </div>
+      {sessionLinks}
     </nav>
   );
 }

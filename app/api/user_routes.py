@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Blueprint, request, jsonify
 from flask_login import login_required
 from app.awsS3 import upload_base64_to_s3
@@ -120,4 +121,40 @@ def delete_grocery_items(id):
 
     db.session.commit()
 
+    return {'message': "success"}
+
+
+@user_routes.route('/<int:id>/saved-recipes', methods=["POST"])
+@login_required
+def save_to_recipe_box(id):
+    '''
+    Saves recipe to recipe box
+    '''
+    user = User.query.get(id)
+    recipe_id = request.get_json()
+    recipe_to_add = Recipe.query.get(recipe_id)
+    if recipe_to_add:
+        user.recipes_saved.append(recipe_to_add)
+        db.session.add(user)
+        db.session.commit()
+    else:
+        return {'errors': ['Recipe not found.']}, 404
+    return recipe_to_add.to_dict()
+
+
+@user_routes.route('/<int:id>/saved-recipes', methods=["DELETE"])
+@login_required
+def delete_from_recipe_box(id):
+    '''
+    Deletes saved recipe from recipe box
+    '''
+    user = User.query.get(id)
+    recipe_id = request.get_json()
+    recipe_to_delete = Recipe.query.get(recipe_id)
+    if recipe_to_delete:
+        user.recipes_saved.remove(recipe_to_delete)
+        db.session.add(user)
+        db.session.commit()
+    else:
+        return {'errors': ['Recipe not found.']}, 404
     return {'message': "success"}

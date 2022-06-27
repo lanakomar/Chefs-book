@@ -6,12 +6,14 @@ import { authenticate } from './store/session';
 import { setRecipeBox } from './store/recipeBox';
 import { setGroceryList } from './store/groceryList';
 import { setAllRecipes } from './store/recipe';
+import { setSavedRecipes } from './store/savedRecipes';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
 import RecipeBox from './components/RecipeBox';
 import NotFound from './components/NotFound'
 import SingleRecipePage from './components/SingleRecipePage';
+import SearchResult from './components/Search/SearchResult';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -53,7 +55,9 @@ function App() {
     (async () => {
       if (session) {
           const groceryList = session.grocery_list;
+          const savedRecipes = session.recipes_saved;
           dispatch(setGroceryList(groceryList));
+          dispatch(setSavedRecipes(savedRecipes));
       }
     })();
   }, [dispatch, session]);
@@ -75,6 +79,9 @@ function App() {
         <ProtectedRoute path='/recipes/:recipeId' exact={true} loaded={loaded}>
           <SingleRecipePage />
         </ProtectedRoute>
+        <Route path="/search/:searchQuery" exact={true}>
+          <SearchResult />
+        </Route>
         <Route path="/404" component={NotFound} />
         <Redirect to="/404" />
       </Switch>
