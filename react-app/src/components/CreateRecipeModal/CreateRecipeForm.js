@@ -161,7 +161,7 @@ const CreateRecipeForm = ({ setShowModal, edit, id }) => {
                 {instructionsList.map((instruction, idx) => (
                     <li key={idx}>
                         <div className='instr-text'>
-                            {instruction.list_order + 1}. {instruction.specification}
+                            {edit ? instruction.list_order : instruction.list_order + 1}. {instruction.specification}
                         </div>
                         <i className="fa-solid fa-xmark"
                             id={idx}
