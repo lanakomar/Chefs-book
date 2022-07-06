@@ -9,6 +9,14 @@
 </h4>
 Chef's book is a food-focused web apllication inspired by <a href="https://cooking.nytimes.com/">NYT Cooking</a>. The recipes on the website are posted by members of the Chef's Book community.  Members of the community can also customize their own Grocery list so they could easily shop for the required items for the next culinary adventure.
 
+
+![chefsbook](https://user-images.githubusercontent.com/97191078/177638749-394dbe8c-5178-4bf9-87bc-004c6e47f0c1.gif)
+
+
+
+
+
+
 # Technologies Used
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
